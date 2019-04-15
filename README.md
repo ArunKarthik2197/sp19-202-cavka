@@ -17,8 +17,8 @@
 ## Project Name
 ><b>Tetris</b>
 ## Project Description
->A block puzzle game which throws random blocks which must be used to fill in the space to score points.
->When a player fails to order the falling blocks and the structure hits the top boundary, the game ends.
+>A block puzzle game which throws random blocks which must be used to fill in the space to score points.<br>
+>When a player fails to order the falling blocks and the structure hits the top boundary, the game ends.<br>
 ## Project Progress
 
 ### Burndown Map
