@@ -17,7 +17,7 @@
 ## Project Name
 ><b>Winter is Here</b>
 ## Project Description
->A <b>GOT<b> themed game in which the player must defend the castle(realm).<br>
+>A <b>GOT</b> themed game in which the player must defend the castle(realm).<br>
 >When the night king or his castle is destroyed the game ends.<br>
 ## Project Progress
 
