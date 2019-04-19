@@ -15,10 +15,10 @@
 * [https://github.com/nguyensjsu/sp19-202-cavka/tree/Arun-Karthik](url_to_your_github_repo)
 
 ## Project Name
-><b>Tetris</b>
+><b>Winter is Here</b>
 ## Project Description
->A block puzzle game which throws random blocks which must be used to fill in the space to score points.<br>
->When a player fails to order the falling blocks and the structure hits the top boundary, the game ends.<br>
+>A <b>GOT<b> themed game in which the player must defend the castle(realm).<br>
+>When the night king or his castle is destroyed the game ends.<br>
 ## Project Progress
 
 ### Burndown Map
