@@ -12,7 +12,10 @@
 ><b>CAVKA</b>
 ## Team Members
 
-* [https://github.com/nguyensjsu/sp19-202-cavka/tree/Arun-Karthik](url_to_your_github_repo)
+* [https://github.com/ArunKarthik2197](url_to_your_github_repo)
+* [https://github.com/abhilashvadanala]
+* [https://github.com/vignesht96]
+* [https://github.com/kavyadayanand]
 
 ## Project Name
 ><b>Winter is Here</b>
