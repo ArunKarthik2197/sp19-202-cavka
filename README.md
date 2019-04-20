@@ -23,8 +23,13 @@
 >A <b>GOT</b> themed game in which the player must defend the castle(realm).<br>
 >When the night king or his castle is destroyed the game ends.<br>
 ## Project Progress
+>Assets gathered, the images and various other animations.<br>
+>Implemented the observer pattern for unit selection.<br>
+>Laid down the basic environment of the world.<br>
 
 ### Burndown Map
+
+
 
 ### Project Dashboard
 
