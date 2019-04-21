@@ -29,7 +29,7 @@
 
 ### Burndown Map
 #### Burndown till week-2
-[![Burndown](sp19-202-cavka/docs/Week2-burndown.PNG "Burndown Chart - CAVKA")]
+[![Burndown](/docs/Week2-burndown.png "Burndown chart")]
 
 
 ### Project Dashboard
