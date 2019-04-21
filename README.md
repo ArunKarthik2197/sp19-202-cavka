@@ -29,7 +29,7 @@
 
 ### Burndown Map
 #### Burndown till week-2
-[![Burndown /docs/week2-burndown.png]]
+[![Burndown](/docs/week2-burndown.png)]
 
 
 ### Project Dashboard
