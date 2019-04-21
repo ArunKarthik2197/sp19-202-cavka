@@ -28,7 +28,8 @@
 >Laid down the basic environment of the world.<br>
 
 ### Burndown Map
-
+#### Burndown till week-2
+[![Burndown /docs/week2-burndown.png]]
 
 
 ### Project Dashboard
