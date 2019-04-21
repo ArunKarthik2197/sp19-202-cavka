@@ -1,10 +1,10 @@
-# Week 0 Scrum Report [Sample template]
+# Week 1 Scrum Report [Sample template]
 
 ## Name
 
 ### Finished Last Week 
-- Task1: 
-- Task2:
+- Task1: Gathering Assets
+- Task2: Brainstorming Game design patterns.
 
 ### Planned Next Week 
 - Task1:
@@ -14,9 +14,8 @@
 
 ### Time Spend
 
-- Task1: 1 hrs
+- Task1: 3 hrs
 - Task2: 2 hrs
 
 ## Name
-
-....
+Arun Karthik
