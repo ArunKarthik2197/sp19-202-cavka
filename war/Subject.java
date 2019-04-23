@@ -23,6 +23,7 @@ public  abstract class Subject extends Actor
     }    
     public void selected(Actor a)
     {
+        
         notifyObserver(a);
     }
     public void notifyObserver(Actor a)
@@ -34,5 +35,7 @@ public  abstract class Subject extends Actor
     {
         selectedTab = MyWorld.getSelectedTab();
     }
+    
+    public abstract void setSelectedState(boolean s);
 }
 

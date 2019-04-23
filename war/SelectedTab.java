@@ -48,4 +48,11 @@ public class SelectedTab extends Actor
         else
         setImage(init_img);
     }
+    
+    public Actor getSelectedUnit()
+    {
+        
+        return selectedUnit;
+        
+    }
 }
