@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Man extends Subject
+public class Undead extends Subject
 {
     private boolean selected;
     private MouseInfo m;
@@ -17,11 +17,11 @@ public class Man extends Subject
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Man()
+    public Undead()
     {
-        img = new GreenfootImage("skeleton.gif");
+        img = new GreenfootImage("skeleton-club.gif");
         img.scale(60,60);
-        gif = new GifImage("skeleton.gif");
+        gif = new GifImage("skeleton-club.gif");
         gif.resizeImages(60,60);
         
         setImage(img);
@@ -53,6 +53,7 @@ public class Man extends Subject
         }
         else 
         {
+            setImage(img);
             if(Greenfoot.isKeyDown("up"))
             setLocation(getX(),getY()-speed);
             if(Greenfoot.isKeyDown("down"))

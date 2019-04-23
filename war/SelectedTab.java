@@ -9,15 +9,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class SelectedTab extends Actor
 {
-    private Actor selectedUnit;
+    private static Actor selectedUnit;
+    private Actor minion;
     /**
      * Act - do whatever the SelectedTab wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
     GreenfootImage init_img;
+    static MyWorld world;
     public SelectedTab()
     {
+        world = MyWorld.getMyWorld();
         init_img = getImage();
     }
     public void act() 
@@ -37,15 +40,25 @@ public class SelectedTab extends Actor
     
     public void setSelected(Actor a)
     {
+        world.setSelection();
         selectedUnit = a;
         display();
     }
     
     public void display()
     {
-        if(selectedUnit!=null)
-        setImage(selectedUnit.getImage());
-        else
+        if(selectedUnit==null)
         setImage(init_img);
+        else
+        setImage(selectedUnit.getImage());
     }
+    
+    public Actor getSelectedUnit()
+    {
+        
+        return selectedUnit;
+        
+    }
+    
+    
 }

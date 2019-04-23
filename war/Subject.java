@@ -12,9 +12,11 @@ public  abstract class Subject extends Actor
      * Act - do whatever the Subject wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    static World world;
     SelectedTab selectedTab;
     Subject()
     {
+        world= MyWorld.getMyWorld();
         addObserver();
     }
     public void act() 
@@ -34,5 +36,7 @@ public  abstract class Subject extends Actor
     {
         selectedTab = MyWorld.getSelectedTab();
     }
+    
+    public abstract void setSelectedState(boolean s);
 }
 

@@ -1,25 +1,29 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Castle here.
+ * Write a description of class NightKing here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Castle extends Subject
+public class NightKing extends Subject
 {
     /**
-     * Act - do whatever the Castle wants to do. This method is called whenever
+     * Act - do whatever the NightKing wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private boolean selected;
-    private Man m;
-    Castle()
+    GreenfootImage img;
+    boolean selected;
+    public NightKing()
     {
-        selected= false;
-        m = new Man();
+        img= new GreenfootImage("Night_king1.gif");
+        img.scale(50,50);
+        setImage(img);
+        selected = false;
+        
     }
-    public void act() 
+    
+     public void act() 
     {
         if(Greenfoot.mouseClicked(this))
         castleSelected();
@@ -36,11 +40,10 @@ public class Castle extends Subject
         {
             selected = false;
         }
-    }
+    }  
     
-    public void setSelectedState(boolean s)
+   public void setSelectedState(boolean s)
     {
         this.selected = s;
     }
-    
 }
