@@ -19,9 +19,9 @@ public class Undead extends Subject
      */
     public Undead()
     {
-        img = new GreenfootImage("skeleton.gif");
+        img = new GreenfootImage("skeleton-club.gif");
         img.scale(60,60);
-        gif = new GifImage("skeleton.gif");
+        gif = new GifImage("skeleton-club.gif");
         gif.resizeImages(60,60);
         
         setImage(img);

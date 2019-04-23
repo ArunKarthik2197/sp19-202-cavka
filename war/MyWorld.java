@@ -15,7 +15,7 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-    World world;
+    static MyWorld world;
     List<Subject> all;
     public MyWorld()
     {    
@@ -51,7 +51,7 @@ public class MyWorld extends World
         return selectedTab;
     }
     
-    public void setSelection()
+    public  void setSelection()
     {
         all=getObjects(Subject.class);
         for( Subject obj: all)
@@ -67,7 +67,7 @@ public class MyWorld extends World
         }
     }
     
-    public World getMyWorld()
+    public static MyWorld getMyWorld()
     {
         return world;
     }
