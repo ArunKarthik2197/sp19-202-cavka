@@ -60,5 +60,5 @@ public class SelectedTab extends Actor
         
     }
     
-    public Actor setMinion()
+    
 }
