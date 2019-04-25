@@ -21,7 +21,7 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 600, 1); 
+        super(1000, 800, 1); 
         world = this;
         all= new ArrayList<Subject>();
         prepare();
@@ -45,9 +45,56 @@ public class MyWorld extends World
         NightKing nightKing = new NightKing();
         addObject(nightKing,505,143);
         nightKing.setLocation(468,43);
-        
+
         man = new Man();
         addObject(man,401,680);
+        man.setLocation(403,563);
+        Wall wall = new Wall();
+        addObject(wall,226,761);
+        Wall wall2 = new Wall();
+        addObject(wall2,224,689);
+        Wall wall3 = new Wall();
+        addObject(wall3,292,687);
+        Wall wall4 = new Wall();
+        addObject(wall4,359,686);
+        Wall wall5 = new Wall();
+        addObject(wall5,430,686);
+        Wall wall6 = new Wall();
+        addObject(wall6,503,685);
+        Wall wall7 = new Wall();
+        addObject(wall7,572,685);
+        Wall wall8 = new Wall();
+        addObject(wall8,639,684);
+        Wall wall9 = new Wall();
+        addObject(wall9,641,753);
+        wall.setLocation(157,685);
+        wall9.setLocation(721,695);
+        selectedTab.setLocation(117,355);
+        selectedTab.setLocation(4,8);
+        selectedTab.setLocation(13,19);
+        Wall wall10 = new Wall();
+        addObject(wall10,786,684);
+        Wall wall11 = new Wall();
+        addObject(wall11,859,683);
+        Wall wall12 = new Wall();
+        addObject(wall12,931,685);
+        Wall wall13 = new Wall();
+        addObject(wall13,961,760);
+        Wall wall14 = new Wall();
+        addObject(wall14,78,692);
+        Wall wall15 = new Wall();
+        addObject(wall15,35,764);
+        wall9.setLocation(694,679);
+        wall14.setLocation(72,693);
+        wall15.setLocation(50,743);
+        wall15.setLocation(63,754);
+        wall14.setLocation(76,690);
+        wall15.setLocation(62,760);
+        wall9.setLocation(718,680);
+        wall14.setLocation(103,670);
+        wall14.setLocation(98,684);
+        wall14.setLocation(93,684);
+        man.setLocation(421,572);
     }
     
     public static SelectedTab getSelectedTab()

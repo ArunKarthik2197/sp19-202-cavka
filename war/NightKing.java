@@ -16,6 +16,7 @@ public class NightKing extends Subject
     boolean selected;
     private int X;
     private int Y;
+    private int time;
     private int spawnTimer;
     public NightKing()
     {
@@ -24,6 +25,7 @@ public class NightKing extends Subject
         setImage(img);
         selected = false;
         spawnTimer=0;
+        time=300;// for 5 seconds
     }
     
      public void act() 
@@ -31,8 +33,14 @@ public class NightKing extends Subject
         spawnTimer++;
         X=getX();
         Y=getY();
-        if(spawnTimer%300 == 0)
-        getWorld().addObject(new Undead(), X+30, Y);
+        int r= random();
+        if(spawnTimer%time == 0)
+        {
+            if(r%2==0)
+            getWorld().addObject(new Undead(), X+30, Y);
+            else
+            getWorld().addObject(new Undead(),X-30,Y);
+        }
         
     }
     
@@ -53,6 +61,10 @@ public class NightKing extends Subject
     {
         this.selected = s;
     }
-    
+    public int random()
+    {
+        int deltaX=Greenfoot.getRandomNumber(100);
+        return deltaX;
+    }
   
 }

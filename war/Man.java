@@ -14,7 +14,7 @@ public class Man extends Subject
     GifImage gif;
     private int timer;
     private int animationCounter=0;
-    private GreenfootImage img,img1,img2,img3,img4;
+    private GreenfootImage img,imgW,imgA,imgS,imgD;
     boolean attacking;
     /**
      * Act - do whatever the man wants to do. This method is called whenever
@@ -23,10 +23,10 @@ public class Man extends Subject
     public Man()
     {
         img = new GreenfootImage("warrior.png");
-        img1= new GreenfootImage("warrior-front-attack.png");
-        img2= new GreenfootImage("warrior-right-attack.png");
-        img3= new GreenfootImage("warrior-left-attack.png");
-        img4= new GreenfootImage("warrior-back-attack.png");
+        imgW= new GreenfootImage("warrior-front-attack.png");
+        imgD= new GreenfootImage("warrior-right-attack.png");
+        imgA= new GreenfootImage("warrior-left-attack.png");
+        imgS= new GreenfootImage("warrior-back-attack.png");
         img.scale(60,60);
         //gif = new GifImage("skeleton-club.gif");
         //gif.resizeImages(60,60);
@@ -52,6 +52,7 @@ public class Man extends Subject
             {
                 attacking=true;
                 attack(timer);
+                endAnimation();
             }
           
             if(isTouching(Castle.class))
@@ -107,54 +108,46 @@ public class Man extends Subject
     public void attack(int timer)
     {
            
-           //timer++;
+         
             if(Greenfoot.isKeyDown("w"))
             {   
                if(animationCounter%2==0)
-               animateAttack();
-                
+               animateAttack(imgW);
+               
+               endAnimation();
             }
             
             else if(Greenfoot.isKeyDown("a"))
             {
                 if(animationCounter%2==0)
-               animateAttack();
+               animateAttack(imgA);
             }
             
             else if(Greenfoot.isKeyDown("s"))
             {
                 if(animationCounter%2==0)
-                animateAttack();
+                animateAttack(imgS);
                      
             }
             
             else if(Greenfoot.isKeyDown("d"))
             {   
                if(animationCounter%2==0)
-               animateAttack();
+               animateAttack(imgD);
                       
             }
-            else if(timer>1)
-            {
-               if(animationCounter%4==0)
-               animateAttack();
-            } 
+            
     }
     
-    public void animateAttack()
+    public void animateAttack(GreenfootImage dir)
     {
         if(timer == 1)
-        setImage(img1);
-        
+        setImage(dir);
         else if(timer==2)
-        setImage(img2);
-        
-        else if(timer==3)
-        setImage(img3);
-        
-        else if(timer==4)
-        endAnimation();
-        
+        setImage(imgD);
+        else if(timer ==3)
+        setImage(imgA);
+       
         timer++;
         
     }

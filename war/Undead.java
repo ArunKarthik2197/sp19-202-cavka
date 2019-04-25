@@ -17,6 +17,8 @@ public class Undead extends Subject
     List<Castle> c;
     private Man man;
     private int health;
+    private int damage;
+    private List<Wall> walls;
     /**
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -30,20 +32,25 @@ public class Undead extends Subject
         health=10;
         setImage(img);
         speed = 2;
-        selected = false;  
+        selected = false; 
+        damage=10;
         man= MyWorld.getMyWorld().getMan();
+        walls= new ArrayList<Wall>();
+        
     }
     public void addedToWorld(World world)
     {
+        walls= getWorld().getObjects(Wall.class);
         act();
     }
     public void act() 
     {
-        setLocation(getX(),getY()+speed);
-        if(isTouching(Man.class) && man.attacking)
-        {
-            damaged(man);
-        }
+        int r= random();
+        if(r%2==0)
+        setLocation(getX()+10,getY()+speed);
+        else
+        setLocation(getX()-10,getY()+speed);
+        checkTouching();
         if(health<=0)
         die();
        
@@ -104,5 +111,34 @@ public class Undead extends Subject
     public void die()
     {
         getWorld().removeObject(this);
+    }
+    
+    public int random()
+    {
+        int deltaX=Greenfoot.getRandomNumber(10);
+        return deltaX;
+    }
+    
+    public void attack(Actor a)
+    {
+        
+    }
+    
+    public void checkTouching()
+    {
+        if(isTouching(Man.class) )
+        {
+            setLocation(man.getX(),getY()-speed);
+            attack(man);
+            if(man.attacking)
+            health=damaged(man);
+            
+        }
+        else if(isTouching(Wall.class))
+        {
+             setLocation(getX(),getY()-speed);
+             attack(walls.get(0));
+            
+        }
     }
 }
