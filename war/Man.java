@@ -40,14 +40,8 @@ public class Man extends Subject
     {
        
        boolean attackPressed= Greenfoot.isKeyDown("W") || Greenfoot.isKeyDown("A") || Greenfoot.isKeyDown("S") || Greenfoot.isKeyDown("D");
-            if(Greenfoot.isKeyDown("up"))
-            setLocation(getX(),getY()-speed);
-            if(Greenfoot.isKeyDown("down"))
-            setLocation(getX(),getY()+speed);
-            if(Greenfoot.isKeyDown("right"))
-            setLocation(getX()+speed,getY());
-            if(Greenfoot.isKeyDown("left"))
-            setLocation(getX()-speed,getY());
+            movement();
+            
             if(attackPressed)
             {
                 attacking=true;
@@ -77,17 +71,16 @@ public class Man extends Subject
         }
     }
     
-    public void moveTo(int targetX,int targetY)
+    public void movement()
     {
-        int x=getX(); int y=getY();
-        int distX = targetX-x; int distY=targetY-y;
-        int deltaX=distX/speed;
-        int deltaY=distY/speed;
-        if(getX()!=targetX || getY()!=targetY)
-        {
-            setLocation(x+deltaX,y+deltaY);
-            
-        }
+            if(Greenfoot.isKeyDown("up") )
+                setLocation(getX(),getY()-speed) ;
+            if(Greenfoot.isKeyDown("down") && !touchingWall())
+                setLocation(getX(),getY()+speed);
+            if(Greenfoot.isKeyDown("right") )
+                setLocation(getX()+speed,getY());
+            if(Greenfoot.isKeyDown("left"))
+                setLocation(getX()-speed,getY());
     }
     public GreenfootImage scale(GreenfootImage image)
     {
@@ -160,5 +153,15 @@ public class Man extends Subject
         setImage(img);
         attacking=false;
         }
+    }
+    
+    public boolean touchingWall()
+    {
+        boolean touching=false;
+        if(isTouching(Wall.class))
+        {
+            touching=true;
+        }
+        return touching;
     }
 }
