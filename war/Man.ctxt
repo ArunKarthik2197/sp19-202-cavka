@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Man
+comment0.text=\n\ Write\ a\ description\ of\ class\ man\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=Man()
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ man\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment10.params=
+comment10.target=void\ attack()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ manSelected()
+comment4.params=targetX\ targetY
+comment4.target=void\ moveTo(int,\ int)
+comment5.params=image
+comment5.target=greenfoot.GreenfootImage\ scale(greenfoot.GreenfootImage)
+comment6.params=s
+comment6.target=void\ setSelectedState(boolean)
+comment7.params=timer
+comment7.target=void\ attack(int)
+comment8.params=
+comment8.target=void\ animateAttack()
+comment9.params=
+comment9.target=void\ endAnimation()
+numComments=11
