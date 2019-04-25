@@ -17,6 +17,7 @@ public class MyWorld extends World
      */
     static MyWorld world;
     List<Subject> all;
+    Man man;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -36,14 +37,17 @@ public class MyWorld extends World
         selectedTab = new SelectedTab();
         addObject(selectedTab,853,692);
         selectedTab.setLocation(945,742);
-        
+
         Castle castle = new Castle();
         addObject(castle,37,749);
         castle.setLocation(456,760);
-        
+
         NightKing nightKing = new NightKing();
         addObject(nightKing,505,143);
         nightKing.setLocation(468,43);
+        
+        man = new Man();
+        addObject(man,401,680);
     }
     
     public static SelectedTab getSelectedTab()
@@ -72,5 +76,9 @@ public class MyWorld extends World
         return world;
     }
     
+    public Man getMan()
+    {
+        return man;
+    }
     
 }

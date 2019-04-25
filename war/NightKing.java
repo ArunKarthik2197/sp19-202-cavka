@@ -14,19 +14,26 @@ public class NightKing extends Subject
      */
     GreenfootImage img;
     boolean selected;
+    private int X;
+    private int Y;
+    private int spawnTimer;
     public NightKing()
     {
         img= new GreenfootImage("Night_king1.gif");
         img.scale(50,50);
         setImage(img);
         selected = false;
-        
+        spawnTimer=0;
     }
     
      public void act() 
     {
-        if(Greenfoot.mouseClicked(this))
-        castleSelected();
+        spawnTimer++;
+        X=getX();
+        Y=getY();
+        if(spawnTimer%300 == 0)
+        getWorld().addObject(new Undead(), X+30, Y);
+        
     }
     
     public void castleSelected()
@@ -46,4 +53,6 @@ public class NightKing extends Subject
     {
         this.selected = s;
     }
+    
+  
 }

@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Write a description of class man here.
  * 
@@ -13,6 +14,9 @@ public class Undead extends Subject
     private int speed;
     GifImage gif;
     private GreenfootImage img;
+    List<Castle> c;
+    private Man man;
+    private int health;
     /**
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -23,50 +27,26 @@ public class Undead extends Subject
         img.scale(60,60);
         gif = new GifImage("skeleton-club.gif");
         gif.resizeImages(60,60);
-        
+        health=10;
         setImage(img);
         speed = 2;
-        selected = false;   
+        selected = false;  
+        man= MyWorld.getMyWorld().getMan();
+    }
+    public void addedToWorld(World world)
+    {
+        act();
     }
     public void act() 
     {
-        m = Greenfoot.getMouseInfo();
-        if(Greenfoot.mouseClicked(this))
+        setLocation(getX(),getY()+speed);
+        if(isTouching(Man.class) && man.attacking)
         {
-            manSelected();
+            damaged(man);
         }
-        if(selected && m!=null )
-        {
-            
-            if(m.getButton() == 3)
-            {
-                setImage(gif.getCurrentImage());
-                int targetX = m.getX();
-                int targetY = m.getY();
-                
-                moveTo(targetX,targetY);
-            }
-            if(isTouching(Man.class))
-            {
-                setLocation(getX()-30,getY());
-            }
-        }
-        else 
-        {
-            setImage(img);
-            if(Greenfoot.isKeyDown("up"))
-            setLocation(getX(),getY()-speed);
-            if(Greenfoot.isKeyDown("down"))
-            setLocation(getX(),getY()+speed);
-            if(Greenfoot.isKeyDown("right"))
-            setLocation(getX()+speed,getY());
-            if(Greenfoot.isKeyDown("left"))
-            setLocation(getX()-speed,getY());
-            if(isTouching(Castle.class))
-            {
-                setLocation(getX()-30,getY());
-            }
-        }
+        if(health<=0)
+        die();
+       
     }    
     
     
@@ -92,7 +72,7 @@ public class Undead extends Subject
         int deltaY=distY/speed;
         if(getX()!=targetX || getY()!=targetY)
         {
-            setLocation(x+deltaX,y+deltaY);
+            move(speed);
             
         }
     }
@@ -110,5 +90,19 @@ public class Undead extends Subject
     public void setSelectedState(boolean s)
     {
         this.selected = s;
+    }
+    
+    public int damaged(Actor a)
+    {
+        if(a.equals(man))
+        {
+            health=health-10;
+        }
+        return health;
+    }
+    
+    public void die()
+    {
+        getWorld().removeObject(this);
     }
 }
