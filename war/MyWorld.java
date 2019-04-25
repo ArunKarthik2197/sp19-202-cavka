@@ -95,6 +95,7 @@ public class MyWorld extends World
         wall14.setLocation(98,684);
         wall14.setLocation(93,684);
         man.setLocation(421,572);
+        wall9.setLocation(695,698);
     }
     
     public static SelectedTab getSelectedTab()
