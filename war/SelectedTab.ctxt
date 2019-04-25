@@ -9,4 +9,6 @@ comment3.params=a
 comment3.target=void\ setSelected(greenfoot.Actor)
 comment4.params=
 comment4.target=void\ display()
-numComments=5
+comment5.params=
+comment5.target=greenfoot.Actor\ getSelectedUnit()
+numComments=6

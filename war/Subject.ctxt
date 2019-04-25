@@ -11,4 +11,6 @@ comment4.params=a
 comment4.target=void\ notifyObserver(greenfoot.Actor)
 comment5.params=
 comment5.target=void\ addObserver()
-numComments=6
+comment6.params=s
+comment6.target=void\ setSelectedState(boolean)
+numComments=7
