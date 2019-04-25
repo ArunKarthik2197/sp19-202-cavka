@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class man here.
  * 
- * @author (your name) 
+ * @author M.A.P.Karthik
  * @version (a version number or a date)
  */
 public class Man extends Subject
@@ -12,47 +12,34 @@ public class Man extends Subject
     private MouseInfo m;
     private int speed;
     GifImage gif;
-    private GreenfootImage img;
+    private int timer;
+    private int animationCounter=0;
+    private GreenfootImage img,imgW,imgA,imgS,imgD;
+    boolean attacking;
     /**
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Man()
     {
-        img = new GreenfootImage("skeleton.gif");
+        img = new GreenfootImage("warrior.png");
+        imgW= new GreenfootImage("warrior-front-attack.png");
+        imgD= new GreenfootImage("warrior-right-attack.png");
+        imgA= new GreenfootImage("warrior-left-attack.png");
+        imgS= new GreenfootImage("warrior-back-attack.png");
         img.scale(60,60);
-        gif = new GifImage("skeleton.gif");
-        gif.resizeImages(60,60);
-        
+        //gif = new GifImage("skeleton-club.gif");
+        //gif.resizeImages(60,60);
+        timer=1;
         setImage(img);
         speed = 2;
         selected = false;   
+        attacking=false;
     }
     public void act() 
     {
-        m = Greenfoot.getMouseInfo();
-        if(Greenfoot.mouseClicked(this))
-        {
-            manSelected();
-        }
-        if(selected && m!=null )
-        {
-            
-            if(m.getButton() == 3)
-            {
-                setImage(gif.getCurrentImage());
-                int targetX = m.getX();
-                int targetY = m.getY();
-                
-                moveTo(targetX,targetY);
-            }
-            if(isTouching(Man.class))
-            {
-                setLocation(getX()-30,getY());
-            }
-        }
-        else 
-        {
+       
+       boolean attackPressed= Greenfoot.isKeyDown("W") || Greenfoot.isKeyDown("A") || Greenfoot.isKeyDown("S") || Greenfoot.isKeyDown("D");
             if(Greenfoot.isKeyDown("up"))
             setLocation(getX(),getY()-speed);
             if(Greenfoot.isKeyDown("down"))
@@ -61,11 +48,18 @@ public class Man extends Subject
             setLocation(getX()+speed,getY());
             if(Greenfoot.isKeyDown("left"))
             setLocation(getX()-speed,getY());
+            if(attackPressed)
+            {
+                attacking=true;
+                attack(timer);
+                endAnimation();
+            }
+          
             if(isTouching(Castle.class))
             {
                 setLocation(getX()-30,getY());
             }
-        }
+        animationCounter++;
     }    
     
     
@@ -109,5 +103,62 @@ public class Man extends Subject
     public void setSelectedState(boolean s)
     {
         this.selected = s;
+    }
+    
+    public void attack(int timer)
+    {
+           
+         
+            if(Greenfoot.isKeyDown("w"))
+            {   
+               if(animationCounter%2==0)
+               animateAttack(imgW);
+               
+               endAnimation();
+            }
+            
+            else if(Greenfoot.isKeyDown("a"))
+            {
+                if(animationCounter%2==0)
+               animateAttack(imgA);
+            }
+            
+            else if(Greenfoot.isKeyDown("s"))
+            {
+                if(animationCounter%2==0)
+                animateAttack(imgS);
+                     
+            }
+            
+            else if(Greenfoot.isKeyDown("d"))
+            {   
+               if(animationCounter%2==0)
+               animateAttack(imgD);
+                      
+            }
+            
+    }
+    
+    public void animateAttack(GreenfootImage dir)
+    {
+        if(timer == 1)
+        setImage(dir);
+        else if(timer==2)
+        setImage(imgD);
+        else if(timer ==3)
+        setImage(imgA);
+       
+        timer++;
+        
+    }
+    
+    private void endAnimation()
+    {
+        if(timer>=4)
+        {
+        timer=1;
+        setImage(img);
+        attacking=false;
+        }
     }
 }

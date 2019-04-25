@@ -14,19 +14,34 @@ public class NightKing extends Subject
      */
     GreenfootImage img;
     boolean selected;
+    private int X;
+    private int Y;
+    private int time;
+    private int spawnTimer;
     public NightKing()
     {
         img= new GreenfootImage("Night_king1.gif");
         img.scale(50,50);
         setImage(img);
         selected = false;
-        
+        spawnTimer=0;
+        time=300;// for 5 seconds
     }
     
      public void act() 
     {
-        if(Greenfoot.mouseClicked(this))
-        castleSelected();
+        spawnTimer++;
+        X=getX();
+        Y=getY();
+        int r= random();
+        if(spawnTimer%time == 0)
+        {
+            if(r%2==0)
+            getWorld().addObject(new Undead(), X+30, Y);
+            else
+            getWorld().addObject(new Undead(),X-30,Y);
+        }
+        
     }
     
     public void castleSelected()
@@ -46,4 +61,10 @@ public class NightKing extends Subject
     {
         this.selected = s;
     }
+    public int random()
+    {
+        int deltaX=Greenfoot.getRandomNumber(100);
+        return deltaX;
+    }
+  
 }

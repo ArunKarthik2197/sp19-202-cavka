@@ -27,14 +27,19 @@ public class SelectedTab extends Actor
     {
         if(Greenfoot.mouseClicked(this))
         {
-            if(Greenfoot.mouseClicked(this) && selectedUnit!=null)
+            if(Greenfoot.mouseClicked(this) && (!selectedUnit.equals(NightKing.class) ))
             {
            getWorld().addObject(new Man(),selectedUnit.getX()+30,selectedUnit.getY());
         }
         else
         {
             
+            
         }
+        if(selectedUnit.equals(NightKing.class))
+            {
+                getWorld().addObject(new Undead(),selectedUnit.getX()+30,selectedUnit.getY());
+            }
         }
     }    
     
