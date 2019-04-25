@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Man
-comment0.text=\n\ Write\ a\ description\ of\ class\ man\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ man\ here.\n\ \n\ @author\ M.A.P.Karthik\n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=Man()
 comment1.text=\n\ Act\ -\ do\ whatever\ the\ man\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
@@ -14,4 +14,10 @@ comment5.params=image
 comment5.target=greenfoot.GreenfootImage\ scale(greenfoot.GreenfootImage)
 comment6.params=s
 comment6.target=void\ setSelectedState(boolean)
-numComments=7
+comment7.params=timer
+comment7.target=void\ attack(int)
+comment8.params=dir
+comment8.target=void\ animateAttack(greenfoot.GreenfootImage)
+comment9.params=
+comment9.target=void\ endAnimation()
+numComments=10
