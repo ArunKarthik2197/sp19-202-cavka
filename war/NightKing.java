@@ -33,13 +33,13 @@ public class NightKing extends Subject
         spawnTimer++;
         X=getX();
         Y=getY();
-        int r= random();
+        int r= random(100);
         if(spawnTimer%time == 0)
         {
             if(r%2==0)
-            getWorld().addObject(new Undead(), X+30, Y);
+            getWorld().addObject(new Undead(), X+random(50), Y);
             else
-            getWorld().addObject(new Undead(),X-30,Y);
+            getWorld().addObject(new Undead(),X-random(50),Y);
         }
         
     }
@@ -61,10 +61,9 @@ public class NightKing extends Subject
     {
         this.selected = s;
     }
-    public int random()
+    
+    public int random(int limit)
     {
-        int deltaX=Greenfoot.getRandomNumber(100);
-        return deltaX;
+        return Greenfoot.getRandomNumber(limit);
     }
-  
 }

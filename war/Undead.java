@@ -45,11 +45,11 @@ public class Undead extends Subject
     }
     public void act() 
     {
-        int r= random();
+        int r= random(100);
         if(r%2==0)
-        setLocation(getX()+10,getY()+speed);
+        setLocation(getX()+random(20),getY()+speed);
         else
-        setLocation(getX()-10,getY()+speed);
+        setLocation(getX()-random(20),getY()+speed);
         checkTouching();
         if(health<=0)
         die();
@@ -113,10 +113,9 @@ public class Undead extends Subject
         getWorld().removeObject(this);
     }
     
-    public int random()
+    public int random(int limit)
     {
-        int deltaX=Greenfoot.getRandomNumber(10);
-        return deltaX;
+        return Greenfoot.getRandomNumber(limit);
     }
     
     public void attack(Actor a)
