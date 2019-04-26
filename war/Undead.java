@@ -40,6 +40,7 @@ public class Undead extends Subject
     }
     public void addedToWorld(World world)
     {
+        setImage(gif.getCurrentImage());
         walls= getWorld().getObjects(Wall.class);
         act();
     }
@@ -52,24 +53,12 @@ public class Undead extends Subject
         setLocation(getX()-random(20),getY()+speed);
         checkTouching();
         if(health<=0)
-        die();
+        die(this);
        
     }    
     
     
-     public  void manSelected()
-    {
-        if(!selected)
-        {
-        selected = true;
-        selected(this);
-        }
-        else
-        {
-            selected = false;
-            selected(null);
-        }
-    }
+     
     
     public void moveTo(int targetX,int targetY)
     {
@@ -94,9 +83,9 @@ public class Undead extends Subject
         
     }
     
-    public void setSelectedState(boolean s)
+    public void causeDamage(Subject s)
     {
-        this.selected = s;
+        //nothing
     }
     
     public int damaged(Actor a)
@@ -108,19 +97,16 @@ public class Undead extends Subject
         return health;
     }
     
-    public void die()
-    {
-        getWorld().removeObject(this);
-    }
+    
     
     public int random(int limit)
     {
         return Greenfoot.getRandomNumber(limit);
     }
     
-    public void attack(Actor a)
+    public void attack(ISubject m)
     {
-        
+        m.causeDamage(this);
     }
     
     public void checkTouching()
@@ -139,5 +125,20 @@ public class Undead extends Subject
              attack(walls.get(0));
             
         }
+    }
+    
+    public void HealthSet(int val)
+    {
+        
+    }
+    
+    public int getHealth()
+    {
+        return health;
+    }
+    
+    public void causeDamage(ISubject a)
+    {
+        
     }
 }

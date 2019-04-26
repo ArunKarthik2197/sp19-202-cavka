@@ -16,6 +16,7 @@ public class Man extends Subject
     private int animationCounter=0;
     private GreenfootImage img,imgW,imgA,imgS,imgD;
     boolean attacking;
+    private int health;
     /**
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -30,6 +31,7 @@ public class Man extends Subject
         img.scale(60,60);
         //gif = new GifImage("skeleton-club.gif");
         //gif.resizeImages(60,60);
+        health=100;
         timer=1;
         setImage(img);
         speed = 2;
@@ -57,19 +59,7 @@ public class Man extends Subject
     }    
     
     
-     public  void manSelected()
-    {
-        if(!selected)
-        {
-        selected = true;
-        selected(this);
-        }
-        else
-        {
-            selected = false;
-            selected(null);
-        }
-    }
+ 
     
     public void movement()
     {
@@ -164,4 +154,30 @@ public class Man extends Subject
         }
         return touching;
     }
+    
+    public void causeDamage(ISubject a)
+    {
+        if(a.equals(Undead.class))
+        health=health-10;
+        
+        else if(a.equals(NightKing.class))
+        health=health-20;
+        
+        if(isTouching(Undead.class))
+        health=health-10;
+        
+        HealthSet(health);
+    }
+    
+    public void HealthSet(int val)
+    {
+       super.notifyObserver(this);
+    }
+    
+    public int getHealth()
+    {
+        return health;
+    }
+    
+    
 }

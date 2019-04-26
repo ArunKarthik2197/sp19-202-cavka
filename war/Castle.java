@@ -21,26 +21,24 @@ public class Castle extends Subject
     }
     public void act() 
     {
-        if(Greenfoot.mouseClicked(this))
-        castleSelected();
+        
     }
     
-    public void castleSelected()
+    
+    
+    public void causeDamage(ISubject s)
     {
-        if(!selected)
-        {
-        selected = true;
-        selected(this);
-        }
-        else
-        {
-            selected = false;
-        }
+        //nothing
     }
     
-    public void setSelectedState(boolean s)
+    public void HealthSet(int val)
     {
-        this.selected = s;
+        
+    }
+    
+    public int getHealth()
+    {
+        return 0;
     }
     
 }
