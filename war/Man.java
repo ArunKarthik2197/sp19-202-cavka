@@ -16,6 +16,8 @@ public class Man extends Subject
     private int animationCounter=0;
     private GreenfootImage img,imgW,imgA,imgS,imgD;
     boolean attacking;
+    private int health;
+    private int damage;
     /**
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -30,6 +32,8 @@ public class Man extends Subject
         img.scale(60,60);
         //gif = new GifImage("skeleton-club.gif");
         //gif.resizeImages(60,60);
+        health=200;
+        damage=10;
         timer=1;
         setImage(img);
         speed = 2;
@@ -53,23 +57,14 @@ public class Man extends Subject
             {
                 setLocation(getX()-30,getY());
             }
+            
+            if(health<=0)
+            die(this);
         animationCounter++;
     }    
     
     
-     public  void manSelected()
-    {
-        if(!selected)
-        {
-        selected = true;
-        selected(this);
-        }
-        else
-        {
-            selected = false;
-            selected(null);
-        }
-    }
+ 
     
     public void movement()
     {
@@ -93,10 +88,7 @@ public class Man extends Subject
         
     }
     
-    public void setSelectedState(boolean s)
-    {
-        this.selected = s;
-    }
+    
     
     public void attack(int timer)
     {
@@ -164,4 +156,40 @@ public class Man extends Subject
         }
         return touching;
     }
+    
+    public void causeDamage(ISubject a)
+    {
+        System.out.println("In man cause damage  : "+a);
+        if(a instanceof Undead )
+        
+        health=health-a.getDamage();
+        
+        else if(a instanceof NightKing)
+        health=health-20;
+        
+        
+        
+        HealthSet(health);
+    }
+    
+    public void HealthSet(int val)
+    {
+       super.notifyObserver(this);
+    }
+    
+    public int getHealth()
+    {
+        return health;
+    }
+    
+    public int getDamage()
+    {
+        return damage;
+    }
+    
+    public void setDamage(int val)
+    {
+        this.damage=val;
+    }
+    
 }

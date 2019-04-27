@@ -17,8 +17,9 @@ public class MyWorld extends World
      */
     static MyWorld world;
     List<Subject> all;
-    List<Wall> wall;
-    Man man;
+    static List<Wall> wall;
+    static Man man;
+    static NightKing nightKing;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -37,14 +38,14 @@ public class MyWorld extends World
     private void prepare()
     {
         selectedTab = new SelectedTab();
-        addObject(selectedTab,853,692);
-        selectedTab.setLocation(945,742);
+        addObject(selectedTab,93,125);
+        
 
         Castle castle = new Castle();
         addObject(castle,37,749);
         castle.setLocation(456,760);
 
-        NightKing nightKing = new NightKing();
+        nightKing = new NightKing();
         addObject(nightKing,505,143);
         nightKing.setLocation(468,43);
 
@@ -56,13 +57,19 @@ public class MyWorld extends World
 
             wall.add(new Wall());
             int width = wall.get(i).getImage().getWidth();
-            
+
             addObject(wall.get(i),start,680);
             start=start+width;
         }
 
         
-        selectedTab.setLocation(66,41);
+    }
+    
+    public void act()
+    {
+       
+        if(Greenfoot.isKeyDown("p"))
+        paused();
     }
     
     public static SelectedTab getSelectedTab()
@@ -70,30 +77,34 @@ public class MyWorld extends World
         return selectedTab;
     }
     
-    public  void setSelection()
-    {
-        all=getObjects(Subject.class);
-        for( Subject obj: all)
-        {
-            if(obj.equals(selectedTab.getSelectedUnit()))
-            {
-                obj.setSelectedState(true);
-            }
-            else
-            {
-                obj.setSelectedState(false);
-            }
-        }
-    }
+    
     
     public static MyWorld getMyWorld()
     {
         return world;
     }
     
-    public Man getMan()
+    public static Man getMan()
     {
         return man;
+    }
+    
+    public static NightKing getNK()
+    {
+        return nightKing;
+    }
+    
+    public void paused()
+    {
+        String answer=Greenfoot.ask("Want to quit? if yes press Y or press N to resume");
+        if(answer.equalsIgnoreCase("y"))
+        {
+            Greenfoot.stop();
+        }
+        else if(answer.equalsIgnoreCase("n"))
+        {
+            Greenfoot.start();
+        }
     }
     
 }
