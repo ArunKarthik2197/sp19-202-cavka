@@ -20,13 +20,13 @@
 > - You'll get help along the way as you slay the undead and the morale of your soldiers is raised.<br>
 > - With the help of your people kill the Night King and end the long night.
 ## Project Progress
-```diff
-> - + Assets gathered, the images and various other animations.<br>
-> - + Implemented the observer pattern for unit selection.<br>
-> - + Laid down the basic environment of the world.<br>
-> - + Health bar observer and core game functionality added.
-> - - Yet to add levels.
-```
+
+> - ```diff + Assets gathered, the images and various other animations.<br>```
+> - ```diff + Implemented the observer pattern for unit selection.<br> ```
+> - ```diff + Laid down the basic environment of the world.<br> ```
+> - ```diff + Health bar observer and core game functionality added. ```
+> - ```diff - Yet to add levels. ```
+
 
 ### Burndown Map
 #### Burndown till week-1
