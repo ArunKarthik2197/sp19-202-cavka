@@ -7,8 +7,8 @@
 - Task2: Brainstorming Game design patterns.
 
 ### Planned Next Week 
-- Task1:
-- Task2:
+- Task1: Creating the basic game environment, with all the required classes
+- Task2: Writing Observer Pattern for health and other game stats.
 
 ### Problems
 
