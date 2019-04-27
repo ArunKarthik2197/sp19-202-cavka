@@ -11,6 +11,8 @@
 - Task2: Writing Observer Pattern for health and other game stats.
 
 ### Problems
+-Finding the specific assets for game.
+-Yet to decide on the game layouts.
 
 ### Time Spend
 
