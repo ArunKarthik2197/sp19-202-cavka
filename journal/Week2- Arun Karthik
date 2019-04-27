@@ -1,0 +1,26 @@
+# Week 2 Scrum Report 
+
+## Name
+
+### Finished Last Week 
+- Task1: Creating the basic game environment, with all the required classes.
+- Task2: Adding Animations to the Man class, for attacks
+- Task3: Interface definition for the subject and the observing class.
+
+### Planned Next Week 
+- Task1: Writing Observer Pattern for health and other game stats.
+- Task2: Adding animation sounds to the game.
+
+### Problems
+-Finding an asset for skeleton attacking.
+-Man class not resetting to initial state each time. 
+-Factory Pattern still blocked on another teammate. I need this updating spawn logic of Undead and other helper classes.
+
+### Time Spend
+
+- Task1: 5 hrs
+- Task2: 4 hrs
+- Task3: 1hr
+
+## Name
+Arun Karthik
