@@ -17,6 +17,7 @@ public class Man extends Subject
     private GreenfootImage img,imgW,imgA,imgS,imgD;
     boolean attacking;
     private int health;
+    private int damage;
     /**
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -31,7 +32,8 @@ public class Man extends Subject
         img.scale(60,60);
         //gif = new GifImage("skeleton-club.gif");
         //gif.resizeImages(60,60);
-        health=100;
+        health=200;
+        damage=10;
         timer=1;
         setImage(img);
         speed = 2;
@@ -55,6 +57,9 @@ public class Man extends Subject
             {
                 setLocation(getX()-30,getY());
             }
+            
+            if(health<=0)
+            die(this);
         animationCounter++;
     }    
     
@@ -83,10 +88,7 @@ public class Man extends Subject
         
     }
     
-    public void setSelectedState(boolean s)
-    {
-        this.selected = s;
-    }
+    
     
     public void attack(int timer)
     {
@@ -157,14 +159,15 @@ public class Man extends Subject
     
     public void causeDamage(ISubject a)
     {
-        if(a.equals(Undead.class))
-        health=health-10;
+        System.out.println("In man cause damage  : "+a);
+        if(a instanceof Undead )
         
-        else if(a.equals(NightKing.class))
+        health=health-a.getDamage();
+        
+        else if(a instanceof NightKing)
         health=health-20;
         
-        if(isTouching(Undead.class))
-        health=health-10;
+        
         
         HealthSet(health);
     }
@@ -179,5 +182,14 @@ public class Man extends Subject
         return health;
     }
     
+    public int getDamage()
+    {
+        return damage;
+    }
+    
+    public void setDamage(int val)
+    {
+        this.damage=val;
+    }
     
 }

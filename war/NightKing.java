@@ -19,6 +19,7 @@ public class NightKing extends Subject
     private int time;
     private int spawnTimer;
     private int health=250;
+    private int damage=20;
     public NightKing()
     {
         img= new GreenfootImage("Night_king1.gif");
@@ -70,5 +71,15 @@ public class NightKing extends Subject
     public void causeDamage(ISubject a)
     {
         
+    }
+    
+       public int getDamage()
+    {
+        return damage;
+    }
+    
+    public void setDamage(int val)
+    {
+        this.damage=val;
     }
 }

@@ -29,8 +29,8 @@ public class SelectedTab extends Actor
     {
         world = MyWorld.getMyWorld();
         init_img = getImage();
-         jonHealth= new Bar("Jon","man",100,100);
-        wallHealth= new Bar("Wall","Wall",200,200);
+         jonHealth= new Bar("Jon","man",200,200);
+        wallHealth= new Bar("Wall","Wall",5000,5000);
         nightKingHealth= new Bar("Night King","Nk",250,250);
         jonHealth.setBreakPercent(20);
         nightKingHealth.setBreakPercent(20);
@@ -42,10 +42,8 @@ public class SelectedTab extends Actor
     
     public void addedToWorld(World world)
     {
-        int x = this.getX();  int y=this.getY();
-        this.world.addObject(jonHealth,x,y);
-        this.world.addObject(wallHealth,x,y+20);
-        this.world.addObject(nightKingHealth,x,y+40);
+        
+        
         man=MyWorld.getMan();
         nk = this.world.getNK();
         walls=getWorld().getObjects(Wall.class);
@@ -55,7 +53,10 @@ public class SelectedTab extends Actor
     
     public void act() 
     {
-        
+        int x = this.getX();  int y=this.getY();
+        this.world.addObject(jonHealth,x,y);
+        this.world.addObject(wallHealth,x,y+20);
+        this.world.addObject(nightKingHealth,x,y+40);
     }    
     
    
@@ -69,14 +70,19 @@ public class SelectedTab extends Actor
         
     }
     
-    public void setValue(ISubject s)
+    public void setJonHealth(int health)
     {
-        if(s.equals(man))
-        jonHealth.subtract(10);
-        if(s.equals(walls.get(0)))
-        wallHealth.subtract(s.getHealth());
-        if(s.equals(nk))
-        nightKingHealth.setValue(s.getHealth());
+        jonHealth.setValue(health);
+    }
+    
+    public void setWallHealth(int health)
+    {
+        wallHealth.subtract(health);
+    }
+    
+    public void setNKHealth(int health)
+    {
+        nightKingHealth.setValue(health);
     }
     
     

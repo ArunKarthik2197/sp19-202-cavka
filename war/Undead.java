@@ -9,16 +9,16 @@ import java.util.List;
  */
 public class Undead extends Subject
 {
-    private boolean selected;
-    private MouseInfo m;
+   
+    
     private int speed;
     GifImage gif;
     private GreenfootImage img;
-    List<Castle> c;
     private Man man;
     private int health;
     private int damage;
     private List<Wall> walls;
+    private boolean attacking;
     /**
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -30,22 +30,23 @@ public class Undead extends Subject
         gif = new GifImage("skeleton-club.gif");
         gif.resizeImages(60,60);
         health=10;
+        attacking=false;
         setImage(img);
         speed = 2;
-        selected = false; 
-        damage=10;
-        man= MyWorld.getMyWorld().getMan();
         walls= new ArrayList<Wall>();
+        damage=1;
+       
         
     }
     public void addedToWorld(World world)
     {
-        setImage(gif.getCurrentImage());
-        walls= getWorld().getObjects(Wall.class);
+       man=MyWorld.getMan();
+       
         act();
     }
     public void act() 
     {
+        setImage(gif.getCurrentImage());
         int r= random(100);
         if(r%2==0)
         setLocation(getX()+random(20),getY()+speed);
@@ -106,24 +107,38 @@ public class Undead extends Subject
     
     public void attack(ISubject m)
     {
+        
         m.causeDamage(this);
     }
+    
+    
     
     public void checkTouching()
     {
         if(isTouching(Man.class) )
         {
             setLocation(man.getX(),getY()-speed);
-            attack(man);
+            
             if(man.attacking)
             health=damaged(man);
+            else
+            attack(man);
             
         }
         else if(isTouching(Wall.class))
         {
              setLocation(getX(),getY()-speed);
-             attack(walls.get(0));
+             attacking=true;
+             walls=getObjectsInRange(100, Wall.class);
             
+             for(int i=0;i<walls.size();i++)
+             {
+                 attack(walls.get(i));
+             }
+        }
+        else 
+        {
+            attacking=false;
         }
     }
     
@@ -140,5 +155,15 @@ public class Undead extends Subject
     public void causeDamage(ISubject a)
     {
         
+    }
+    
+    public int getDamage()
+    {
+        return damage;
+    }
+    
+    public void setDamage(int val)
+    {
+        this.damage=val;
     }
 }

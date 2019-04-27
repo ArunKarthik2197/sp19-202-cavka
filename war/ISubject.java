@@ -23,4 +23,8 @@ public interface ISubject
     public  void HealthSet(int val);
     
     public  int getHealth();
+    
+    public int getDamage();
+    
+    public void setDamage(int val);
 }

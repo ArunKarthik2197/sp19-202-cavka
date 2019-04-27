@@ -14,10 +14,12 @@ public class Castle extends Subject
      */
     private boolean selected;
     private Man m;
+    private int damage;
     Castle()
     {
         selected= false;
         m = new Man();
+        damage=1;
     }
     public void act() 
     {
@@ -39,6 +41,16 @@ public class Castle extends Subject
     public int getHealth()
     {
         return 0;
+    }
+    
+       public int getDamage()
+    {
+        return damage;
+    }
+    
+    public void setDamage(int val)
+    {
+        this.damage=val;
     }
     
 }

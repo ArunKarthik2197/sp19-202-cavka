@@ -29,8 +29,20 @@ public  abstract class Subject extends Actor implements ISubject
     
     public void notifyObserver(ISubject a)
     {
+        System.out.println("In subject cause damage  : "+a);
+        if(a instanceof Man)
+        {
+            selectedTab.setJonHealth(a.getHealth());
+        }
+         else if(a instanceof Wall)
+        {
+            selectedTab.setWallHealth(a.getHealth());
+        }
+        else if(a instanceof Man)
+        {
+            selectedTab.setNKHealth(a.getHealth());
+        }
         
-        selectedTab.setValue(a);
         
     }
     
@@ -51,5 +63,9 @@ public  abstract class Subject extends Actor implements ISubject
     public abstract void HealthSet(int val);
     
     public abstract int getHealth();
+    
+    public abstract int getDamage();
+    
+    public abstract void setDamage(int val);
 }
 
