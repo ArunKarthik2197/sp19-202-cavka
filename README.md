@@ -27,8 +27,12 @@
 >Yet to add levels.
 
 ### Burndown Map
-#### Burndown till week-2
-<img src="docs/Week2-burndown.PNG"></img>
+#### Burndown till week-1
+><img src="docs/Week1-Burndown.PNG"></img>
+ #### Burndown till week-2
+> <img src="docs/Week2-burndown.PNG"></img>
+#### Burndown till week-3
+> <img src="docs/Week3-Burndown.PNG"></img>
 
 
 ### Project Dashboard
