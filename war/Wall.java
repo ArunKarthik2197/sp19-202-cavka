@@ -16,13 +16,10 @@ public class Wall extends Subject
     private int damage;
     public void act() 
     {
-<<<<<<< HEAD
-        
-=======
         // Add your action code here.
         if(health<=0)
         die(this);
->>>>>>> master
+
     }    
     
     public void causeDamage(ISubject s)
