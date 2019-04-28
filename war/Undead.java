@@ -14,6 +14,7 @@ public class Undead extends Subject
     private int speed;
     GifImage gif;
     private GreenfootImage img;
+    ISubject subj;
     private Man man;
     private int health;
     private int damage;
