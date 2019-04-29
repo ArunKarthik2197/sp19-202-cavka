@@ -13,6 +13,7 @@ public class NightKing extends Subject
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     GreenfootImage img;
+    ISubject subj;
     boolean selected;
     private int X;
     private int Y;
@@ -20,6 +21,7 @@ public class NightKing extends Subject
     private int spawnTimer;
     private int health=250;
     private int damage=20;
+    
     public NightKing()
     {
         img= new GreenfootImage("Night_king1.gif");
