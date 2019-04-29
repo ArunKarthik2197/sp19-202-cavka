@@ -25,9 +25,9 @@ public class Undead extends Subject
      */
     public Undead()
     {
-        img = new GreenfootImage("skeleton.gif");
+        img = new GreenfootImage("skeleton-club.gif");
         img.scale(60,60);
-        gif = new GifImage("skeleton.gif");
+        gif = new GifImage("skeleton-club.gif");
         gif.resizeImages(60,60);
         health=10;
         attacking=false;
@@ -35,15 +35,15 @@ public class Undead extends Subject
         speed = 2;
         walls= new ArrayList<Wall>();
         damage=1;
-       
-        
     }
+    
     public void addedToWorld(World world)
     {
        man=MyWorld.getMan();
        
         act();
     }
+    
     public void act() 
     {
         setImage(gif.getCurrentImage());
@@ -57,10 +57,7 @@ public class Undead extends Subject
         die(this);
        
     }    
-    
-    
-     
-    
+   
     public void moveTo(int targetX,int targetY)
     {
         int x=getX(); int y=getY();
@@ -73,6 +70,7 @@ public class Undead extends Subject
             
         }
     }
+    
     public GreenfootImage scale(GreenfootImage image)
     {
         int scalePercent = 50;
@@ -98,8 +96,6 @@ public class Undead extends Subject
         return health;
     }
     
-    
-    
     public int random(int limit)
     {
         return Greenfoot.getRandomNumber(limit);
@@ -110,8 +106,6 @@ public class Undead extends Subject
         
         m.causeDamage(this);
     }
-    
-    
     
     public void checkTouching()
     {

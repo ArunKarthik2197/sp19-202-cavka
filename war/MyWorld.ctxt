@@ -18,4 +18,6 @@ comment7.params=
 comment7.target=NightKing\ getNK()
 comment8.params=
 comment8.target=void\ paused()
-numComments=9
+comment9.params=
+comment9.target=void\ animate()
+numComments=10

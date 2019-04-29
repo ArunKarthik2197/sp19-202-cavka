@@ -25,7 +25,6 @@ public class GameOver extends World implements IGameState
     
     public void act()
     {
-        
         animate();
         if(Greenfoot.isKeyDown("enter"))
         Default.sm.changeState(States.PLAY_AGAIN);

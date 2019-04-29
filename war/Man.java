@@ -40,6 +40,7 @@ public class Man extends Subject
         selected = false;   
         attacking=false;
     }
+    
     public void act() 
     {
        
@@ -63,9 +64,6 @@ public class Man extends Subject
         animationCounter++;
     }    
     
-    
- 
-    
     public void movement()
     {
             if(Greenfoot.isKeyDown("up") )
@@ -77,6 +75,7 @@ public class Man extends Subject
             if(Greenfoot.isKeyDown("left"))
                 setLocation(getX()-speed,getY());
     }
+    
     public GreenfootImage scale(GreenfootImage image)
     {
         int scalePercent = 50;
@@ -87,8 +86,6 @@ public class Man extends Subject
         return image;
         
     }
-    
-    
     
     public void attack(int timer)
     {

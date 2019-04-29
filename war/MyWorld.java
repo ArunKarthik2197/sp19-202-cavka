@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MyWorld extends World implements IGameState
 {
-   static SelectedTab selectedTab;
+    static SelectedTab selectedTab;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -69,17 +69,16 @@ public class MyWorld extends World implements IGameState
     
     public void act()
     {
-       
+        
         if(Greenfoot.isKeyDown("p"))
         paused();
+        
     }
     
     public static SelectedTab getSelectedTab()
     {
         return selectedTab;
     }
-    
-    
     
     public static MyWorld getMyWorld()
     {
@@ -98,18 +97,9 @@ public class MyWorld extends World implements IGameState
     
     public void paused()
     {
-        String answer=Greenfoot.ask("Want to quit? if yes press Y or press N to resume");
-        if(answer.equalsIgnoreCase("y"))
-        {
-            Greenfoot.stop();
-        }
-        else if(answer.equalsIgnoreCase("n"))
-        {
-            Greenfoot.start();
-        }
+        Default.sm.changeState(States.PAUSE);
+        
     }
-    
-    
     
     public void animate()
     {

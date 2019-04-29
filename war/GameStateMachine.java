@@ -1,8 +1,3 @@
-
-
-
-
-
 import greenfoot.*;
 /**
  * Write a description of class GameStateMachine here.
@@ -17,8 +12,7 @@ public class GameStateMachine
     private IGameState state;
     private IGameState titleScreen;
     private IGameState myWorld;
-    
-    private IGameState paused;
+    private IGameState pause;
     private IGameState gameOver;
     /**
      * Constructor for objects of class GameStateMachine
@@ -28,7 +22,7 @@ public class GameStateMachine
         titleScreen = new TitleScreen();
         myWorld = new MyWorld();
         gameOver = new GameOver();
-        
+        pause = new PausedGame();
         state = titleScreen;
         worldSetter();
     }
@@ -43,18 +37,21 @@ public class GameStateMachine
     {
         switch(val){
             
-            case TITLE      :   state=titleScreen;
+            case TITLE       :  state = titleScreen;
                                 worldSetter(); 
                                 break;
-            case GAME       :   state=myWorld;
+            case GAME        :  state = myWorld;
                                 worldSetter(); 
+                                break;
+            case PAUSE       :  state = pause;
+                                worldSetter();
                                 break;
             case GAME_OVER   :  state = gameOver;
                                 worldSetter();
                                 break;
-            case PLAY_AGAIN  : state= new MyWorld();
-                               worldSetter();
-                               break;
+            case PLAY_AGAIN  :  state= new MyWorld();
+                                worldSetter();
+                                break;
         }
     }
     private void worldSetter()
@@ -65,5 +62,9 @@ public class GameStateMachine
 }
 
 enum States{
-    TITLE,GAME,PAUSE,GAME_OVER,PLAY_AGAIN
+    TITLE,
+    GAME,
+    PAUSE,
+    GAME_OVER,
+    PLAY_AGAIN
 }
