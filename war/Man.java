@@ -14,7 +14,8 @@ public class Man extends Subject
     GifImage gif;
     private int timer;
     private int animationCounter=0;
-    private GreenfootImage img,imgW,imgA,imgS,imgD;
+    private GreenfootImage img,imgW,imgA,imgS,imgD; 
+    GreenfootSound sword_hit = new GreenfootSound("attack_sword_hit.mp3");
     boolean attacking;
     private int health;
     private int damage;
@@ -95,28 +96,29 @@ public class Man extends Subject
             {   
                if(animationCounter%2==0)
                animateAttack(imgW);
-               
+               sword_hit.play();
                endAnimation();
             }
             
             else if(Greenfoot.isKeyDown("a"))
             {
                 if(animationCounter%2==0)
-               animateAttack(imgA);
+                animateAttack(imgA);
+                sword_hit.play();
             }
             
             else if(Greenfoot.isKeyDown("s"))
             {
                 if(animationCounter%2==0)
                 animateAttack(imgS);
-                     
+                sword_hit.play();     
             }
             
             else if(Greenfoot.isKeyDown("d"))
             {   
                if(animationCounter%2==0)
                animateAttack(imgD);
-                      
+               sword_hit.play();
             }
             
     }
