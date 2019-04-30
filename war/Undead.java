@@ -7,7 +7,7 @@ import java.util.List;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Undead extends Subject
+public class Undead extends Subject implements IPlayerFactory
 {
    
     
@@ -165,5 +165,10 @@ public class Undead extends Subject
     public void setDamage(int val)
     {
         this.damage=val;
+    }
+    
+    public void attack() 
+    {
+    //add code here
     }
 }
