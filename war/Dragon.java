@@ -16,7 +16,7 @@ public class Dragon extends Actor
     GifImage gifDrg;
     public Dragon()
     {
-        drg=new GreenfootImage("dragon-flying.gif");
+        drg=new GreenfootImage("viserion-2.jpg");
         drg.scale(80,80);
         gifDrg = new GifImage("dragon-flying.gif");
         gifDrg.resizeImages(80, 80);
@@ -24,7 +24,7 @@ public class Dragon extends Actor
     }
     public void act() 
     {
-        setImage(gifDrg.getCurrentImage());
+       // setImage(gifDrg.getCurrentImage());
         // Add your action code here.
     }    
 }

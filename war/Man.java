@@ -164,8 +164,8 @@ public class Man extends Subject
         
         health=health-a.getDamage();
         
-        else if(a instanceof NightKing)
-        health=health-20;
+        else if(a instanceof Spear)
+        health=health-a.getDamage();
         
         
         

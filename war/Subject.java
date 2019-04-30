@@ -60,6 +60,14 @@ public  abstract class Subject extends Actor implements ISubject
             Default.sm.changeState(States.GAME_OVER);
             getWorld().removeObject((Subject)s);
         }
+        else if(s instanceof Wall)
+        {
+            getWorld().removeObject((Subject)s);
+            Default.sm.changeState(States.GAME_OVER);
+        }
+        else
+        getWorld().removeObject((Subject)s);
+        
         
     }
     
