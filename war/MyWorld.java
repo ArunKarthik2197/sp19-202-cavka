@@ -8,7 +8,7 @@ import java.util.List;
  * @version (a version number or a date)
  */
 
-public class MyWorld extends World
+public class MyWorld extends World implements IGameState
 {
    static SelectedTab selectedTab;
     /**
@@ -20,6 +20,7 @@ public class MyWorld extends World
     static List<Wall> wall;
     static Man man;
     static NightKing nightKing;
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -27,6 +28,7 @@ public class MyWorld extends World
         world = this;
         all= new ArrayList<Subject>();
         wall = new ArrayList<Wall>();
+      
         prepare();
         
     }
@@ -107,4 +109,10 @@ public class MyWorld extends World
         }
     }
     
+    
+    
+    public void animate()
+    {
+        
+    }
 }

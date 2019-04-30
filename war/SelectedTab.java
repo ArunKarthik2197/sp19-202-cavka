@@ -47,16 +47,17 @@ public class SelectedTab extends Actor
         man=MyWorld.getMan();
         nk = this.world.getNK();
         walls=getWorld().getObjects(Wall.class);
-        System.out.println(man);
+        //System.out.println(man);
+        int x = this.getX();  int y=this.getY();
+        this.world.addObject(jonHealth,x,y);
+        this.world.addObject(wallHealth,x,y+20);
+        this.world.addObject(nightKingHealth,x,y+40);
         
     }
     
     public void act() 
     {
-        int x = this.getX();  int y=this.getY();
-        this.world.addObject(jonHealth,x,y);
-        this.world.addObject(wallHealth,x,y+20);
-        this.world.addObject(nightKingHealth,x,y+40);
+        
     }    
     
     public Actor getSelectedUnit()

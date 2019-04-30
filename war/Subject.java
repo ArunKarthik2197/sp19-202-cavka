@@ -55,7 +55,22 @@ public abstract class Subject extends Actor implements ISubject
     
     public void die(ISubject s)
     {
+        if(s instanceof Undead)
         getWorld().removeObject((Subject)s);
+        else if(s instanceof Man)
+        {
+            Default.sm.changeState(States.GAME_OVER);
+            getWorld().removeObject((Subject)s);
+        }
+        else if(s instanceof Wall)
+        {
+            getWorld().removeObject((Subject)s);
+            Default.sm.changeState(States.GAME_OVER);
+        }
+        else
+        getWorld().removeObject((Subject)s);
+        
+        
     }
     
     public void levelUp(Level l){
