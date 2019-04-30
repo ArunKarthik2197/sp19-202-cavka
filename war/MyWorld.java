@@ -18,8 +18,13 @@ public class MyWorld extends World
     static MyWorld world;
     List<Subject> all;
     static List<Wall> wall;
-    static Man man;
-    static NightKing nightKing;
+    //static Man man;
+   // static NightKing nightKing;
+    public PlayerCreator players = new PlayerCreator();
+
+    IPlayerFactory man;
+    IPlayerFactory nightKing;
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -45,12 +50,20 @@ public class MyWorld extends World
         addObject(castle,37,749);
         castle.setLocation(456,760);
 
-        nightKing = new NightKing();
+       /* nightKing = new NightKing();
         addObject(nightKing,505,143);
         nightKing.setLocation(468,43);
 
         man = new Man();
-        addObject(man,421,572);
+        addObject(man,421,572);*/
+        
+        IPlayerFactory nightKing = players.SpawnPlayer("NightKing"); 
+		  addObject((Actor)nightKing,505,143);
+        ((Actor)nightKing).setLocation(468,43);
+		
+		  man = players.SpawnPlayer("Man"); 
+        addObject((Actor)man,421,572);
+        
         int start=0;
         for(int i=0;i<15;i++)
         {
@@ -84,12 +97,12 @@ public class MyWorld extends World
         return world;
     }
     
-    public static Man getMan()
+    public IPlayerFactory getMan()
     {
         return man;
     }
     
-    public static NightKing getNK()
+    public IPlayerFactory getNK()
     {
         return nightKing;
     }
