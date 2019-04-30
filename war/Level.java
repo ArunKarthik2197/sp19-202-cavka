@@ -1,14 +1,21 @@
 /**
- * Write a description of class LevelStrategy1 here.
+ * Write a description of class Level here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LevelStrategy1 extends Level implements IStrategy
+public abstract class Level implements IStrategy
 {
     int damage;
     int speed;
     int health;
+    
+    Level lv;
+    IStrategy lv1;
+    IStrategy lv2;
+    IStrategy lv3;
+    IStrategy lv4;
+    IStrategy lv5;
     
     public void setSpawnSpeed(int speed){
         this.speed = speed;
@@ -24,5 +31,10 @@ public class LevelStrategy1 extends Level implements IStrategy
     
     public void addNewAttack(){
         
+    }
+    
+    //fix this
+    public void levelUp(Level l){
+        this.lv = l;
     }
 }

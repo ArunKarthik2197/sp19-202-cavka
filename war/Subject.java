@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public  abstract class Subject extends Actor implements ISubject
+public abstract class Subject extends Actor implements ISubject
 {
     /**
      * Act - do whatever the Subject wants to do. This method is called whenever
@@ -14,14 +14,16 @@ public  abstract class Subject extends Actor implements ISubject
      */
     static World world;
     SelectedTab selectedTab;
+    Level lv;
     
     Subject()
     {
         world= MyWorld.getMyWorld();
         addObserver();
-       
+        lv = new LevelStrategy1();
         
     }
+    
     public void act() 
     {
        
@@ -56,7 +58,9 @@ public  abstract class Subject extends Actor implements ISubject
         getWorld().removeObject((Subject)s);
     }
     
-    
+    public void levelUp(Level l){
+        
+    }
     
     public abstract void causeDamage(ISubject a);
     
