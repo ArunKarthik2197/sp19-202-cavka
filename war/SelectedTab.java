@@ -59,10 +59,6 @@ public class SelectedTab extends Actor
         this.world.addObject(nightKingHealth,x,y+40);
     }    
     
-   
-    
-    
-    
     public Actor getSelectedUnit()
     {
         

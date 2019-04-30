@@ -25,4 +25,12 @@ public class LevelStrategy3 extends Level
     public void addNewAttack(){
         
     }
+    
+    public void nextLevel(){
+        
+    }
+    
+    public void prevLevel(){
+        
+    }
 }

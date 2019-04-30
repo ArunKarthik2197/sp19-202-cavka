@@ -34,7 +34,7 @@ public abstract class Level implements IStrategy
     }
     
     //fix this
-    public void levelUp(Level l){
-        this.lv = l;
+    public void levelUp(Level currentlv){
+        currentlv.nextLevel();
     }
 }

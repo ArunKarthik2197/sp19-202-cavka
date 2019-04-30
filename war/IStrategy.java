@@ -10,4 +10,6 @@ public interface IStrategy
     void setDamage(int val);
     void setHealth(int val);
     void addNewAttack();
+    void nextLevel();
+    void prevLevel();
 }

@@ -20,6 +20,7 @@ public class Undead extends Subject
     private int damage;
     private List<Wall> walls;
     private boolean attacking;
+    private boolean manKilled;
     /**
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -36,7 +37,7 @@ public class Undead extends Subject
         speed = 2;
         walls= new ArrayList<Wall>();
         damage=1;
-       
+        manKilled=false;
         
     }
     public void addedToWorld(World world)
@@ -94,6 +95,7 @@ public class Undead extends Subject
     {
         if(a.equals(man))
         {
+            manKilled=true;
             health=health-10;
         }
         return health;
