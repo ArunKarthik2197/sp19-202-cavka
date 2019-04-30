@@ -14,19 +14,18 @@ public  abstract class Subject extends Actor implements ISubject
      */
     static World world;
     SelectedTab selectedTab;
-    
+
     Subject()
     {
         world= MyWorld.getMyWorld();
         addObserver();
-       
-        
+
     }
     public void act() 
     {
-       
+
     }    
-    
+
     public void notifyObserver(ISubject a)
     {
         System.out.println("In subject cause damage  : "+a);
@@ -34,7 +33,7 @@ public  abstract class Subject extends Actor implements ISubject
         {
             selectedTab.setJonHealth(a.getHealth());
         }
-         else if(a instanceof Wall)
+        else if(a instanceof Wall)
         {
             selectedTab.setWallHealth(a.getHealth());
         }
@@ -42,37 +41,34 @@ public  abstract class Subject extends Actor implements ISubject
         {
             selectedTab.setNKHealth(a.getHealth());
         }
-        
-        
+
     }
-    
     public void addObserver()
     {
         selectedTab = MyWorld.getSelectedTab();
     }
-    
+
     public void die(ISubject s)
     {
         if(s instanceof Undead)
-        getWorld().removeObject((Subject)s);
+            getWorld().removeObject((Subject)s);
         else if(s instanceof Man)
         {
             Default.sm.changeState(States.GAME_OVER);
             getWorld().removeObject((Subject)s);
         }
-        
+
     }
-    
-    
+
     
     public abstract void causeDamage(ISubject a);
-    
+
     public abstract void HealthSet(int val);
-    
+
     public abstract int getHealth();
-    
+
     public abstract int getDamage();
-    
+
     public abstract void setDamage(int val);
 }
 

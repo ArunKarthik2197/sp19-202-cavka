@@ -21,36 +21,36 @@ public class Castle extends Subject
         m = new Man();
         damage=1;
     }
+
     public void act() 
     {
-        
+
     }
-    
-    
+
     
     public void causeDamage(ISubject s)
     {
         //nothing
     }
-    
+
     public void HealthSet(int val)
     {
-        
+
     }
-    
+
     public int getHealth()
     {
         return 0;
     }
-    
-       public int getDamage()
+
+    public int getDamage()
     {
         return damage;
     }
-    
+
     public void setDamage(int val)
     {
         this.damage=val;
     }
-    
+
 }

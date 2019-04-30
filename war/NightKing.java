@@ -21,7 +21,7 @@ public class NightKing extends Subject
     private int spawnTimer;
     private int health=250;
     private int damage=20;
-    
+
     public NightKing()
     {
         img= new GreenfootImage("Night_king1.gif");
@@ -31,8 +31,8 @@ public class NightKing extends Subject
         spawnTimer=0;
         time=300;// for 5 seconds
     }
-    
-     public void act() 
+
+    public void act() 
     {
         spawnTimer++;
         X=getX();
@@ -41,45 +41,44 @@ public class NightKing extends Subject
         if(spawnTimer%time == 0)
         {
             if(r%2==0)
-            getWorld().addObject(new Undead(), X+random(50), Y);
+                getWorld().addObject(new Undead(), X+random(50), Y);
             else
-            getWorld().addObject(new Undead(),X-random(50),Y);
+                getWorld().addObject(new Undead(),X-random(50),Y);
         }
-        
+
     }
+
     
-   
-    
-   public void causeDamage(Subject s)
+    public void causeDamage(Subject s)
     {
         //nothing
     }
-    
+
     public int random(int limit)
     {
         return Greenfoot.getRandomNumber(limit);
     }
-    
+
     public void HealthSet(int val)
     {
-        
+
     }
-    
+
     public int getHealth()
     {
         return health;
     }
-    
+
     public void causeDamage(ISubject a)
     {
-        
+
     }
-    
-       public int getDamage()
+
+    public int getDamage()
     {
         return damage;
     }
-    
+
     public void setDamage(int val)
     {
         this.damage=val;

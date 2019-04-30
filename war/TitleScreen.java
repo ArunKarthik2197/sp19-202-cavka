@@ -21,24 +21,24 @@ public class TitleScreen extends World implements IGameState
         super(600, 400, 1); 
         //Greenfoot.start();
         gif= new GifImage("startup.gif");
-       // Greenfoot.start();
+        // Greenfoot.start();
         gif= new GifImage("dragon-flying.gif");
-        
+
     }
-    
+
     public void act()
     {
         animate();
         if (++counter == 200) Default.sm.changeState(States.GAME);
     }
+
     public void animate()
     {
         setBackground(gif.getCurrentImage());
         if(counter>=195)
-        showText("Winter is here...",500,390);
+            showText("Winter is here...",500,390);
         else
-        showText("Winter is coming...",500,390);
+            showText("Winter is coming...",500,390);
     }
-    
-    
+
 }

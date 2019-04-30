@@ -36,29 +36,30 @@ public class GameStateMachine
     public void  changeState(States val)
     {
         switch(val){
-            
+
             case TITLE       :  state = titleScreen;
-                                worldSetter(); 
-                                break;
+            worldSetter(); 
+            break;
             case GAME        :  state = myWorld;
-                                worldSetter(); 
-                                break;
+            worldSetter(); 
+            break;
             case PAUSE       :  state = pause;
-                                worldSetter();
-                                break;
+            worldSetter();
+            break;
             case GAME_OVER   :  state = gameOver;
-                                worldSetter();
-                                break;
+            worldSetter();
+            break;
             case PLAY_AGAIN  :  state= new MyWorld();
-                                worldSetter();
-                                break;
+            worldSetter();
+            break;
         }
     }
+
     private void worldSetter()
     {
         Greenfoot.setWorld((World)state);
     }
-   
+
 }
 
 enum States{

@@ -22,6 +22,7 @@ public class Dragon extends Actor
         gifDrg.resizeImages(80, 80);
         setImage(drg);
     }
+
     public void act() 
     {
         setImage(gifDrg.getCurrentImage());

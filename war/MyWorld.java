@@ -20,7 +20,7 @@ public class MyWorld extends World implements IGameState
     static List<Wall> wall;
     static Man man;
     static NightKing nightKing;
-    
+
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -28,9 +28,9 @@ public class MyWorld extends World implements IGameState
         world = this;
         all= new ArrayList<Subject>();
         wall = new ArrayList<Wall>();
-      
+
         prepare();
-        
+
     }
 
     /**
@@ -41,7 +41,6 @@ public class MyWorld extends World implements IGameState
     {
         selectedTab = new SelectedTab();
         addObject(selectedTab,93,125);
-        
 
         Castle castle = new Castle();
         addObject(castle,37,749);
@@ -64,45 +63,44 @@ public class MyWorld extends World implements IGameState
             start=start+width;
         }
 
-        
     }
-    
+
     public void act()
     {
-        
+
         if(Greenfoot.isKeyDown("p"))
-        paused();
-        
+            paused();
+
     }
-    
+
     public static SelectedTab getSelectedTab()
     {
         return selectedTab;
     }
-    
+
     public static MyWorld getMyWorld()
     {
         return world;
     }
-    
+
     public static Man getMan()
     {
         return man;
     }
-    
+
     public static NightKing getNK()
     {
         return nightKing;
     }
-    
+
     public void paused()
     {
         Default.sm.changeState(States.PAUSE);
-        
+
     }
-    
+
     public void animate()
     {
-        
+
     }
 }
