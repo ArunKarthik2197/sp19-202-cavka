@@ -82,4 +82,9 @@ public class NightKing extends Subject
     {
         this.damage=val;
     }
+    
+    public void attack() 
+    {
+    //add code here
+    }
 }
