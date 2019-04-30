@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Dragon extends Actor
+public class Dragon extends Actor implements IPlayerFactory
 {
     /**
      * Act - do whatever the Dragon wants to do. This method is called whenever
@@ -27,4 +27,9 @@ public class Dragon extends Actor
         setImage(gifDrg.getCurrentImage());
         // Add your action code here.
     }    
+    
+    public void attack() 
+    {
+    //add code here
+    }
 }
