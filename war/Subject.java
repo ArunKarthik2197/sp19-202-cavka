@@ -15,9 +15,9 @@ public abstract class Subject extends Actor implements ISubject
     static World world;
     SelectedTab selectedTab;
 
-    Level lv;
-    private int kills=0;
-
+    protected Level lv;
+    private static int kills=0;
+    private static long lastKillTime;
     Subject()
     {
         world= MyWorld.getMyWorld();
@@ -49,6 +49,7 @@ public abstract class Subject extends Actor implements ISubject
         }
 
         selectedTab.showKills(kills);
+        selectedTab.showLevel(lv);
         
     }
     public void addObserver()
@@ -62,7 +63,12 @@ public abstract class Subject extends Actor implements ISubject
 
         {
             if(s.isKilledByMan())
-            kills+=1;
+            {
+            kills++;System.err.println(kills);
+            lastKillTime=System.currentTimeMillis();
+            System.err.println("Killed time : "+ lastKillTime);
+            notifyObserver(s);
+            }
             getWorld().removeObject((Subject)s);
         }
 
@@ -80,6 +86,7 @@ public abstract class Subject extends Actor implements ISubject
         }
         else
         getWorld().removeObject((Subject)s);
+        
         
         
     }
