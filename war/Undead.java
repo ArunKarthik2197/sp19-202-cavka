@@ -167,6 +167,7 @@ public class Undead extends Subject
     
     public boolean isKilledByMan()
     {
+        System.err.println("Undead is killed by man :" + manKilled);
         return manKilled;
     }
 }

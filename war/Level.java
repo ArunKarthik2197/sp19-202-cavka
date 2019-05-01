@@ -10,7 +10,7 @@ public abstract class Level implements IStrategy
     int speed;
     int health;
     
-    Level lv;
+    protected Level lv;
     IStrategy lv1;
     IStrategy lv2;
     IStrategy lv3;

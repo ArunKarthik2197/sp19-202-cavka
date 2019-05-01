@@ -86,9 +86,7 @@ public class SelectedTab extends Actor
         init_img.drawString("Kills: "+kills, 10, 16);
     }
     
-    public void showLevel(Level l){
-        init_img.drawString("Current level: " + l, 10, 16);
+    public void showLevel(Level lv){
+        init_img.drawString("Current level: "+lv.getClass().getName().replace("LevelStrategy", ""), 10, 20);
     }
-
-    
 }
