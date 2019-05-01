@@ -15,6 +15,7 @@ public class Castle extends Subject
     private boolean selected;
     private Man m;
     private int damage;
+    
     Castle()
     {
         selected= false;
@@ -53,4 +54,8 @@ public class Castle extends Subject
         this.damage=val;
     }
     
+    public boolean isKilledByMan()
+    {
+        return false;
+    }
 }

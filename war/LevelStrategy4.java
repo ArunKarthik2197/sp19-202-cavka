@@ -9,6 +9,7 @@ public class LevelStrategy4 extends Level
     int damage;
     int speed;
     int health;
+    Level lv;
     
     public void setSpawnSpeed(int val){
         this.speed = val;
@@ -26,8 +27,8 @@ public class LevelStrategy4 extends Level
         
     }
     
-    public void nextLevel(){
-        
+    public void nextLevel(Level l){
+        lv = new LevelStrategy5();
     }
     
     public void prevLevel(){

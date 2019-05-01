@@ -9,13 +9,14 @@ public class LevelStrategy5 extends Level
     int damage;
     int speed;
     int health;
+    Level lv;
     
     public void setSpawnSpeed(int val){
         this.speed = val;
     }
     
     public void setDamage(int val){
-        this.damage = val + 20;
+        this.damage = val + 50;
     }
     
     public void setHealth(int val){

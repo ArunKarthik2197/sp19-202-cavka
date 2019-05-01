@@ -169,4 +169,9 @@ public class Undead extends Subject
     {
         this.damage=val;
     }
+    
+    public boolean isKilledByMan()
+    {
+        return manKilled;
+    }
 }

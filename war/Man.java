@@ -199,4 +199,9 @@ public class Man extends Subject
         this.damage=val;
     }
     
+    public boolean isKilledByMan()
+    {
+        return false;
+    }
+    
 }

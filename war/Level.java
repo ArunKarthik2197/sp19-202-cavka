@@ -33,8 +33,15 @@ public abstract class Level implements IStrategy
         
     }
     
-    //fix this
     public void levelUp(Level currentlv){
         currentlv.nextLevel();
+    }
+    
+    public void nextLevel(){
+        //possible series of if statements to point to next level?
+    }
+    
+    public void prevLevel(){
+        //possible series of if statements to point to next level?
     }
 }

@@ -25,6 +25,7 @@ public class NightKing extends Subject
     private List<Man> man;
     private int throwTimer=120;
     private int time2=0;
+    private boolean manKilled = false;
     public NightKing()
     {
         img= new GreenfootImage("Night_king1.gif");
@@ -108,5 +109,10 @@ public class NightKing extends Subject
         if(time2%throwTimer==0 || time2==0)
         getWorld().addObject(new Spear(man), X+15, Y);
 
+    }
+    
+    public boolean isKilledByMan()
+    {
+        return manKilled;
     }
 }

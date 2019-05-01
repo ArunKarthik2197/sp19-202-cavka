@@ -15,7 +15,7 @@ public abstract class Subject extends Actor implements ISubject
     static World world;
     SelectedTab selectedTab;
     Level lv;
-    
+    private int kills=0;
     Subject()
     {
         world= MyWorld.getMyWorld();
@@ -44,7 +44,7 @@ public abstract class Subject extends Actor implements ISubject
         {
             selectedTab.setNKHealth(a.getHealth());
         }
-        
+        selectedTab.showKills(kills);
         
     }
     
@@ -56,7 +56,11 @@ public abstract class Subject extends Actor implements ISubject
     public void die(ISubject s)
     {
         if(s instanceof Undead)
-        getWorld().removeObject((Subject)s);
+        {
+            if(s.isKilledByMan())
+            kills+=1;
+            getWorld().removeObject((Subject)s);
+        }
         else if(s instanceof Man)
         {
             Default.sm.changeState(States.GAME_OVER);
@@ -73,9 +77,13 @@ public abstract class Subject extends Actor implements ISubject
         
     }
     
-    public void levelUp(Level l){
-        
+    public void levelUp(){
+        if(kills == 1){
+            lv.levelUp(lv);
+        }
     }
+    
+    public abstract boolean isKilledByMan();
     
     public abstract void causeDamage(ISubject a);
     
