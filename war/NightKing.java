@@ -21,11 +21,13 @@ public class NightKing extends Subject
     private int spawnTimer;
     private int health=250;
     private int damage=20;
+
     private int range=250;
     private List<Man> man;
     private int throwTimer=120;
     private int time2=0;
     private boolean manKilled = false;
+
     public NightKing()
     {
         img= new GreenfootImage("Night_king1.gif");
@@ -37,6 +39,7 @@ public class NightKing extends Subject
         spawnTimer=300;// for 5 seconds
     }
 
+
      public void act()
     {
         time++;
@@ -47,16 +50,16 @@ public class NightKing extends Subject
         if(time%spawnTimer == 0)
         {
             if(r%2==0)
-            getWorld().addObject(new Undead(), X+random(50), Y);
+                getWorld().addObject(new Undead(), X+random(50), Y);
             else
-            getWorld().addObject(new Undead(),X-random(50),Y);
+                getWorld().addObject(new Undead(),X-random(50),Y);
         }
 
     }
 
 
-
    public void causeDamage(Subject s)
+
     {
         //nothing
     }
@@ -81,7 +84,9 @@ public class NightKing extends Subject
 
     }
 
+
        public int getDamage()
+
     {
         return damage;
     }

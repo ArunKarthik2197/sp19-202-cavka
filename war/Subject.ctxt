@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Subject
+comment0.text=\n\ Write\ a\ description\ of\ class\ Subject\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=Subject()
+comment10.params=val
+comment10.target=void\ setDamage(int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=a
+comment3.target=void\ notifyObserver(ISubject)
+comment4.params=
+comment4.target=void\ addObserver()
+comment5.params=s
+comment5.target=void\ die(ISubject)
+comment6.params=a
+comment6.target=void\ causeDamage(ISubject)
+comment7.params=val
+comment7.target=void\ HealthSet(int)
+comment8.params=
+comment8.target=int\ getHealth()
+comment9.params=
+comment9.target=int\ getDamage()
+numComments=11

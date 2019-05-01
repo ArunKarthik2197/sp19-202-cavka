@@ -9,8 +9,7 @@ import java.util.List;
  */
 public class Undead extends Subject
 {
-   
-    
+
     private int speed;
     GifImage gif;
     private GreenfootImage img;
@@ -38,31 +37,30 @@ public class Undead extends Subject
         walls= new ArrayList<Wall>();
         damage=1;
         manKilled=false;
-        
+
     }
+
     public void addedToWorld(World world)
     {
-       man=MyWorld.getMan();
-       
+        man=MyWorld.getMan();
+
         act();
     }
+
     public void act() 
     {
         setImage(gif.getCurrentImage());
         int r= random(100);
         if(r%2==0)
-        setLocation(getX()+random(20),getY()+speed);
+            setLocation(getX()+random(20),getY()+speed);
         else
-        setLocation(getX()-random(20),getY()+speed);
+            setLocation(getX()-random(20),getY()+speed);
         checkTouching();
         if(health<=0)
-        die(this);
-       
+            die(this);
+
     }    
-    
-    
-     
-    
+
     public void moveTo(int targetX,int targetY)
     {
         int x=getX(); int y=getY();
@@ -72,25 +70,26 @@ public class Undead extends Subject
         if(getX()!=targetX || getY()!=targetY)
         {
             move(speed);
-            
+
         }
     }
+
     public GreenfootImage scale(GreenfootImage image)
     {
         int scalePercent = 50;
         int width = image.getWidth()*scalePercent/100;
         int height = image.getHeight()*scalePercent/100;
         image.scale(width,height);
-        
+
         return image;
-        
+
     }
-    
+
     public void causeDamage(Subject s)
     {
         //nothing
     }
-    
+
     public int damaged(Actor a)
     {
         if(a.equals(man))
@@ -100,71 +99,67 @@ public class Undead extends Subject
         }
         return health;
     }
-    
-    
-    
+
     public int random(int limit)
     {
         return Greenfoot.getRandomNumber(limit);
     }
-    
+
     public void attack(ISubject m)
     {
-        
+
         m.causeDamage(this);
     }
-    
-    
-    
+
     public void checkTouching()
     {
         if(isTouching(Man.class) )
         {
             setLocation(man.getX(),getY()-speed);
-            
+
             if(man.attacking)
-            health=damaged(man);
+                health=damaged(man);
             else
-            attack(man);
-            
+                attack(man);
+
         }
         else if(isTouching(Wall.class))
         {
-             setLocation(getX(),getY()-speed);
-             attacking=true;
-             walls=getObjectsInRange(100, Wall.class);
-            
-             for(int i=0;i<walls.size();i++)
-             {
-                 attack(walls.get(i));
-             }
+            setLocation(getX(),getY()-speed);
+            attacking=true;
+            walls=getObjectsInRange(100, Wall.class);
+
+            for(int i=0;i<walls.size();i++)
+            {
+                attack(walls.get(i));
+            }
         }
         else 
         {
             attacking=false;
         }
     }
-    
+
     public void HealthSet(int val)
     {
-        
+
     }
-    
+
     public int getHealth()
     {
         return health;
     }
-    
+
     public void causeDamage(ISubject a)
     {
-        
+
     }
-    
+
     public int getDamage()
     {
         return damage;
     }
-    
+
     public void setDamage(int val)
     {
         this.damage=val;

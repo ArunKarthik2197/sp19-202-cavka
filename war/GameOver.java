@@ -22,20 +22,19 @@ public class GameOver extends World implements IGameState
         overImage.resizeImages(870, 500);
         setBackground("game_end.gif");
     }
-    
+
     public void act()
     {
-        
         animate();
         if(Greenfoot.isKeyDown("enter"))
-        Default.sm.changeState(States.PLAY_AGAIN);
+            Default.sm.changeState(States.PLAY_AGAIN);
         else if(Greenfoot.isKeyDown("q"))
         {
-        Default.sm.changeState(States.TITLE);
-        Greenfoot.stop();
+            Default.sm.changeState(States.TITLE);
+            Greenfoot.stop();
+        }
     }
-    }
-    
+
     public void animate()
     {
         setBackground(overImage.getCurrentImage());

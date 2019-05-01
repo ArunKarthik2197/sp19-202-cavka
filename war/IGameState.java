@@ -6,8 +6,5 @@
  */
 public interface IGameState  
 {
-    // instance variables - replace the example below with your own
-   
-    
     public void animate();
 }
