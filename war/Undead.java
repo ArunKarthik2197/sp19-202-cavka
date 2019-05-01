@@ -7,7 +7,7 @@ import java.util.List;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Undead extends Subject
+public class Undead extends Subject implements IPlayerFactory
 {
 
     private int speed;
@@ -42,8 +42,9 @@ public class Undead extends Subject
 
     public void addedToWorld(World world)
     {
-        man=MyWorld.getMan();
-
+       //man=MyWorld.getMan();
+       man= (Man)MyWorld.getMyWorld().getMan();
+       
         act();
     }
 
@@ -168,5 +169,8 @@ public class Undead extends Subject
     public boolean isKilledByMan()
     {
         return manKilled;
+    public void attack() 
+    {
+    //add code here
     }
 }

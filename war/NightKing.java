@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class NightKing extends Subject
+public class NightKing extends Subject implements IPlayerFactory
 {
     /**
      * Act - do whatever the NightKing wants to do. This method is called whenever
@@ -119,5 +119,11 @@ public class NightKing extends Subject
     public boolean isKilledByMan()
     {
         return manKilled;
+    }
+}
+    
+    public void attack() 
+    {
+    //add code here
     }
 }

@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author M.A.P.Karthik
  * @version (a version number or a date)
  */
-public class Man extends Subject
+public class Man extends Subject implements IPlayerFactory
 {
     private boolean selected;
     private MouseInfo m;
@@ -206,4 +206,9 @@ public class Man extends Subject
         return false;
     }
 
+    public void attack() 
+    {
+    //add code here
+    }
+    
 }
