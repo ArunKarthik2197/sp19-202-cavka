@@ -58,8 +58,8 @@ public abstract class Subject extends Actor implements ISubject
         if(s instanceof Undead)
         {
             if(s.isKilledByMan())
-            kills+=1;
             getWorld().removeObject((Subject)s);
+            kills+=1;
         }
         else if(s instanceof Man)
         {
@@ -78,7 +78,7 @@ public abstract class Subject extends Actor implements ISubject
     }
     
     public void levelUp(){
-        if(kills == 1){
+        if(kills == 10){
             lv.levelUp(lv);
         }
     }
