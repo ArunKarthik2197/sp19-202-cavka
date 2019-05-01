@@ -15,4 +15,6 @@ comment6.params=
 comment6.target=int\ getDamage()
 comment7.params=val
 comment7.target=void\ setDamage(int)
-numComments=8
+comment8.params=
+comment8.target=boolean\ isKilledByMan()
+numComments=9

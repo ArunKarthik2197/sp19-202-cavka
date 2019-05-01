@@ -168,6 +168,7 @@ public class Undead extends Subject implements IPlayerFactory
     
     public boolean isKilledByMan()
     {
+        System.err.println("Undead is killed by man :" + manKilled);
         return manKilled;
     public void attack() 
     {
