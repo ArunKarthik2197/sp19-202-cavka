@@ -6,5 +6,10 @@
  */
 public interface IStrategy  
 {
-    
+    void setSpawnSpeed(int val);
+    void setDamage(int val);
+    void setHealth(int val);
+    void addNewAttack();
+    void nextLevel();
+    void prevLevel();
 }

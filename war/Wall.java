@@ -58,4 +58,9 @@ public class Wall extends Subject
     {
         this.damage=val;
     }
+    
+    public boolean isKilledByMan()
+    {
+        return false;
+    }
 }

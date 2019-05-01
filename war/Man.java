@@ -19,6 +19,8 @@ public class Man extends Subject
     boolean attacking;
     private int health;
     private int damage;
+    private int levelCounter = 0;
+    private Level lv;
     /**
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -63,6 +65,11 @@ public class Man extends Subject
         if(health<=0)
             die(this);
         animationCounter++;
+        levelCounter++;
+        
+        if(levelCounter == 300){
+             //level up logic, call method here to change level reference
+        }
     }    
 
     public void movement()
@@ -163,10 +170,12 @@ public class Man extends Subject
         System.out.println("In man cause damage  : "+a);
         if(a instanceof Undead )
 
-            health=health-a.getDamage();
-
-        else if(a instanceof NightKing)
-            health=health-20;
+        
+        health=health-a.getDamage();
+        
+        else if(a instanceof Spear)
+        health=health-a.getDamage();
+        
 
         HealthSet(health);
     }
@@ -189,6 +198,12 @@ public class Man extends Subject
     public void setDamage(int val)
     {
         this.damage=val;
+    }
+
+    
+    public boolean isKilledByMan()
+    {
+        return false;
     }
 
 }

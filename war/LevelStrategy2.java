@@ -4,39 +4,34 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LevelStrategy2  
+public class LevelStrategy2 extends Level implements IStrategy
 {
     int damage;
+    int speed;
+    int health;
+    Level lv;
     
-    public void notifyObserver(ISubject a){
-        
-    }
-    
-    public void addObserver(){
-        
-    }
-    
-    public void die(ISubject a){
-        
-    }
-    
-    public void causeDamage(ISubject a){
-        
-    }
-    
-    public void HealthSet(int val){
-        
-    }
-    
-    public int getHealth(){
-        return 0;
-    }
-    
-    public int getDamage(){
-        return damage;
+    public void setSpawnSpeed(int val){
+        this.speed = val;
     }
     
     public void setDamage(int val){
-        val = this.damage + 20;
+        this.damage = val + 20;
+    }
+    
+    public void setHealth(int val){
+        this.health = val;
+    }
+    
+    public void addNewAttack(){
+        
+    }
+    
+    public void nextLevel(){
+        lv = new LevelStrategy3();
+    }
+    
+    public void prevLevel(){
+        
     }
 }

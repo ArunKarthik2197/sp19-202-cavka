@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public  abstract class Subject extends Actor implements ISubject
+public abstract class Subject extends Actor implements ISubject
 {
     /**
      * Act - do whatever the Subject wants to do. This method is called whenever
@@ -15,12 +15,18 @@ public  abstract class Subject extends Actor implements ISubject
     static World world;
     SelectedTab selectedTab;
 
+    Level lv;
+    private int kills=0;
+
     Subject()
     {
         world= MyWorld.getMyWorld();
         addObserver();
 
+        lv = new LevelStrategy1();
+        
     }
+    
     public void act() 
     {
 
@@ -42,6 +48,8 @@ public  abstract class Subject extends Actor implements ISubject
             selectedTab.setNKHealth(a.getHealth());
         }
 
+        selectedTab.showKills(kills);
+        
     }
     public void addObserver()
     {
@@ -51,21 +59,38 @@ public  abstract class Subject extends Actor implements ISubject
     public void die(ISubject s)
     {
         if(s instanceof Undead)
+
+        {
+            if(s.isKilledByMan())
+            kills+=1;
             getWorld().removeObject((Subject)s);
+        }
+
         else if(s instanceof Man)
         {
             Default.sm.changeState(States.GAME_OVER);
             getWorld().removeObject((Subject)s);
         }
-         else if(s instanceof Wall)
+
+        else if(s instanceof Wall)
+
         {
             getWorld().removeObject((Subject)s);
             Default.sm.changeState(States.GAME_OVER);
         }
         else
         getWorld().removeObject((Subject)s);
-
+        
+        
     }
+    
+    public void levelUp(){
+        if(kills == 1){
+            lv.levelUp(lv);
+        }
+    }
+    
+    public abstract boolean isKilledByMan();
 
     
     public abstract void causeDamage(ISubject a);
