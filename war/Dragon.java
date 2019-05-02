@@ -16,7 +16,7 @@ public class Dragon extends Actor implements IPlayerFactory
     GifImage gifDrg;
     public Dragon()
     {
-        drg=new GreenfootImage("viserion-2.jpg");
+        drg=new GreenfootImage("dragon-flying.gif");
         drg.scale(80,80);
         gifDrg = new GifImage("dragon-flying.gif");
         gifDrg.resizeImages(80, 80);
