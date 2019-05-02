@@ -38,6 +38,7 @@ public class Undead extends Subject implements IPlayerFactory
         //walls= new ArrayList<Wall>();
         damage=1;
         manKilled=false;
+       // reachedWall=false;
     }
 
     public void addedToWorld(World world)
@@ -52,6 +53,8 @@ public class Undead extends Subject implements IPlayerFactory
         setImage(gif.getCurrentImage());
         if(health<=0)
         die(this);
+        else
+        {
         
         if(walls!=null ){
         if(walls.size()>0)reachedWallMovement();
@@ -65,6 +68,9 @@ public class Undead extends Subject implements IPlayerFactory
         else
             setLocation(getX()-random(20),getY()+speed);
         checkTouching();
+        
+        }
+    }
     }    
 }
 
@@ -135,7 +141,7 @@ public class Undead extends Subject implements IPlayerFactory
              //reachedWall=true;
              
              attacking=true;
-             walls=getObjectsInRange(100, Wall.class);
+             walls=getObjectsInRange(75, Wall.class);
              System.err.println("\t Walls Found:"+walls.size());
              reachedWallMovement();
         }
@@ -172,7 +178,6 @@ public class Undead extends Subject implements IPlayerFactory
     
     public boolean isKilledByMan()
     {
-        System.err.println("Undead is killed by man :" + manKilled);
         return manKilled;
     }
     
