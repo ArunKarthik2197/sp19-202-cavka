@@ -84,11 +84,11 @@ public class SelectedTab extends Actor
     }
     
     public void showKills(int kills){
-        init_img.drawString("Kills: "+kills, 10, 16);
+        init_img.drawString("Kills: "+kills, 10,20);
     }
     
-    public void showLevel(Level l){
-        init_img.drawString("Current level: " + l, 10, 16);
+    public void showLevel(IStrategy l){
+        init_img.drawString("Current level: " + l.getClass().getName().replace("LevelStrategy", ""), 30, 16);
     }
     
 }

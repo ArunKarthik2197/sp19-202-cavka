@@ -14,4 +14,12 @@ public interface IStrategy
     void prevLevel();
     void setNext();
     void setPrev();
+    
+    int getUndeadDamage();
+    int getUndeadSpeed();
+    int getUndeadTime();
+    
+    int getSpearDamage();
+    int getSpearSpeed();
+    int getSpearTime();
 }

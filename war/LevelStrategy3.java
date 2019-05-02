@@ -4,11 +4,18 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LevelStrategy3 extends Level
+public class LevelStrategy3 implements IStrategy
 {
     int damage;
     int speed;
     int health;
+    
+    int undeadDamage;
+    int spearDamage;
+    int undeadSpeed;
+    int spearSpeed;
+    int undeadSpawntime;
+    int spearSpawntime;
     
     public void setSpawnSpeed(int val){
         this.speed = val;
@@ -27,11 +34,11 @@ public class LevelStrategy3 extends Level
     }
     
     public void nextLevel(){
-        lv = new LevelStrategy4();
+       
     }
     
     public void prevLevel(){
-        lv = new LevelStrategy2();
+        
     }
     
     public void setNext(){
@@ -40,5 +47,25 @@ public class LevelStrategy3 extends Level
     
     public void setPrev(){
         
+    }
+    
+    public int getUndeadDamage(){
+        return undeadDamage;
+    }
+    public int getUndeadSpeed(){
+        return undeadSpeed;
+    }
+    public int getUndeadTime(){
+        return undeadSpawntime;
+    }
+    
+    public int getSpearDamage(){
+        return spearDamage;
+    }
+    public int getSpearSpeed(){
+        return spearSpeed;
+    }
+    public int getSpearTime(){
+        return spearSpawntime;
     }
 }

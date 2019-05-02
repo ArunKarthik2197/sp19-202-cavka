@@ -4,11 +4,18 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LevelStrategy1 extends Level implements IStrategy
+public class LevelStrategy1 implements IStrategy
 {
     int damage;
     int speed;
     int health;
+    
+    int undeadDamage;
+    int spearDamage;
+    int undeadSpeed;
+    int spearSpeed;
+    int undeadSpawntime;
+    int spearSpawntime;
     
     public void setSpawnSpeed(int speed){
         this.speed = speed;
@@ -27,7 +34,7 @@ public class LevelStrategy1 extends Level implements IStrategy
     }
     
     public void nextLevel(){
-        lv = new LevelStrategy2();
+       
     }
     
     public void prevLevel(){
@@ -40,5 +47,25 @@ public class LevelStrategy1 extends Level implements IStrategy
     
     public void setPrev(){
         
+    }
+    
+    public int getUndeadDamage(){
+        return undeadDamage;
+    }
+    public int getUndeadSpeed(){
+        return undeadSpeed;
+    }
+    public int getUndeadTime(){
+        return undeadSpawntime;
+    }
+    
+    public int getSpearDamage(){
+        return spearDamage;
+    }
+    public int getSpearSpeed(){
+        return spearSpeed;
+    }
+    public int getSpearTime(){
+        return spearSpawntime;
     }
 }

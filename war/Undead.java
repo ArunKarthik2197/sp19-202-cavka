@@ -52,7 +52,8 @@ public class Undead extends Subject
         setImage(gif.getCurrentImage());
         if(health<=0)
         die(this);
-        
+        else{
+            
         if(walls!=null ){
         if(walls.size()>0)reachedWallMovement();
         }
@@ -66,6 +67,8 @@ public class Undead extends Subject
         setLocation(getX()-random(20),getY()+speed);
         checkTouching();
         }
+        }
+        
        
     }    
     

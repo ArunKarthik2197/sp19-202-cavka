@@ -14,7 +14,8 @@ public abstract class Subject extends Actor implements ISubject
      */
     static World world;
     SelectedTab selectedTab;
-    Level lv;
+    static Level lv;
+    IStrategy currentLevel;
     private int kills=0;
     private int damageSet = 0;
     
@@ -22,8 +23,8 @@ public abstract class Subject extends Actor implements ISubject
     {
         world= MyWorld.getMyWorld();
         addObserver();
-        lv = new LevelStrategy1();
-        
+        MyWorld.lv= new Level();
+        currentLevel = MyWorld.lv.getCurrent();
     }
     
     public void act() 
@@ -47,7 +48,7 @@ public abstract class Subject extends Actor implements ISubject
             selectedTab.setNKHealth(a.getHealth());
         }
         selectedTab.showKills(kills);
-        
+        selectedTab.showLevel(currentLevel);
     }
     
     public void addObserver()
@@ -61,8 +62,12 @@ public abstract class Subject extends Actor implements ISubject
         {
             if(s.isKilledByMan())
             kills+=1;
+            
+            
+            levelUp();
             notifyObserver(s);
             getWorld().removeObject((Subject)s);
+            
         }
         else if(s instanceof Man)
         {
@@ -79,10 +84,13 @@ public abstract class Subject extends Actor implements ISubject
     }
     
     public void levelUp(){
-        if(kills == 10){
-            lv.levelUp(lv);
-            System.err.println();
-        }
+        
+            MyWorld.lv.levelUp();
+            System.err.println("Subject : before Levelup -"+currentLevel);
+            currentLevel=MyWorld.lv.getCurrent();
+            System.err.println("Subject : after Levelup -"+currentLevel);
+            notifyObserver(this);
+        
     }
     
     public void currentLevelCheck(){

@@ -20,6 +20,7 @@ public class MyWorld extends World implements IGameState
     static List<Wall> wall;
     static Man man;
     static NightKing nightKing;
+    static Level lv;
     
     public MyWorld()
     {    
