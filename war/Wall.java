@@ -14,6 +14,12 @@ public class Wall extends Subject
      */
     private int health=200;
     private int damage;
+    private GreenfootImage img;
+    
+    public void addedToWorld(World world)
+    {
+        img=getImage();
+    }
     public void act() 
     {
         // Add your action code here.
@@ -24,19 +30,29 @@ public class Wall extends Subject
 
     public void causeDamage(ISubject s)
     {
-        if(s instanceof Undead)
-        {
-            damage=s.getDamage();
-            health=health-damage;
+       if(s instanceof Undead)
+       {
+           damage=s.getDamage();
+           health=health-damage;
+           
+           int aq=(int)(health/2);
+           
+           int transPercent=(int)((aq*255)/100);
+           
+           System.err.println("wall calc transparency: "+transPercent);
 
-        }
-        else if(s instanceof NightKing)
-        {
-            damage=s.getDamage();
-            health=health-damage;
+           System.err.println("wall transparency before : "+img.getTransparency());
+           img.setTransparency(transPercent);
+           System.err.println("wall transparency after: "+img.getTransparency());
 
-        }
-        HealthSet(damage);
+       }
+       else if(s instanceof NightKing)
+       {
+           damage=s.getDamage();
+           health=health-damage;
+           
+       }
+       HealthSet(damage);
     }
 
     public void HealthSet(int val)

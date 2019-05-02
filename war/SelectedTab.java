@@ -30,8 +30,8 @@ public class SelectedTab extends Actor
     {
         world = MyWorld.getMyWorld();
         init_img = getImage();
-        jonHealth= new Bar("Jon","man",200,200);
-        wallHealth= new Bar("Wall","Wall",5000,5000);
+         jonHealth= new Bar("Jon","man",200,200);
+        wallHealth= new Bar("Wall","Wall",200,200);
         nightKingHealth= new Bar("Night King","Nk",250,250);
         jonHealth.setBreakPercent(20);
         nightKingHealth.setBreakPercent(20);

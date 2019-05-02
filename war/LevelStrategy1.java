@@ -32,5 +32,14 @@ public class LevelStrategy1 extends Level implements IStrategy
 
     public void prevLevel(){
 
+        //no prev level
+    }
+    
+    public void setNext(){
+        
+    }
+    
+    public void setPrev(){
+        
     }
 }

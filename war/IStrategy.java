@@ -12,4 +12,6 @@ public interface IStrategy
     void addNewAttack();
     void nextLevel();
     void prevLevel();
+    void setNext();
+    void setPrev();
 }

@@ -15,7 +15,7 @@ public abstract class Subject extends Actor implements ISubject
     static World world;
     SelectedTab selectedTab;
     private int kills=0;
-    protected PlayerCreator pf;
+    private int damageSet = 0;
     Subject()
     {
         world= MyWorld.getMyWorld();
@@ -57,8 +57,10 @@ public abstract class Subject extends Actor implements ISubject
     {
         if(s instanceof Undead)
         {
-        
-        getWorld().removeObject((Subject)s);
+            if(s.isKilledByMan())
+            kills+=1;
+            notifyObserver(s);
+            getWorld().removeObject((Subject)s);
         }
         else if(s instanceof Man)
         {
@@ -74,14 +76,30 @@ public abstract class Subject extends Actor implements ISubject
         }
         else
         getWorld().removeObject((Subject)s);
-        
-        
-        
     }
     
     public void levelUp(){
-        if(kills == 1){
+        if(kills == 10){
             lv.levelUp(lv);
+            System.err.println();
+        }
+    }
+    
+    public void currentLevelCheck(){
+        if(this.lv.getClass().getName().equals("LevelStrategy1")){
+            lv.setDamage(10);
+        }
+        else if(this.lv.getClass().getName().equals("LevelStrategy2")){
+            lv.setDamage(10);
+        }
+        else if(this.lv.getClass().getName().equals("LevelStrategy3")){
+            lv.setDamage(10);
+        }
+        else if(this.lv.getClass().getName().equals("LevelStrategy4")){
+            lv.setDamage(10);
+        }
+        else if(this.lv.getClass().getName().equals("LevelStrategy5")){
+            lv.setDamage(10);
         }
     }
     
