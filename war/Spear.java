@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Spear extends Subject
+public class Spear extends Subject 
 {
     /**
      * Act - do whatever the Spear wants to do. This method is called whenever
@@ -52,10 +52,19 @@ public class Spear extends Subject
        {
        m.causeDamage(this); 
        die(this);
-    }
+       }
+       else if(isTouching(Wall.class) || isAtEdge())
+       die(this);
        else
        return;
        
+       
+       
+    }
+    
+    public void attack(ISubject s)
+    {
+        
     }
     
      public void HealthSet(int val)

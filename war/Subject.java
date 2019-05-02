@@ -14,12 +14,13 @@ public  abstract class Subject extends Actor implements ISubject
      */
     static World world;
     SelectedTab selectedTab;
-    
+    private int kills=0;
+    protected PlayerCreator pf;
     Subject()
     {
         world= MyWorld.getMyWorld();
         addObserver();
-       
+        pf= new PlayerCreator();
         
     }
     public void act() 
@@ -54,7 +55,10 @@ public  abstract class Subject extends Actor implements ISubject
     public void die(ISubject s)
     {
         if(s instanceof Undead)
+        {
+        
         getWorld().removeObject((Subject)s);
+        }
         else if(s instanceof Man)
         {
             Default.sm.changeState(States.GAME_OVER);
