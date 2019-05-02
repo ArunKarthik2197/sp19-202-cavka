@@ -47,9 +47,9 @@ public class NightKing extends Subject
         if(time%spawnTimer == 0)
         {
             if(r%2==0)
-            getWorld().addObject(new Undead(), X+random(50), Y);
+            getWorld().addObject(new Undead(), X+random(150), Y);
             else
-            getWorld().addObject(new Undead(),X-random(50),Y);
+            getWorld().addObject(new Undead(),X-random(150),Y);
         }
 
     }

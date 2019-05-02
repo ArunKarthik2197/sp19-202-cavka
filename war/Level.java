@@ -10,7 +10,7 @@ public abstract class Level implements IStrategy
     int speed;
     int health;
     
-    Level lv;
+    protected Level lv;
     IStrategy lv1;
     IStrategy lv2;
     IStrategy lv3;
@@ -35,6 +35,7 @@ public abstract class Level implements IStrategy
     
     public void levelUp(Level currentlv){
         currentlv.nextLevel();
+        System.err.println();
     }
     
     public void nextLevel(){
@@ -44,4 +45,13 @@ public abstract class Level implements IStrategy
     public void prevLevel(){
         //possible series of if statements to point to next level?
     }
+    
+    public void setNext(){
+        
+    }
+    
+    public void setPrev(){
+        
+    }
+    
 }

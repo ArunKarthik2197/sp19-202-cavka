@@ -9,7 +9,6 @@ public class LevelStrategy1 extends Level implements IStrategy
     int damage;
     int speed;
     int health;
-    Level lv;
     
     public void setSpawnSpeed(int speed){
         this.speed = speed;
@@ -32,6 +31,14 @@ public class LevelStrategy1 extends Level implements IStrategy
     }
     
     public void prevLevel(){
+        //no prev level
+    }
+    
+    public void setNext(){
+        
+    }
+    
+    public void setPrev(){
         
     }
 }

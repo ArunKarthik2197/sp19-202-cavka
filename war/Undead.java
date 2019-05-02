@@ -21,6 +21,7 @@ public class Undead extends Subject
     private List<Wall> walls;
     private boolean attacking;
     private boolean manKilled;
+   // private boolean reachedWall;
     /**
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -35,10 +36,10 @@ public class Undead extends Subject
         attacking=false;
         setImage(img);
         speed = 2;
-        walls= new ArrayList<Wall>();
+        //walls= new ArrayList<Wall>();
         damage=1;
         manKilled=false;
-        
+       // reachedWall=false;
     }
     public void addedToWorld(World world)
     {
@@ -49,14 +50,22 @@ public class Undead extends Subject
     public void act() 
     {
         setImage(gif.getCurrentImage());
+        if(health<=0)
+        die(this);
+        
+        if(walls!=null ){
+        if(walls.size()>0)reachedWallMovement();
+        }
+        else
+        {
         int r= random(100);
+        
         if(r%2==0)
         setLocation(getX()+random(20),getY()+speed);
         else
         setLocation(getX()-random(20),getY()+speed);
         checkTouching();
-        if(health<=0)
-        die(this);
+        }
        
     }    
     
@@ -130,14 +139,14 @@ public class Undead extends Subject
         }
         else if(isTouching(Wall.class))
         {
-             setLocation(getX(),getY()-speed);
+             //reachedWall=true;
+             
              attacking=true;
              walls=getObjectsInRange(100, Wall.class);
-            
-             for(int i=0;i<walls.size();i++)
-             {
-                 attack(walls.get(i));
-             }
+             System.err.println("\t Walls Found:"+walls.size());
+             reachedWallMovement();
+             
+             
         }
         else 
         {
@@ -173,5 +182,15 @@ public class Undead extends Subject
     public boolean isKilledByMan()
     {
         return manKilled;
+    }
+    
+    boolean moveUp=true;
+    
+    public void reachedWallMovement()
+    {
+        
+        attack(walls.get(0));
+        setLocation(getX(),getY()+(15*(moveUp?-1:1)));
+        moveUp=!moveUp;
     }
 }
