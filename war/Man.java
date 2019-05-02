@@ -182,7 +182,7 @@ public class Man extends Subject
     
     private void endAnimation()
     {
-        System.err.println("end animation timer : "+timer);
+        //System.err.println("end animation timer : "+timer);
         //if(timer>=4
         //||(
         //!Greenfoot.isKeyDown("w")
@@ -216,7 +216,7 @@ public class Man extends Subject
     
     public void causeDamage(ISubject a)
     {
-        System.out.println("In man cause damage  : "+a);
+        //System.out.println("In man cause damage  : "+a);
         if(a instanceof Undead )
         
         health=health-a.getDamage();
