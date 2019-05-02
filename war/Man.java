@@ -18,17 +18,18 @@ public class Man extends Subject
         }
     }
     
-    private boolean selected;
+    
     private MouseInfo m;
     private int speed;
     GifImage gif;
     private int timer;
     private int animationCounter=0;
     //private GreenfootImage img,imgW,imgA,imgS,imgD;
-    private ImageHolder img,imgW,imgA,imgS,imgD;
+    private ImageHolder img,imgW,imgA,imgS,imgD,imgR,imgB,imgL;
     boolean attacking;
     private int health;
     private int damage;
+    private boolean movement;
     /**
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -47,6 +48,9 @@ public class Man extends Subject
         imgD= new ImageHolder("warrior-right-attack.png");
         imgA= new ImageHolder("warrior-left-attack.png");
         imgS= new ImageHolder("warrior-back-attack.png");
+        imgR= new ImageHolder("warrior-right.png");
+        imgB=new ImageHolder("warrior-back.png");
+        imgL=new ImageHolder("warrior-left.png");
         img.image.scale(60,60);
         
         
@@ -58,13 +62,15 @@ public class Man extends Subject
         timer=1;
         setImage(img);
         speed = 2;
-        selected = false;   
+          
         attacking=false;
+        movement=false;
     }
     public void act() 
     {
        
        boolean attackPressed= Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("d");
+       movement = Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("right");
             movement();
             
             if(attackPressed)
@@ -72,7 +78,7 @@ public class Man extends Subject
                 attacking=true;
                 attack(timer);
                 
-            }else{
+            }else if(!movement){
             endAnimation();
             }
           
@@ -91,14 +97,27 @@ public class Man extends Subject
     
     public void movement()
     {
+            
+            
             if(Greenfoot.isKeyDown("up") )
+            {
                 setLocation(getX(),getY()-speed) ;
+            }
             if(Greenfoot.isKeyDown("down") && !touchingWall())
-                setLocation(getX(),getY()+speed);
+             {  
+                 setImage(imgB);
+                 setLocation(getX(),getY()+speed);
+             }
             if(Greenfoot.isKeyDown("right") )
+            {
+                setImage(imgR);
                 setLocation(getX()+speed,getY());
+            }
             if(Greenfoot.isKeyDown("left"))
+            {
+                setImage(imgL);
                 setLocation(getX()-speed,getY());
+            }
     }
     public GreenfootImage scale(GreenfootImage image)
     {
