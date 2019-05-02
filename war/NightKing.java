@@ -120,10 +120,9 @@ public class NightKing extends Subject implements IPlayerFactory
     {
         return manKilled;
     }
-}
-    
-    public void attack() 
+     public void attack() 
     {
     //add code here
     }
 }
+   

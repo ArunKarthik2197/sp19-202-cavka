@@ -40,14 +40,18 @@ public class Undead extends Subject implements IPlayerFactory
 
     }
 
+    /**
+     * Method addedToWorld
+     *
+     * @param world A parameter
+     */
     public void addedToWorld(World world)
     {
        //man=MyWorld.getMan();
        man= (Man)MyWorld.getMyWorld().getMan();
-       
         act();
     }
-
+        
     public void act() 
     {
         setImage(gif.getCurrentImage());
@@ -56,7 +60,7 @@ public class Undead extends Subject implements IPlayerFactory
             setLocation(getX()+random(20),getY()+speed);
         else
             setLocation(getX()-random(20),getY()+speed);
-        checkTouching();
+            checkTouching();
         if(health<=0)
             die(this);
 
@@ -88,7 +92,7 @@ public class Undead extends Subject implements IPlayerFactory
 
     public void causeDamage(Subject s)
     {
-        //nothing
+        
     }
 
     public int damaged(Actor a)
@@ -170,6 +174,7 @@ public class Undead extends Subject implements IPlayerFactory
     {
         System.err.println("Undead is killed by man :" + manKilled);
         return manKilled;
+}
     public void attack() 
     {
     //add code here

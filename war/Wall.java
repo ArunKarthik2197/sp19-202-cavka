@@ -16,7 +16,6 @@ public class Wall extends Subject
     private int damage;
     public void act() 
     {
-        // Add your action code here.
         if(health<=0)
             die(this);
 
@@ -28,13 +27,11 @@ public class Wall extends Subject
         {
             damage=s.getDamage();
             health=health-damage;
-
         }
         else if(s instanceof NightKing)
         {
             damage=s.getDamage();
             health=health-damage;
-
         }
         HealthSet(damage);
     }
