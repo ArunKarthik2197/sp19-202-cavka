@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class NightKing extends Subject
+public class NightKing extends Subject 
 {
     /**
      * Act - do whatever the NightKing wants to do. This method is called whenever
@@ -50,14 +50,19 @@ public class NightKing extends Subject
         if(time%spawnTimer == 0)
         {
             if(r%2==0)
-                getWorld().addObject(new Undead(), X+random(50), Y);
+
+            getWorld().addObject((Undead)pf.SpawnPlayer("UnDead"), X+random(50), Y);
             else
-                getWorld().addObject(new Undead(),X-random(50),Y);
+            getWorld().addObject((Undead)pf.SpawnPlayer("UnDead"),X-random(50),Y);
         }
 
     }
-
-
+    
+    public void attack()
+    {
+        
+    }
+   
    public void causeDamage(Subject s)
 
     {

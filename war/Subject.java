@@ -14,17 +14,13 @@ public abstract class Subject extends Actor implements ISubject
      */
     static World world;
     SelectedTab selectedTab;
-
-    protected Level lv;
-    private static int kills=0;
-    private static long lastKillTime;
+    private int kills=0;
+    protected PlayerCreator pf;
     Subject()
     {
         world= MyWorld.getMyWorld();
         addObserver();
-
-        lv = new LevelStrategy1();
-        
+        pf= new PlayerCreator();        
     }
     
     public void act() 
@@ -60,18 +56,10 @@ public abstract class Subject extends Actor implements ISubject
     public void die(ISubject s)
     {
         if(s instanceof Undead)
-
         {
-            if(s.isKilledByMan())
-            {
-            kills++;System.err.println(kills);
-            lastKillTime=System.currentTimeMillis();
-            System.err.println("Killed time : "+ lastKillTime);
-            notifyObserver(s);
-            }
-            getWorld().removeObject((Subject)s);
+        
+        getWorld().removeObject((Subject)s);
         }
-
         else if(s instanceof Man)
         {
             Default.sm.changeState(States.GAME_OVER);

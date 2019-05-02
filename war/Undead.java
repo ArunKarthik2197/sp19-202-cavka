@@ -7,7 +7,7 @@ import java.util.List;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Undead extends Subject
+public class Undead extends Subject implements IPlayerFactory
 {
 
     private int speed;
