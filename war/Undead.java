@@ -9,7 +9,8 @@ import java.util.List;
  */
 public class Undead extends Subject implements IPlayerFactory
 {
-
+   
+    
     private int speed;
     GifImage gif;
     private GreenfootImage img;
@@ -20,6 +21,7 @@ public class Undead extends Subject implements IPlayerFactory
     private List<Wall> walls;
     private boolean attacking;
     private boolean manKilled;
+   // private boolean reachedWall;
     /**
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -34,38 +36,46 @@ public class Undead extends Subject implements IPlayerFactory
         attacking=false;
         setImage(img);
         speed = 2;
-        walls= new ArrayList<Wall>();
+        //walls= new ArrayList<Wall>();
         damage=1;
         manKilled=false;
-
+       // reachedWall=false;
     }
-
-    /**
-     * Method addedToWorld
-     *
-     * @param world A parameter
-     */
     public void addedToWorld(World world)
     {
-       //man=MyWorld.getMan();
-       man= (Man)MyWorld.getMyWorld().getMan();
+       man=MyWorld.getMan();
+       
         act();
     }
-        
     public void act() 
     {
         setImage(gif.getCurrentImage());
-        int r= random(100);
-        if(r%2==0)
-            setLocation(getX()+random(20),getY()+speed);
-        else
-            setLocation(getX()-random(20),getY()+speed);
-            checkTouching();
         if(health<=0)
-            die(this);
-
+        die(this);
+        else
+        {
+        
+        if(walls!=null ){
+        if(walls.size()>0)reachedWallMovement();
+        }
+        else
+        {
+        int r= random(100);
+        
+        if(r%2==0)
+        setLocation(getX()+random(20),getY()+speed);
+        else
+        setLocation(getX()-random(20),getY()+speed);
+        checkTouching();
+        
+        }
+    }
+       
     }    
-
+    
+    
+     
+    
     public void moveTo(int targetX,int targetY)
     {
         int x=getX(); int y=getY();
@@ -75,26 +85,25 @@ public class Undead extends Subject implements IPlayerFactory
         if(getX()!=targetX || getY()!=targetY)
         {
             move(speed);
-
+            
         }
     }
-
     public GreenfootImage scale(GreenfootImage image)
     {
         int scalePercent = 50;
         int width = image.getWidth()*scalePercent/100;
         int height = image.getHeight()*scalePercent/100;
         image.scale(width,height);
-
+        
         return image;
-
-    }
-
-    public void causeDamage(Subject s)
-    {
         
     }
-
+    
+    public void causeDamage(Subject s)
+    {
+        //nothing
+    }
+    
     public int damaged(Actor a)
     {
         if(a.equals(man))
@@ -104,67 +113,71 @@ public class Undead extends Subject implements IPlayerFactory
         }
         return health;
     }
-
+    
+    
+    
     public int random(int limit)
     {
         return Greenfoot.getRandomNumber(limit);
     }
-
+    
     public void attack(ISubject m)
     {
-
+        
         m.causeDamage(this);
     }
-
+    
+    
+    
     public void checkTouching()
     {
         if(isTouching(Man.class) )
         {
             setLocation(man.getX(),getY()-speed);
-
+            
             if(man.attacking)
-                health=damaged(man);
+            health=damaged(man);
             else
-                attack(man);
-
+            attack(man);
+            
         }
         else if(isTouching(Wall.class))
         {
-            setLocation(getX(),getY()-speed);
-            attacking=true;
-            walls=getObjectsInRange(100, Wall.class);
-
-            for(int i=0;i<walls.size();i++)
-            {
-                attack(walls.get(i));
-            }
+             //reachedWall=true;
+             
+             attacking=true;
+             walls=getObjectsInRange(100, Wall.class);
+             System.err.println("\t Walls Found:"+walls.size());
+             reachedWallMovement();
+             
+             
         }
         else 
         {
             attacking=false;
         }
     }
-
+    
     public void HealthSet(int val)
     {
-
+        
     }
-
+    
     public int getHealth()
     {
         return health;
     }
-
+    
     public void causeDamage(ISubject a)
     {
-
+        
     }
-
+    
     public int getDamage()
     {
         return damage;
     }
-
+    
     public void setDamage(int val)
     {
         this.damage=val;
@@ -172,11 +185,16 @@ public class Undead extends Subject implements IPlayerFactory
     
     public boolean isKilledByMan()
     {
-        System.err.println("Undead is killed by man :" + manKilled);
         return manKilled;
-}
-    public void attack() 
+    }
+    
+    boolean moveUp=true;
+    
+    public void reachedWallMovement()
     {
-    //add code here
+        
+        attack(walls.get(0));
+        setLocation(getX(),getY()+(15*(moveUp?-1:1)));
+        moveUp=!moveUp;
     }
 }
