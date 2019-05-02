@@ -66,9 +66,10 @@ public class Undead extends Subject implements IPlayerFactory
             setLocation(getX()-random(20),getY()+speed);
         checkTouching();
     }    
+}
 
-    public void moveTo(int targetX,int targetY)
-    {
+        public void moveTo(int targetX,int targetY)
+        {
         int x=getX(); int y=getY();
         int distX = targetX-x; int distY=targetY-y;
         int deltaX=distX/speed;

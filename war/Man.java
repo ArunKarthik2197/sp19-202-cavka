@@ -139,7 +139,7 @@ public class Man extends Subject
             {
                 if(animationCounter%2==0)
                 animateAttack(imgS);
-            sword_hit.play();    
+                //sword_hit.play();    
             //endAnimation();
         }
 
@@ -147,7 +147,7 @@ public class Man extends Subject
         {   
             if(animationCounter%2==0)
                 animateAttack(imgD);
-            sword_hit.play();
+                //sword_hit.play();
             //endAnimation();
         }
 

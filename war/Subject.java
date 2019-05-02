@@ -16,6 +16,7 @@ public abstract class Subject extends Actor implements ISubject
     SelectedTab selectedTab;
     private int kills=0;
     private int damageSet = 0;
+    protected PlayerCreator pf;
     Subject()
     {
         world= MyWorld.getMyWorld();
@@ -43,9 +44,6 @@ public abstract class Subject extends Actor implements ISubject
         {
             selectedTab.setNKHealth(a.getHealth());
         }
-
-        selectedTab.showKills(kills);
-        selectedTab.showLevel(lv);
         
     }
     public void addObserver()
@@ -78,14 +76,15 @@ public abstract class Subject extends Actor implements ISubject
         getWorld().removeObject((Subject)s);
     }
     
-    public void levelUp(){
+    /*public void levelUp(){
         if(kills == 10){
             lv.levelUp(lv);
             System.err.println();
         }
     }
-    
-    public void currentLevelCheck(){
+    */
+   /* 
+   public void currentLevelCheck(){
         if(this.lv.getClass().getName().equals("LevelStrategy1")){
             lv.setDamage(10);
         }
@@ -102,7 +101,7 @@ public abstract class Subject extends Actor implements ISubject
             lv.setDamage(10);
         }
     }
-    
+   */ 
     public abstract boolean isKilledByMan();
 
     
