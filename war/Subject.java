@@ -51,7 +51,7 @@ public abstract class Subject extends Actor implements ISubject
         }
 
         selectedTab.showKills(kills);
-        selectedTab.showLevel(currentLevel);
+        MyWorld.instruction.setValue(currentLevel);
         
     }
     public void addObserver()

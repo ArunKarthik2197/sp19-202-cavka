@@ -22,10 +22,15 @@ public class Instruction extends Actor
     public void act() 
     {
         // Add your action code here.
-        count++;
         
-        img = new GreenfootImage("Count : "+count, 20, 
+    }    
+    
+    public void setValue(IStrategy val)
+    {
+        
+        String s= val.getClass().getName().replace("LevelStrategy","");
+        img = new GreenfootImage("Count : "+s, 20, 
                                     Color.WHITE, Color.BLACK);
         setImage(img);
-    }    
+    }
 }
