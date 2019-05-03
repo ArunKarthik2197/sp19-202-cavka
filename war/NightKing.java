@@ -25,6 +25,8 @@ public class NightKing extends Subject
     private List<Man> man; 
     private int throwTimer=120;
     private int time2=0;
+    private int healtTimer=100;
+    private int time3=0;
     public NightKing()
     {
         img= new GreenfootImage("Night_king1.gif");
@@ -39,10 +41,13 @@ public class NightKing extends Subject
      public void act() 
     {
         time++;
+        time3++;
         X=getX();
         Y=getY();
         checkRange();
         int r= random(100);
+        if(time3%100 == 0 || health<=50)
+        heal();
         if(time%spawnTimer == 0)
         {
             if(r%2==0)
@@ -81,7 +86,11 @@ public class NightKing extends Subject
     
     public void causeDamage(ISubject a)
     {
-        
+        if(a instanceof Man)
+        {
+            health=health-a.getDamage();
+            super.notifyObserver(this);
+        }
     }
     
        public int getDamage()
@@ -112,5 +121,17 @@ public class NightKing extends Subject
         if(time2%throwTimer==0 || time2==0)
         getWorld().addObject(new Spear(man), X+15, Y);
         
+    }
+    
+    public void heal()
+    {
+        if(health<=240)
+        health=health+10;
+        else if(health<250)
+        {
+            int diff = 250-health;
+            health=health+diff;
+        }
+        super.notifyObserver(this);
     }
 }

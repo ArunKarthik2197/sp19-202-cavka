@@ -39,7 +39,7 @@ public  abstract class Subject extends Actor implements ISubject
         {
             selectedTab.setWallHealth(a.getHealth());
         }
-        else if(a instanceof Man)
+        else if(a instanceof NightKing)
         {
             selectedTab.setNKHealth(a.getHealth());
         }

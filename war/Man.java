@@ -174,7 +174,7 @@ public class Man extends Subject
             }
             else if(isTouching(NightKing.class)){
             
-              ISubject s = (Spear)getOneIntersectingObject(Spear.class);
+              ISubject s = (NightKing)getOneIntersectingObject(NightKing.class);
                 s.causeDamage(this);
             }
     }
