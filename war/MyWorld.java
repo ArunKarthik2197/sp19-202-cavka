@@ -8,9 +8,9 @@ import java.util.List;
  * @version (a version number or a date)
  */
 
-public class MyWorld extends World
+public class MyWorld extends World implements IGameState
 {
-   static SelectedTab selectedTab;
+    static SelectedTab selectedTab;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -18,13 +18,14 @@ public class MyWorld extends World
     static MyWorld world;
     List<Subject> all;
     static List<Wall> wall;
+
     //static Man man;
    // static NightKing nightKing;
     public PlayerCreator players = new PlayerCreator();
 
     IPlayerFactory man;
     IPlayerFactory nightKing;
-    
+
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -32,8 +33,9 @@ public class MyWorld extends World
         world = this;
         all= new ArrayList<Subject>();
         wall = new ArrayList<Wall>();
+
         prepare();
-        
+
     }
 
     /**
@@ -44,7 +46,6 @@ public class MyWorld extends World
     {
         selectedTab = new SelectedTab();
         addObject(selectedTab,93,125);
-        
 
         Castle castle = new Castle();
         addObject(castle,37,749);
@@ -75,23 +76,21 @@ public class MyWorld extends World
             start=start+width;
         }
 
-        
     }
-    
+
     public void act()
     {
-       
+
         if(Greenfoot.isKeyDown("p"))
-        paused();
+            paused();
+
     }
-    
+
     public static SelectedTab getSelectedTab()
     {
         return selectedTab;
     }
-    
-    
-    
+
     public static MyWorld getMyWorld()
     {
         return world;
@@ -106,18 +105,15 @@ public class MyWorld extends World
     {
         return nightKing;
     }
-    
+
     public void paused()
     {
-        String answer=Greenfoot.ask("Want to quit? if yes press Y or press N to resume");
-        if(answer.equalsIgnoreCase("y"))
-        {
-            Greenfoot.stop();
-        }
-        else if(answer.equalsIgnoreCase("n"))
-        {
-            Greenfoot.start();
-        }
+        Default.sm.changeState(States.PAUSE);
+
     }
-    
+
+    public void animate()
+    {
+
+    }
 }
