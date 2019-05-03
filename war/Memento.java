@@ -16,11 +16,9 @@ public class Memento
 
    public Memento(IGameState state){
       this.state = state;
-      System.out.println("Hi from memento cons");
    }
 
    public IGameState getState(){
-   System.out.println("Hi from memento getstate()");
       return state;
    }	
 }
