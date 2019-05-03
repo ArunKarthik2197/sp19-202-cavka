@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
  * Write a description of class Subject here.
@@ -54,6 +54,7 @@ public abstract class Subject extends Actor implements ISubject
 
         selectedTab.showKills(kills);
         levelCounter.setValue(currentLevel);
+       // selectedTab.showLevel(lv);
         
     }
     public void addObservers()

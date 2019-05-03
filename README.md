@@ -24,12 +24,17 @@
 > - You'll get help along the way as you slay the undead and the morale of your soldiers is raised.<br>
 > - With the help of your people kill the Night King and end the long night.
 ## Project Progress
+>Assets gathered, the images and various other animations.<br>
+>Implemented the observer pattern for unit selection.<br>
+>Laid down the basic environment of the world.<br>
 
 > -   Assets gathered, the images and various other animations.<br>
-> -   Implemented the observer pattern for unit selection.<br> 
-> -   Laid down the basic environment of the world.<br> 
-> -   Health bar observer and core game functionality added.<br>
-> -   Yet to add levels. <br>
+> -   4 patterns added, state,observer,strategy and factory.<br> 
+> -   Game functionality laid out<br> 
+> -   All visual components added.<br>
+> -   Yet to test the momento pattern.<br>
+> -   Minor Glitches to be fixed.
+> -   Use cases implemented.
 
 ### Burndown Map
 #### Burndown till week-1
@@ -47,4 +52,14 @@
 > - Core functionality of the game, including hero's functionality,Undead, world layout etc.,<br>
 > - Added the observer pattern for healthbars of the wall, player and night king.<br>
 > - fine tuning and gathering of assets.<br>
+<b>Observer for game stats </b>
+<img src="docs/GameObserverPattern-Arun_Karthik.svg"></img><br>
+
+#### Abhilash
+
+
+#### Vignesh
+
+
+#### Kavya
 
