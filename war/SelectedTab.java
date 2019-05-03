@@ -22,9 +22,7 @@ public class SelectedTab extends Actor
     Bar jonHealth;
     Bar wallHealth;
     Bar nightKingHealth;
-    Man man;
-    NightKing nk;
-    List<Wall> walls;
+    
     Level lv;
     public SelectedTab()
     {
@@ -37,7 +35,7 @@ public class SelectedTab extends Actor
         nightKingHealth.setBreakPercent(20);
         nightKingHealth.setBreakLow(false);
         wallHealth.setBreakPercent(20);
-        walls = new ArrayList<Wall>();
+        
         init_img.scale(100,100);
         setImage(init_img);
     }
@@ -46,12 +44,7 @@ public class SelectedTab extends Actor
     {
         
         
-        /*man=MyWorld.getMan();
-        nk = this.world.getNK();*/
-        man=(Man)MyWorld.getMyWorld().getMan();
-        nk = (NightKing)this.world.getNK();
-        walls=getWorld().getObjects(Wall.class);
-        //System.out.println(man);
+       
         int x = this.getX();  int y=this.getY();
         this.world.addObject(jonHealth,x,y);
         this.world.addObject(wallHealth,x,y+20);
