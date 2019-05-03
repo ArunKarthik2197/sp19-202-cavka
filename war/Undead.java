@@ -43,7 +43,7 @@ public class Undead extends Subject implements IPlayerFactory
     }
     public void addedToWorld(World world)
     {
-      // man=MyWorld.getMan();
+       man=MyWorld.getMan();
        
         act();
     }
