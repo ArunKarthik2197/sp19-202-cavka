@@ -19,7 +19,6 @@ public abstract class Subject extends Actor implements ISubject
     protected PlayerCreator pf;
     protected static IStrategy currentLevel;
     private static Instruction levelCounter;
-    boolean checkLvUp = true;
 
     Subject()
     {
@@ -100,7 +99,6 @@ public abstract class Subject extends Actor implements ISubject
         MyWorld.lv.levelUp();
         currentLevel=MyWorld.lv.getCurrent();
         notifyObserver(this);
-        checkLvUp = true;
     }
 
 
