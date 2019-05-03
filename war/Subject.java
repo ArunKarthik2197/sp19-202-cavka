@@ -15,10 +15,11 @@ public abstract class Subject extends Actor implements ISubject
     static World world;
     SelectedTab selectedTab;
 
-    private static int kills=0;
+    
     protected PlayerCreator pf;
     protected static IStrategy currentLevel;
     private static Instruction levelCounter;
+    private static Instruction killCounter;
 
     Subject()
     {
@@ -41,6 +42,9 @@ public abstract class Subject extends Actor implements ISubject
         System.out.println("In subject cause damage  : "+a);
         if(a instanceof Man)
         {
+            Man b= (Man)a;
+            int k = b.getKills();
+            killCounter.setValue(k);
             selectedTab.setJonHealth(a.getHealth());
         }
         else if(a instanceof Wall)
@@ -52,7 +56,7 @@ public abstract class Subject extends Actor implements ISubject
             selectedTab.setNKHealth(a.getHealth());
         }
 
-        selectedTab.showKills(kills);
+         
         levelCounter.setValue(currentLevel);
        // selectedTab.showLevel(lv);
 
@@ -61,6 +65,7 @@ public abstract class Subject extends Actor implements ISubject
     {
         selectedTab = MyWorld.getSelectedTab();
         levelCounter=MyWorld.getLevelCounter();
+        killCounter = MyWorld.getKillCounter();
     }
 
     public void die(ISubject s)
@@ -68,9 +73,8 @@ public abstract class Subject extends Actor implements ISubject
         if(s instanceof Undead)
 
         {
-        if(s.isKilledByMan())
-        kills++;
-        notifyObserver(s);
+       
+        
         levelUp();
 
         getWorld().removeObject((Subject)s);
@@ -96,8 +100,19 @@ public abstract class Subject extends Actor implements ISubject
 
     private void levelUp()
     {
+        if(!(currentLevel instanceof LevelStrategy5))
+        {
         MyWorld.lv.levelUp();
         currentLevel=MyWorld.lv.getCurrent();
+        }
+        else
+        {
+        
+        MyWorld.lv.reset();
+        currentLevel=MyWorld.lv.getCurrent();
+        notifyObserver(this);
+        }
+        
         notifyObserver(this);
     }
 

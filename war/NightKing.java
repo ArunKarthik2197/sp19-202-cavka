@@ -28,7 +28,7 @@ public class NightKing extends Subject
     private int throwTimer=120;
     private int time2=0;
     private boolean manKilled=false;
-    private int healtTimer=100;
+    private int healtTimer=1000;
     private int time3=0;
     
     
@@ -42,6 +42,7 @@ public class NightKing extends Subject
         selected = false;
         time=0;
         spawnTimer=300;// for 5 seconds
+        
     }
 
 
@@ -63,7 +64,7 @@ public class NightKing extends Subject
             else
             getWorld().addObject((Undead)pf.SpawnPlayer("UnDead"),X-random(50),Y);
         }
-
+        
     }
     
     public void attack()
@@ -110,10 +111,10 @@ public class NightKing extends Subject
         this.damage=val;
     }
     
-    private void setAttributes(){
-        currentLevel.getDamage(this);
-        currentLevel.getSpearSpawnTime();
-        currentLevel.getUndeadSpawnTime();
+    public void setAttributes(){
+        damage=currentLevel.getDamage(this);
+        throwTimer=currentLevel.getSpearSpawnTime();
+        spawnTimer=currentLevel.getUndeadSpawnTime();
     }
 
     public void checkRange()

@@ -12,7 +12,7 @@ public class Wall extends Subject
      * Act - do whatever the Wall wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private int health=200;
+    private int health=5000;
     private int damage;
     private GreenfootImage img;
     
@@ -34,7 +34,7 @@ public class Wall extends Subject
            damage=s.getDamage();
            health=health-damage;
            
-           int aq=(int)(health/2);
+           int aq=(int)(health/50);
            
            int transPercent=(int)((aq*255)/100);
            

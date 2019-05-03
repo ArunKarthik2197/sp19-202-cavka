@@ -18,7 +18,7 @@ public class Man extends Subject
         }
     }
     
-    
+    private int kills=0;
     private MouseInfo m;
     private int speed;
     private GifImage gif;
@@ -263,5 +263,16 @@ public class Man extends Subject
     public boolean isKilledByMan()
     {
         return manKilled;
+    }
+    
+    public void increaseKill()
+    {
+        kills+=1;
+        notifyObserver(this);
+    }
+    
+    public int getKills()
+    {
+        return kills;
     }
 }

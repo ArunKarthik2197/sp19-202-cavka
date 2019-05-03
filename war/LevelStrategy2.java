@@ -6,11 +6,11 @@
  */
 public class LevelStrategy2  implements IStrategy
 {
-    int nightKingDamage;
-    int unDeaddamage;
+    int nightKingDamage=20;
+    int unDeaddamage=2;
     int spearDamage = 15;
-    int undeadSpawnTime;
-    int spearSpawnTime;
+    int undeadSpawnTime=200;
+    int spearSpawnTime=60;
     int speed=2;
     int health;
     int holder=10;

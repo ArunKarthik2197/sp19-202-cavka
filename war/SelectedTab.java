@@ -79,11 +79,5 @@ public class SelectedTab extends Actor
         nightKingHealth.setValue(health);
     }
     
-    public void showKills(int kills){
-        init_img.drawString("Kills: "+kills, 10, 16);
-    }
-    
-    public void showLevel(IStrategy lv){
-        init_img.drawString("Current level: "+lv.getClass().getName().replace("LevelStrategy", ""), 20, 25);
-    }
+  
 }

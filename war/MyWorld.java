@@ -15,6 +15,7 @@ public class MyWorld extends World implements IGameState
      * Constructor for objects of class MyWorld.
      * 
      */
+    
     static MyWorld world;
     List<Subject> all;
     static List<Wall> wall;
@@ -23,6 +24,7 @@ public class MyWorld extends World implements IGameState
    // static NightKing nightKing;
     public PlayerCreator players = new PlayerCreator();
     private static Instruction levelViewer;
+    private static Instruction killCounter;
     private static Man man;
     private static NightKing nightKing;
 
@@ -34,6 +36,7 @@ public class MyWorld extends World implements IGameState
         all= new ArrayList<Subject>();
         wall = new ArrayList<Wall>();
         lv= Level.getInstance();
+        lv.reset();
         prepare();
 
     }
@@ -61,6 +64,8 @@ public class MyWorld extends World implements IGameState
         levelViewer =new Instruction();
         addObject(levelViewer,600,50);
         
+        killCounter =new Instruction();
+        addObject(killCounter,100,50);
         
         int start=0;
         for(int i=0;i<15;i++)
@@ -117,5 +122,10 @@ public class MyWorld extends World implements IGameState
     public static Instruction getLevelCounter()
     {
         return levelViewer;
+    }
+    
+    public static Instruction getKillCounter()
+    {
+        return killCounter;
     }
 }

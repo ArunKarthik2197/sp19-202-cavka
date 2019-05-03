@@ -30,7 +30,8 @@ public class GameStateMachine
         state = titleScreen;
         worldSetter();
         originator = new Originator();
-   	    caretaker = new Caretaker();
+    caretaker = new Caretaker();
+    
     }
 
     /**
@@ -64,8 +65,8 @@ public class GameStateMachine
             originator.setState(state);
    
             break;
-            case PLAY_AGAIN  :        
-            originator.setState(new MyWorld());
+            case PLAY_AGAIN  :    state= new MyWorld();
+                                   worldSetter();
             
             break;
             case GAME_WON   :  state = gameWon;
