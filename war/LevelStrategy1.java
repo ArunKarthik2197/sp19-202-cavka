@@ -7,10 +7,12 @@
 public class LevelStrategy1  implements IStrategy
 {
     int nightKingDamage;
+
     int unDeaddamage=1;
     int spearDamage=10;
     int undeadSpawnTime=300;
     int spearSpawnTime=120;
+
     int speed=2;
     int health;
     int holder=10;

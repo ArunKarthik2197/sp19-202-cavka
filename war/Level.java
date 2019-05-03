@@ -56,7 +56,9 @@ public class Level
     {
         if(currentLevel<levels.size()-1){
             currentLevel++;
-            nk=MyWorld.getNK();
+
+            nk = MyWorld.getNK();
+
             nk.setAttributes();
         }
         else
@@ -68,6 +70,7 @@ public class Level
         return levels.get(currentLevel);
     }
     
+
     public void reset()
     {
         currentLevel=0;
@@ -75,5 +78,9 @@ public class Level
     
    
     
-   
+
+    public void isLeveledUp(){
+        
+    }
+
 }
