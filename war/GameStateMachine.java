@@ -41,43 +41,35 @@ public class GameStateMachine
     {
         switch(val){
 
-            case TITLE       :  /*state = titleScreen;
-            worldSetter(); */
-            originator.setState(new TitleScreen());
+            case TITLE       :  state = titleScreen;
+            //worldSetter(); 
+            originator.setState(state);
           
             break;
-            case GAME        :  /*state = myWorld;
-            worldSetter(); */IGameState var = new MyWorld();
+            case GAME        :  state = myWorld;
+           // worldSetter();            
+            originator.setState(state);
             
-            originator.setState(var);
-            caretaker.setMemento(originator.saveMemento());
            
             break;
-            case PAUSE       :  /*state = pause;
-            worldSetter();*/
-           
-            originator.setState(new PausedGame());
+            case PAUSE       :  state = pause;
+            //worldSetter();          
+            originator.setState(state);
        
             break;
-            case GAME_OVER   :  /*state = gameOver;
-            worldSetter();*/
-            
-            originator.setState(new GameOver());
+            case GAME_OVER   :  state = gameOver;
+           // worldSetter();            
+            originator.setState(state);
    
             break;
-            case PLAY_AGAIN  :  //state= new MyWorld();
-           
-           // worldSetter();
-      
-            /*originator.setState(new myWorld());*/
-           // caretaker.setMemento(originator.createMemento());
-            originator.restoreMemento(caretaker.getMemento());
+            case PLAY_AGAIN  :        
+            originator.setState(new myWorld());
+            
             break;
             case GAME_WON   :  state = gameWon;
-            worldSetter();
-            break;
-            case PLAY_AGAIN  :  state= new MyWorld();
-            worldSetter();
+            //worldSetter();
+            originator.setState(state);
+            
             break;
         }
     }
