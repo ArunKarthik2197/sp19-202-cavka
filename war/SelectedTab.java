@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
+import java.util.ArrayList;
 /**
  * Write a description of class SelectedTab here.
  * 
@@ -18,45 +19,51 @@ public class SelectedTab extends Actor
     
     GreenfootImage init_img;
     static MyWorld world;
+    Bar jonHealth;
+    Bar wallHealth;
+    Bar nightKingHealth;
+    Man man;
+    NightKing nk;
+    List<Wall> walls;
     public SelectedTab()
     {
         world = MyWorld.getMyWorld();
         init_img = getImage();
+         jonHealth= new Bar("Jon","man",200,200);
+        wallHealth= new Bar("Wall","Wall",5000,5000);
+        nightKingHealth= new Bar("Night King","Nk",250,250);
+        jonHealth.setBreakPercent(20);
+        nightKingHealth.setBreakPercent(20);
+        nightKingHealth.setBreakLow(false);
+        wallHealth.setBreakPercent(20);
+        walls = new ArrayList<Wall>();
+        
     }
+    
+    public void addedToWorld(World world)
+    {
+        
+        
+        /*man=MyWorld.getMan();
+        nk = this.world.getNK();*/
+        man=(Man)MyWorld.getMyWorld().getMan();
+        nk = (NightKing)this.world.getNK();
+        walls=getWorld().getObjects(Wall.class);
+        System.out.println(man);
+        
+    }
+    
     public void act() 
     {
-        if(Greenfoot.mouseClicked(this))
-        {
-            if(Greenfoot.mouseClicked(this) && (!selectedUnit.equals(NightKing.class) ))
-            {
-           getWorld().addObject(new Man(),selectedUnit.getX()+30,selectedUnit.getY());
-        }
-        else
-        {
-            
-            
-        }
-        if(selectedUnit.equals(NightKing.class))
-            {
-                getWorld().addObject(new Undead(),selectedUnit.getX()+30,selectedUnit.getY());
-            }
-        }
+        int x = this.getX();  int y=this.getY();
+        this.world.addObject(jonHealth,x,y);
+        this.world.addObject(wallHealth,x,y+20);
+        this.world.addObject(nightKingHealth,x,y+40);
     }    
     
-    public void setSelected(Actor a)
-    {
-        world.setSelection();
-        selectedUnit = a;
-        display();
-    }
+   
     
-    public void display()
-    {
-        if(selectedUnit==null)
-        setImage(init_img);
-        else
-        setImage(selectedUnit.getImage());
-    }
+    
     
     public Actor getSelectedUnit()
     {
@@ -64,6 +71,25 @@ public class SelectedTab extends Actor
         return selectedUnit;
         
     }
+    
+    public void setJonHealth(int health)
+    {
+        jonHealth.setValue(health);
+    }
+    
+    public void setWallHealth(int health)
+    {
+        wallHealth.subtract(health);
+    }
+    
+    public void setNKHealth(int health)
+    {
+        nightKingHealth.setValue(health);
+    }
+    
+    
+    
+    
     
     
 }

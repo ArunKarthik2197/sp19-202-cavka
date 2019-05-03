@@ -16,7 +16,10 @@ public class NightKing extends Subject implements IPlayerFactory
     boolean selected;
     private int X;
     private int Y;
+    private int time;
     private int spawnTimer;
+    private int health=250;
+    private int damage=20;
     public NightKing()
     {
         img= new GreenfootImage("Night_king1.gif");
@@ -24,6 +27,7 @@ public class NightKing extends Subject implements IPlayerFactory
         setImage(img);
         selected = false;
         spawnTimer=0;
+        time=300;// for 5 seconds
     }
     
      public void act() 
@@ -31,33 +35,56 @@ public class NightKing extends Subject implements IPlayerFactory
         spawnTimer++;
         X=getX();
         Y=getY();
-        if(spawnTimer%300 == 0)
-        getWorld().addObject((Actor)MyWorld.getMyWorld().players.SpawnPlayer("UnDead"), X+30, Y);
+        int r= random(100);
+        if(spawnTimer%time == 0)
+        {
+            if(r%2==0)
+            getWorld().addObject(new Undead(), X+random(50), Y);
+            else
+            getWorld().addObject(new Undead(),X-random(50),Y);
+        }
         
     }
     
-    public void castleSelected()
-    {
-        if(!selected)
-        {
-        selected = true;
-        selected(this);
-        }
-        else
-        {
-            selected = false;
-        }
-    }  
+   
     
-   public void setSelectedState(boolean s)
+   public void causeDamage(Subject s)
     {
-        this.selected = s;
+        //nothing
     }
     
+    public int random(int limit)
+    {
+        return Greenfoot.getRandomNumber(limit);
+    }
+    
+    public void HealthSet(int val)
+    {
+        
+    }
+    
+    public int getHealth()
+    {
+        return health;
+    }
+    
+    public void causeDamage(ISubject a)
+    {
+        
+    }
+    
+       public int getDamage()
+    {
+        return damage;
+    }
+    
+    public void setDamage(int val)
+    {
+        this.damage=val;
+    }
     
     public void attack() 
     {
     //add code here
     }
-  
 }

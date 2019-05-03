@@ -14,33 +14,43 @@ public class Castle extends Subject
      */
     private boolean selected;
     private Man m;
+    private int damage;
     Castle()
     {
         selected= false;
         m = new Man();
+        damage=1;
     }
     public void act() 
     {
-        if(Greenfoot.mouseClicked(this))
-        castleSelected();
+        
     }
     
-    public void castleSelected()
+    
+    
+    public void causeDamage(ISubject s)
     {
-        if(!selected)
-        {
-        selected = true;
-        selected(this);
-        }
-        else
-        {
-            selected = false;
-        }
+        //nothing
     }
     
-    public void setSelectedState(boolean s)
+    public void HealthSet(int val)
     {
-        this.selected = s;
+        
+    }
+    
+    public int getHealth()
+    {
+        return 0;
+    }
+    
+       public int getDamage()
+    {
+        return damage;
+    }
+    
+    public void setDamage(int val)
+    {
+        this.damage=val;
     }
     
 }

@@ -17,15 +17,21 @@ public class MyWorld extends World
      */
     static MyWorld world;
     List<Subject> all;
+    static List<Wall> wall;
+    //static Man man;
+   // static NightKing nightKing;
     public PlayerCreator players = new PlayerCreator();
-    //Man man;;
+
     IPlayerFactory man;
+    IPlayerFactory nightKing;
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 600, 1); 
+        super(1000, 800, 1); 
         world = this;
         all= new ArrayList<Subject>();
+        wall = new ArrayList<Wall>();
         prepare();
         
     }
@@ -37,27 +43,46 @@ public class MyWorld extends World
     private void prepare()
     {
         selectedTab = new SelectedTab();
-        addObject(selectedTab,853,692);
-        selectedTab.setLocation(945,742);
+        addObject(selectedTab,93,125);
+        
 
         Castle castle = new Castle();
         addObject(castle,37,749);
         castle.setLocation(456,760);
 
-        /*NightKing nightKing = new NightKing();
+       /* nightKing = new NightKing();
         addObject(nightKing,505,143);
         nightKing.setLocation(468,43);
-        
+
         man = new Man();
-        addObject(man,401,680);*/
+        addObject(man,421,572);*/
+        
         IPlayerFactory nightKing = players.SpawnPlayer("NightKing"); 
-        addObject((Actor)nightKing,505,143);
+		  addObject((Actor)nightKing,505,143);
         ((Actor)nightKing).setLocation(468,43);
+		
+		  man = players.SpawnPlayer("Man"); 
+        addObject((Actor)man,421,572);
         
-        man = players.SpawnPlayer("Man"); 
-        addObject((Actor)man,401,680);
+        int start=0;
+        for(int i=0;i<15;i++)
+        {
+
+            wall.add(new Wall());
+            int width = wall.get(i).getImage().getWidth();
+
+            addObject(wall.get(i),start,680);
+            start=start+width;
+        }
+
         
-        
+    }
+    
+    public void act()
+    {
+       
+        if(Greenfoot.isKeyDown("p"))
+        paused();
     }
     
     public static SelectedTab getSelectedTab()
@@ -65,21 +90,7 @@ public class MyWorld extends World
         return selectedTab;
     }
     
-    public  void setSelection()
-    {
-        all=getObjects(Subject.class);
-        for( Subject obj: all)
-        {
-            if(obj.equals(selectedTab.getSelectedUnit()))
-            {
-                obj.setSelectedState(true);
-            }
-            else
-            {
-                obj.setSelectedState(false);
-            }
-        }
-    }
+    
     
     public static MyWorld getMyWorld()
     {
@@ -89,6 +100,24 @@ public class MyWorld extends World
     public IPlayerFactory getMan()
     {
         return man;
+    }
+    
+    public IPlayerFactory getNK()
+    {
+        return nightKing;
+    }
+    
+    public void paused()
+    {
+        String answer=Greenfoot.ask("Want to quit? if yes press Y or press N to resume");
+        if(answer.equalsIgnoreCase("y"))
+        {
+            Greenfoot.stop();
+        }
+        else if(answer.equalsIgnoreCase("n"))
+        {
+            Greenfoot.start();
+        }
     }
     
 }
