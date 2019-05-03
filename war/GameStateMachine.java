@@ -15,8 +15,8 @@ public class GameStateMachine
     private IGameState pause;
     private IGameState gameOver;
     private IGameState gameWon;
-    private Oringinator originator;
-    private Caretake caretaker;
+    private Originator originator;
+    private Caretaker caretaker;
     /**
      * Constructor for objects of class GameStateMachine
      */
@@ -65,7 +65,7 @@ public class GameStateMachine
    
             break;
             case PLAY_AGAIN  :        
-            originator.setState(new myWorld());
+            originator.setState(new MyWorld());
             
             break;
             case GAME_WON   :  state = gameWon;
