@@ -29,6 +29,7 @@ public class Wall extends Subject
     
     public void causeDamage(ISubject s)
     {
+        HealthVisitor visitor = new HealthVisitor(s);
         health = accept(visitor);
         System.out.println("wall health: "+health);  
        if(s instanceof Undead)
