@@ -38,11 +38,11 @@ public class Wall extends Subject
            
            int transPercent=(int)((aq*255)/100);
            
-           System.err.println("wall calc transparency: "+transPercent);
+          // System.err.println("wall calc transparency: "+transPercent);
 
-           System.err.println("wall transparency before : "+img.getTransparency());
+          // System.err.println("wall transparency before : "+img.getTransparency());
            img.setTransparency(transPercent);
-           System.err.println("wall transparency after: "+img.getTransparency());
+           //System.err.println("wall transparency after: "+img.getTransparency());
 
        }
        else if(s instanceof NightKing)

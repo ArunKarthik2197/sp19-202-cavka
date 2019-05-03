@@ -27,7 +27,7 @@ public class NightKing extends Subject
     private List<Man> man;
     private int throwTimer=120;
     private int time2=0;
-
+    private boolean manKilled=false;
     private int healtTimer=100;
     private int time3=0;
     public NightKing()
@@ -50,7 +50,7 @@ public class NightKing extends Subject
         Y=getY();
         checkRange();
         int r= random(100);
-        if(time3%100 == 0 || health<=50)
+        if(time3%100 == 0 || health<=40)
         heal();
         if(time%spawnTimer == 0)
         {
@@ -131,7 +131,7 @@ public class NightKing extends Subject
     {
         return manKilled;
     }
-     public void attack() 
+     public void attack(ISubject s) 
     {
     //add code here
     }

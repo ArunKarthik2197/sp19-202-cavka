@@ -15,17 +15,18 @@ public abstract class Subject extends Actor implements ISubject
     static World world;
     SelectedTab selectedTab;
 
-    private int kills=0;
+    private static int kills=0;
     protected PlayerCreator pf;
-
+    private IStrategy currentLevel;
+    
     Subject()
     {
         world= MyWorld.getMyWorld();
         addObserver();
 
         pf= new PlayerCreator();
-
         
+        currentLevel=MyWorld.lv.getCurrent();
     }
     
     public void act() 
@@ -50,7 +51,7 @@ public abstract class Subject extends Actor implements ISubject
         }
 
         selectedTab.showKills(kills);
-        selectedTab.showLevel(lv);
+        selectedTab.showLevel(currentLevel);
         
     }
     public void addObserver()
@@ -63,6 +64,10 @@ public abstract class Subject extends Actor implements ISubject
         if(s instanceof Undead)
 
         {
+        if(s.isKilledByMan())
+        kills++;
+        notifyObserver(s);
+        levelUp();
         
         getWorld().removeObject((Subject)s);
         }
@@ -85,6 +90,12 @@ public abstract class Subject extends Actor implements ISubject
         
     }
     
+    private void levelUp()
+    {
+        MyWorld.lv.levelUp();
+        currentLevel=MyWorld.lv.getCurrent();
+        notifyObserver(this);
+    }
   
     
     public abstract boolean isKilledByMan();

@@ -1,47 +1,66 @@
+import java.util.ArrayList;
 /**
  * Write a description of class Level here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public abstract class Level implements IStrategy
+public class Level 
 {
-    int damage;
-    int speed;
-    int health;
+    private static int currentLevel;
     
-    protected Level lv;
-    IStrategy lv1;
-    IStrategy lv2;
-    IStrategy lv3;
-    IStrategy lv4;
-    IStrategy lv5;
-    
-    public void setSpawnSpeed(int speed){
-        this.speed = speed;
+    private IStrategy lv1;
+    private IStrategy lv2;
+    private IStrategy lv3;
+    private IStrategy lv4;
+    private IStrategy lv5;
+    private ArrayList<IStrategy> levels;
+    private static Level levelInstance;
+    private Level()
+    {
+        lv1=new LevelStrategy1();
+        lv2=new LevelStrategy2();
+        lv3=new LevelStrategy3();
+        lv4=new LevelStrategy4();
+        lv5=new LevelStrategy5();
+        levels = new ArrayList<IStrategy>(5);
+        currentLevel=0;
+        setupLevels();
+        levelInstance=this;
+    }
+    public static Level getInstance()
+    {
+        if(levelInstance==null)
+        return new Level();
+        else
+        {
+            currentLevel=0;
+            return levelInstance;
+        }
+    }
+    private void setupLevels()
+    {
+        levels.add(lv1);
+        levels.add(lv2);
+        levels.add(lv3);
+        levels.add(lv4);
+        levels.add(lv5);
     }
     
-    public void setDamage(int damage){
-        this.damage = damage;
+    public void levelUp()
+    {
+        if(currentLevel<levels.size()-1){
+            currentLevel++;
+            System.err.println("currentLevel counter :" +currentLevel);
+        }
+        else
+            System.err.println("You won");
     }
     
-    public void setHealth(int health){
-        this.health = health;
+    public IStrategy getCurrent()
+    {
+        return levels.get(currentLevel);
     }
     
-    public void addNewAttack(){
-        
-    }
-    
-    public void levelUp(Level currentlv){
-        currentlv.nextLevel();
-    }
-    
-    public void nextLevel(){
-        //possible series of if statements to point to next level?
-    }
-    
-    public void prevLevel(){
-        //possible series of if statements to point to next level?
-    }
+   
 }
