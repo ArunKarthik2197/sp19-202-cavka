@@ -15,6 +15,8 @@ public class GameStateMachine
     private IGameState pause;
     private IGameState gameOver;
     private IGameState gameWon;
+    private Oringinator originator;
+    private Caretake caretaker;
     /**
      * Constructor for objects of class GameStateMachine
      */
@@ -24,7 +26,7 @@ public class GameStateMachine
         myWorld = new MyWorld();
         gameOver = new GameOver();
         pause = new PausedGame();
-        gameWon = new gameWon();
+       // gameWon = new gameWon();
         state = titleScreen;
         worldSetter();
         originator = new Originator();
