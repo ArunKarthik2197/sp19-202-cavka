@@ -163,7 +163,7 @@ public class Man extends Subject
               // if(animationCounter%2==0)
               // animateAttack();
                if(animationCounter%2==0)
-               animateAttack();
+               animateAttack(imgD);
                       
             }
             if(isTouching(Undead.class)){
