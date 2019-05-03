@@ -177,7 +177,7 @@ public class Undead extends Subject implements IPlayerFactory
     }
     
     public void setAttributes(){
-        currentLevel.getDamage(this);
+        damage = damage + currentLevel.getDamage(this);
         speed = speed + currentLevel.getSpeed(this);
     }
   
