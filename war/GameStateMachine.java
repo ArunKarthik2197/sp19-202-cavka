@@ -40,17 +40,38 @@ public class GameStateMachine
     {
         switch(val){
 
-            case TITLE       :  state = titleScreen;
-            worldSetter(); 
+            case TITLE       :  /*state = titleScreen;
+            worldSetter(); */
+            System.out.println("Hi gamestate title");
+            originator.setState(new TitleScreen());
+           System.out.println("bye gamestate title");
             break;
-            case GAME        :  state = myWorld;
-            worldSetter(); 
+            case GAME        :  /*state = myWorld;
+            worldSetter(); */IGameState var = new MyWorld();
+            System.out.println("Hi gamestate game");
+            originator.setState(var);
+            caretaker.setMemento(originator.saveMemento());
+            System.out.println("bye gamestate game");
             break;
-            case PAUSE       :  state = pause;
-            worldSetter();
+            case PAUSE       :  /*state = pause;
+            worldSetter();*/
+            System.out.println("Hi gamestate pause");
+            originator.setState(new PausedGame());
+           System.out.println("bye gamestate pause");
             break;
-            case GAME_OVER   :  state = gameOver;
-            worldSetter();
+            case GAME_OVER   :  /*state = gameOver;
+            worldSetter();*/
+            System.out.println("Hi gamestate game_over");
+            originator.setState(new GameOver());
+      System.out.println("bye gamestate game_over");
+            break;
+            case PLAY_AGAIN  :  //state= new MyWorld();
+            System.out.println("Hi gamestate again");
+           // worldSetter();
+            System.out.println("bye gamestate again");
+            /*originator.setState(new myWorld());*/
+           // caretaker.setMemento(originator.createMemento());
+            originator.restoreMemento(caretaker.getMemento());
             break;
             case GAME_WON   :  state = gameWon;
             worldSetter();
