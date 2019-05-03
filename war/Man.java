@@ -76,7 +76,8 @@ public class Man extends Subject
             if(attackPressed)
             {
                 attacking=true;
-                attack(timer);
+                
+                attack();
                 
             }else if(!movement){
             endAnimation();
@@ -132,7 +133,7 @@ public class Man extends Subject
     
     
     
-    public void attack(int timer)
+    public void attack()
     {
            
          
@@ -163,7 +164,19 @@ public class Man extends Subject
                animateAttack(imgD);
                       
             }
+            if(isTouching(Undead.class)){
+            ISubject s = (Undead)getOneIntersectingObject(Undead.class);
+            s.causeDamage(this);
+            }
+            else if(isTouching(Spear.class)){
+                ISubject s = (Spear)getOneIntersectingObject(Spear.class);
+                s.causeDamage(this);
+            }
+            else if(isTouching(NightKing.class)){
             
+              ISubject s = (Spear)getOneIntersectingObject(Spear.class);
+                s.causeDamage(this);
+            }
     }
     
     public void animateAttack(ImageHolder dir)

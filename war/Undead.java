@@ -99,9 +99,12 @@ public class Undead extends Subject implements IPlayerFactory
         
     }
     
-    public void causeDamage(Subject s)
+    public void causeDamage(ISubject s)
     {
-        //nothing
+       if(s instanceof Man)
+       {
+           health=health-10;
+       }
     }
     
     public int damaged(Actor a)
@@ -135,9 +138,7 @@ public class Undead extends Subject implements IPlayerFactory
         {
             setLocation(man.getX(),getY()-speed);
             
-            if(man.attacking)
-            health=damaged(man);
-            else
+            if(!man.attacking)
             attack(man);
             
         }
@@ -168,10 +169,7 @@ public class Undead extends Subject implements IPlayerFactory
         return health;
     }
     
-    public void causeDamage(ISubject a)
-    {
-        
-    }
+  
     
     public int getDamage()
     {
