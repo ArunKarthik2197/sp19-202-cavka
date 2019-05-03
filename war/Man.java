@@ -21,7 +21,7 @@ public class Man extends Subject
     
     private MouseInfo m;
     private int speed;
-    GifImage gif;
+    private GifImage gif;
     private int timer;
     private int animationCounter=0;
     //private GreenfootImage img,imgW,imgA,imgS,imgD;
