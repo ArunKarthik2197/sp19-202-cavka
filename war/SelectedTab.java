@@ -38,7 +38,8 @@ public class SelectedTab extends Actor
         nightKingHealth.setBreakLow(false);
         wallHealth.setBreakPercent(20);
         walls = new ArrayList<Wall>();
-
+        init_img.scale(100,100);
+        setImage(init_img);
     }
 
     public void addedToWorld(World world)
@@ -89,7 +90,7 @@ public class SelectedTab extends Actor
         init_img.drawString("Kills: "+kills, 10, 16);
     }
     
-    public void showLevel(Level lv){
-        init_img.drawString("Current level: "+lv.getClass().getName().replace("LevelStrategy", ""), 10, 20);
+    public void showLevel(IStrategy lv){
+        init_img.drawString("Current level: "+lv.getClass().getName().replace("LevelStrategy", ""), 20, 25);
     }
 }

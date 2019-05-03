@@ -209,7 +209,7 @@ public class Man extends Subject
     }
     
     public void setImage(ImageHolder img){
-    System.err.println("Man image is set to "+img.fileName);
+    //System.err.println("Man image is set to "+img.fileName);
     super.setImage(img.image);
     }
     public boolean touchingWall()
@@ -255,6 +255,11 @@ public class Man extends Subject
     public void setDamage(int val)
     {
         this.damage=val;
+    }
+    
+    public boolean isKilledByMan()
+    {
+        return false;
     }
     
 }

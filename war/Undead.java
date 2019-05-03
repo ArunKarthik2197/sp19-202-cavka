@@ -15,7 +15,7 @@ public class Undead extends Subject implements IPlayerFactory
     GifImage gif;
     private GreenfootImage img;
     ISubject subj;
-    private Man man;
+    private static Man man;
     private int health;
     private int damage;
     private List<Wall> walls;

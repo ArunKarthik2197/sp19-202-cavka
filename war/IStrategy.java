@@ -6,12 +6,11 @@
  */
 public interface IStrategy  
 {
-    void setSpawnSpeed(int val);
-    void setDamage(int val);
-    void setHealth(int val);
-    void addNewAttack();
-    void nextLevel();
-    void prevLevel();
-    void setNext();
-    void setPrev();
+    
+    int getDamage(ISubject s);
+    int getUndeadSpawnTime();
+    int getSpearSpawnTime();
+    int getSpeed(ISubject s);
+    void getStrategy();
+    
 }

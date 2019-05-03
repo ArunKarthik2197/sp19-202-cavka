@@ -4,41 +4,52 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LevelStrategy3 extends Level
+public class LevelStrategy3 implements IStrategy
 {
-    int damage;
-    int speed;
+     int nightKingDamage;
+    int unDeaddamage;
+    int spearDamage;
+    int undeadSpawnTime;
+    int spearSpawnTime;
+    int speed=2;
     int health;
-    
-    public void setSpawnSpeed(int val){
-        this.speed = val;
-    }
-    
-    public void setDamage(int val){
-        this.damage = val + 30;
-    }
-    
-    public void setHealth(int val){
-        this.health = val;
-    }
-    
-    public void addNewAttack(){
-        
-    }
-    
-    public void nextLevel(){
-        lv = new LevelStrategy4();
-    }
-    
-    public void prevLevel(){
-        lv = new LevelStrategy2();
-    }
-    
-    public void setNext(){
-        
-    }
-    
-    public void setPrev(){
-        
-    }
+    int holder=10;
+
+   public int getDamage(ISubject sub)
+   {
+       if(sub instanceof Undead)
+       {
+           return unDeaddamage;
+       }
+       else if(sub instanceof NightKing)
+       {
+           return nightKingDamage;
+       }
+       else if(sub instanceof Spear)
+       {
+           return spearDamage;
+       }
+       else
+       return holder;
+   }
+   
+   public int getSpearSpawnTime()
+   {
+       return spearSpawnTime;
+   }
+   
+   public int getUndeadSpawnTime()
+   {
+       return undeadSpawnTime;
+   }
+   
+   public void getStrategy()
+   {
+       
+   }
+   
+   public int getSpeed(ISubject sub)
+   {
+       return speed;
+   }
 }
