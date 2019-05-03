@@ -24,6 +24,7 @@ public class GameStateMachine
         myWorld = new MyWorld();
         gameOver = new GameOver();
         pause = new PausedGame();
+        gameWon = new gameWon();
         state = titleScreen;
         worldSetter();
         originator = new Originator();
