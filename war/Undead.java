@@ -105,6 +105,10 @@ public class Undead extends Subject implements IPlayerFactory
        {
            health=health-10;
        }
+       else if(s instanceof Arrow )
+       {
+           health=health-s.getDamage();
+       }
     }
     
     public int damaged(Actor a)

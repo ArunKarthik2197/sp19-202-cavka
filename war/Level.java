@@ -51,7 +51,7 @@ public class Level
     {
         if(currentLevel<levels.size()-1){
             currentLevel++;
-            System.err.println("currentLevel counter :" +currentLevel);
+            
         }
         else
             System.err.println("You won");
