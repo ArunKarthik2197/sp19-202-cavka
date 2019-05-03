@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name)
  * @version (a version number or a date)
  */
-public abstract class Subject extends Actor implements ISubject
+public abstract class Subject extends Actor implements ISubject, Visitable
 {
     /**
      * Act - do whatever the Subject wants to do. This method is called whenever
@@ -101,7 +101,11 @@ public abstract class Subject extends Actor implements ISubject
         notifyObserver(this);
     }
 
-
+    public int accept(HealthVisitor visitor )
+     {     
+         return visitor.visit();
+     }
+     
     public abstract boolean isKilledByMan();
 
 
