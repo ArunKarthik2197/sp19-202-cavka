@@ -40,10 +40,11 @@ public class Undead extends Subject implements IPlayerFactory
         damage=1;
         manKilled=false;
        // reachedWall=false;
+        
     }
     public void addedToWorld(World world)
     {
-      // man=MyWorld.getMan();
+       man=MyWorld.getMan();
        
         act();
     }
@@ -175,6 +176,10 @@ public class Undead extends Subject implements IPlayerFactory
         return health;
     }
     
+    public void setAttributes(){
+        damage = damage + currentLevel.getDamage(this);
+        speed = speed + currentLevel.getSpeed(this);
+    }
   
     
     public int getDamage()

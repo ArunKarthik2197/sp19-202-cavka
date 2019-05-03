@@ -77,6 +77,11 @@ public class Spear extends Subject
         return 1;
     }
     
+    public void setAttribute(){
+        damage = damage + currentLevel.getDamage(this);
+        speed = speed + currentLevel.getSpeed(this);
+    }
+    
     public void causeDamage(ISubject a)
     {
         if(a instanceof Man)
