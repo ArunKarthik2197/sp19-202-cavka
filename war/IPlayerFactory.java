@@ -1,13 +1,14 @@
 /**
  * Write a description of class PlayerFactory here.
  * 
- * @author (your name) 
+ * @author Kavya
  * @version (a version number or a date)
  */
 
 public interface IPlayerFactory  
 {
-	void attack();
+
+	void attack(ISubject s);
     
 }
 

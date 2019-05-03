@@ -21,17 +21,20 @@ public class PlayerCreator extends Actor
     {
        switch(name) 
         { 
-            case "Man": 
-                return new Man(); 
+
+            //case "Man": 
+              //  return new Man(); 
               // break; 
-            case "NightKing": 
-                return new NightKing(); 
+           // case "NightKing": 
+             //   return new Spear(); 
                // break; 
             case "UnDead": 
                return new Undead(); 
+			  
                // break; 
-            //case "Dragon" :
-            //    return new Dragon();
+
+            case "Dragon" :
+               return new Dragon();
                 
              default : break;
            
@@ -39,4 +42,6 @@ public class PlayerCreator extends Actor
         
         return null;
     }
+
 }
+

@@ -14,6 +14,12 @@ public class Wall extends Subject
      */
     private int health=200;
     private int damage;
+    private GreenfootImage img;
+    
+    public void addedToWorld(World world)
+    {
+        img=getImage();
+    }
     public void act() 
     {
         // Add your action code here.
@@ -28,6 +34,16 @@ public class Wall extends Subject
            damage=s.getDamage();
            health=health-damage;
            
+           int aq=(int)(health/2);
+           
+           int transPercent=(int)((aq*255)/100);
+           
+          // System.err.println("wall calc transparency: "+transPercent);
+
+          // System.err.println("wall transparency before : "+img.getTransparency());
+           img.setTransparency(transPercent);
+           //System.err.println("wall transparency after: "+img.getTransparency());
+
        }
        else if(s instanceof NightKing)
        {
@@ -56,5 +72,10 @@ public class Wall extends Subject
     public void setDamage(int val)
     {
         this.damage=val;
+    }
+    
+    public boolean isKilledByMan()
+    {
+        return false;
     }
 }

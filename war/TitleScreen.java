@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TitleScreen extends World
+public class TitleScreen extends World implements IGameState
 {
 
     /**
@@ -19,18 +19,26 @@ public class TitleScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-       // Greenfoot.start();
+        //Greenfoot.start();
+        //gif= new GifImage("startup.gif");
+        // Greenfoot.start();
         gif= new GifImage("dragon-flying.gif");
-        
+
     }
-    
+
     public void act()
     {
-        animation();
-        if (++counter == 200) Greenfoot.setWorld(new MyWorld());
+        animate();
+        if (++counter == 200) Default.sm.changeState(States.GAME);
     }
-    private void animation()
+
+    public void animate()
     {
         setBackground(gif.getCurrentImage());
+        if(counter>=195)
+            showText("Winter is here...",500,390);
+        else
+            showText("Winter is coming...",500,390);
     }
+
 }
