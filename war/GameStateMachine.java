@@ -14,6 +14,7 @@ public class GameStateMachine
     private IGameState myWorld;
     private IGameState pause;
     private IGameState gameOver;
+    private IGameState gameWon;
     /**
      * Constructor for objects of class GameStateMachine
      */
@@ -49,6 +50,9 @@ public class GameStateMachine
             case GAME_OVER   :  state = gameOver;
             worldSetter();
             break;
+            case GAME_WON   :  state = gameWon;
+            worldSetter();
+            break;
             case PLAY_AGAIN  :  state= new MyWorld();
             worldSetter();
             break;
@@ -67,5 +71,6 @@ enum States{
     GAME,
     PAUSE,
     GAME_OVER,
-    PLAY_AGAIN
+    PLAY_AGAIN,
+    GAME_WON
 }
