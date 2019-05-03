@@ -22,14 +22,14 @@ public class Dragon extends Actor implements IPlayerFactory
         gifDrg.resizeImages(80, 80);
         setImage(drg);
     }
+    
+    public void attack(ISubject s)
+    {
+        
+    }
     public void act() 
     {
-        setImage(gifDrg.getCurrentImage());
+       // setImage(gifDrg.getCurrentImage());
         // Add your action code here.
     }    
-    
-    public void attack() 
-    {
-    //add code here
-    }
 }
