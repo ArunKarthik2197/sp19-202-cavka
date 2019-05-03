@@ -15,7 +15,7 @@ public class HealthVisitor implements IVisitor
         sub = s;
     }
 
-    public int visit(ISubject s)
+    public int visit()
     {
        
        if(sub instanceof Undead)
