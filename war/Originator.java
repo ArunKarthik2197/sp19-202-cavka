@@ -19,7 +19,7 @@ public class Originator
      */
     public Originator()
     {
-    System.out.println("Hi from orig cons");
+ 
     }
 
     /**
@@ -31,22 +31,19 @@ public class Originator
    private IGameState state;
 
    public void setState(IGameState state){
-   System.out.println("Hi from orig setstate");
       Greenfoot.setWorld((World)state);
    }
 
    public IGameState getState(){
-   System.out.println("Hi from orig getstate");
+  
       return state;
    }
 
    public Memento saveMemento(){
-   System.out.println("Hi from orig savemem");
       return new Memento(state);
    }
 
    public void restoreMemento(Memento memento){
-   System.out.println("Hi from orig restoremem");
       state = memento.getState();
    }
 }
