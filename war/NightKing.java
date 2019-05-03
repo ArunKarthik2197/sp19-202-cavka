@@ -96,7 +96,7 @@ public class NightKing extends Subject
     }
 
 
-       public int getDamage()
+    public int getDamage()
 
     {
         return damage;
@@ -105,6 +105,12 @@ public class NightKing extends Subject
     public void setDamage(int val)
     {
         this.damage=val;
+    }
+    
+    private void setAttributes(){
+        currentLevel.getDamage(this);
+        currentLevel.getSpearSpawnTime();
+        currentLevel.getUndeadSpawnTime();
     }
 
     public void checkRange()

@@ -6,9 +6,9 @@
  */
 public class LevelStrategy2  implements IStrategy
 {
-     int nightKingDamage;
+    int nightKingDamage;
     int unDeaddamage;
-    int spearDamage;
+    int spearDamage = 15;
     int undeadSpawnTime;
     int spearSpawnTime;
     int speed=2;
@@ -19,6 +19,7 @@ public class LevelStrategy2  implements IStrategy
    {
        if(sub instanceof Undead)
        {
+           System.err.println("undeadDamage: " + unDeaddamage);
            return unDeaddamage;
        }
        else if(sub instanceof NightKing)

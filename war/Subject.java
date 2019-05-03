@@ -17,7 +17,7 @@ public abstract class Subject extends Actor implements ISubject
 
     private static int kills=0;
     protected PlayerCreator pf;
-    private static IStrategy currentLevel;
+    static IStrategy currentLevel;
     
     Subject()
     {
