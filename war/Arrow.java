@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Spear here.
  * 
- * @author M.A.P.Karthik
+ * @author M.A.P.Karthik.
  * @version (a version number or a date)
  */
 public class Arrow extends Subject 
