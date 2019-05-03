@@ -61,7 +61,7 @@ public class Man extends Subject
         damage=10;
         timer=1;
         setImage(img);
-        speed = 2;
+        speed = 4;
           
         attacking=false;
         movement=false;
@@ -77,9 +77,9 @@ public class Man extends Subject
             {
                 attacking=true;
                 attack();
-
-                
-            }else if(!movement){
+            }
+            else if(!movement)
+            {
             endAnimation();
             }
           
@@ -98,6 +98,7 @@ public class Man extends Subject
             
             if(Greenfoot.isKeyDown("up") )
             {
+                setImage(img);
                 setLocation(getX(),getY()-speed) ;
             }
             if(Greenfoot.isKeyDown("down") && !touchingWall())
@@ -137,8 +138,6 @@ public class Man extends Subject
             {   
                if(animationCounter%2==0)
                animateAttack(imgW);
-               
-              
             }
             
             else if(Greenfoot.isKeyDown("a"))
@@ -150,15 +149,13 @@ public class Man extends Subject
             else if(Greenfoot.isKeyDown("s"))
             {
                 if(animationCounter%2==0)
-                animateAttack(imgS);
-                     
+                animateAttack(imgS);     
             }
             
             else if(Greenfoot.isKeyDown("d"))
             {   
                if(animationCounter%2==0)
-               animateAttack(imgD);
-                      
+               animateAttack(imgD);      
             }
             if(isTouching(Undead.class)){
             ISubject s = (Undead)getOneIntersectingObject(Undead.class);
@@ -231,9 +228,6 @@ public class Man extends Subject
         
         else if(a instanceof Spear)
         health=health-a.getDamage();
-        
-        
-        
         HealthSet(health);
     }
     

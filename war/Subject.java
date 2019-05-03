@@ -17,7 +17,8 @@ public abstract class Subject extends Actor implements ISubject
 
     private static int kills=0;
     protected PlayerCreator pf;
-    private IStrategy currentLevel;
+    private static IStrategy currentLevel;
+    
     Subject()
     {
         world= MyWorld.getMyWorld();
@@ -25,6 +26,7 @@ public abstract class Subject extends Actor implements ISubject
 
         pf= new PlayerCreator();
         
+        if(currentLevel==null)
         currentLevel=MyWorld.lv.getCurrent();
     }
     
@@ -50,7 +52,7 @@ public abstract class Subject extends Actor implements ISubject
         }
 
         selectedTab.showKills(kills);
-        selectedTab.showLevel(currentLevel);
+        MyWorld.instruction.setValue(currentLevel);
         
     }
     public void addObserver()

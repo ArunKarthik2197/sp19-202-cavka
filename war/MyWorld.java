@@ -22,7 +22,7 @@ public class MyWorld extends World implements IGameState
     //static Man man;
    // static NightKing nightKing;
     public PlayerCreator players = new PlayerCreator();
-
+    static Instruction instruction;
     private static Man man;
     private static NightKing nightKing;
 
@@ -48,17 +48,17 @@ public class MyWorld extends World implements IGameState
         addObject(selectedTab,93,125);
 
         Castle castle = new Castle();
-        addObject(castle,37,749);
-        castle.setLocation(456,760);
+        addObject(castle,500,760);
+        
 
         nightKing = new NightKing();
-        addObject(nightKing,505,143);
-        nightKing.setLocation(468,43);
+        addObject(nightKing,468,43);
+        
 
         man = new Man();
         addObject(man,421,572);
         
-        Instruction instruction =new Instruction();
+        instruction =new Instruction();
         addObject(instruction,600,50);
         
         
