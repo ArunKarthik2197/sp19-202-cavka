@@ -47,4 +47,6 @@
 > - Core functionality of the game, including hero's functionality,Undead, world layout etc.,<br>
 > - Added the observer pattern for healthbars of the wall, player and night king.<br>
 > - fine tuning and gathering of assets.<br>
+<b>Observer for game stats </b>
+<img src="docs/GameObserverPattern-Arun_Karthik.svg"></img>
 
