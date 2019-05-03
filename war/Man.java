@@ -61,7 +61,7 @@ public class Man extends Subject
         damage=10;
         timer=1;
         setImage(img);
-        speed = 2;
+        speed = 4;
           
         attacking=false;
         movement=false;
