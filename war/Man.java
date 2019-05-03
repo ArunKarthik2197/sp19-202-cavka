@@ -102,6 +102,7 @@ public class Man extends Subject
             
             if(Greenfoot.isKeyDown("up") )
             {
+                setImage(img);
                 setLocation(getX(),getY()-speed) ;
             }
             if(Greenfoot.isKeyDown("down") && !touchingWall())
