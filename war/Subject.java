@@ -14,7 +14,7 @@ public abstract class Subject extends Actor implements ISubject
      */
     static World world;
     SelectedTab selectedTab;
-    static Level lv;
+    
     IStrategy currentLevel;
     private int kills=0;
     private int damageSet = 0;
@@ -94,20 +94,20 @@ public abstract class Subject extends Actor implements ISubject
     }
     
     public void currentLevelCheck(){
-        if(this.lv.getClass().getName().equals("LevelStrategy1")){
-            lv.setDamage(10);
+        if(MyWorld.lv.getClass().getName().equals("LevelStrategy1")){
+            MyWorld.lv.setDamage(10);
         }
-        else if(this.lv.getClass().getName().equals("LevelStrategy2")){
-            lv.setDamage(10);
+        else if(MyWorld.lv.getClass().getName().equals("LevelStrategy2")){
+            MyWorld.lv.setDamage(10);
         }
-        else if(this.lv.getClass().getName().equals("LevelStrategy3")){
-            lv.setDamage(10);
+        else if(MyWorld.lv.getClass().getName().equals("LevelStrategy3")){
+            MyWorld.lv.setDamage(10);
         }
-        else if(this.lv.getClass().getName().equals("LevelStrategy4")){
-            lv.setDamage(10);
+        else if(MyWorld.lv.getClass().getName().equals("LevelStrategy4")){
+            MyWorld.lv.setDamage(10);
         }
-        else if(this.lv.getClass().getName().equals("LevelStrategy5")){
-            lv.setDamage(10);
+        else if(MyWorld.lv.getClass().getName().equals("LevelStrategy5")){
+            MyWorld.lv.setDamage(10);
         }
     }
     
