@@ -22,7 +22,7 @@ public class MyWorld extends World implements IGameState
     //static Man man;
    // static NightKing nightKing;
     public PlayerCreator players = new PlayerCreator();
-
+    static Instruction instruction;
     private static Man man;
     private static NightKing nightKing;
 
@@ -58,7 +58,7 @@ public class MyWorld extends World implements IGameState
         man = new Man();
         addObject(man,421,572);
         
-        Instruction instruction =new Instruction();
+        instruction =new Instruction();
         addObject(instruction,600,50);
         
         
