@@ -16,6 +16,7 @@ public class Level
     private IStrategy lv5;
     private ArrayList<IStrategy> levels;
     private static Level levelInstance;
+    private static NightKing nk;
     private Level()
     {
         lv1=new LevelStrategy1();
@@ -51,7 +52,8 @@ public class Level
     {
         if(currentLevel<levels.size()-1){
             currentLevel++;
-            
+            nk = MyWorld.getNK();
+            nk.setAttributes();
         }
         else
             System.err.println("You won");
@@ -62,5 +64,7 @@ public class Level
         return levels.get(currentLevel);
     }
     
-   
+    public void isLeveledUp(){
+        
+    }
 }

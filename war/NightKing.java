@@ -110,10 +110,10 @@ public class NightKing extends Subject
         this.damage=val;
     }
     
-    private void setAttributes(){
-        currentLevel.getDamage(this);
-        currentLevel.getSpearSpawnTime();
-        currentLevel.getUndeadSpawnTime();
+    public void setAttributes(){
+        damage = currentLevel.getDamage(this);
+        throwTimer = currentLevel.getSpearSpawnTime();
+        spawnTimer = currentLevel.getUndeadSpawnTime();
     }
 
     public void checkRange()
