@@ -91,11 +91,11 @@ public class Man extends Subject
             if(health<=0)
             die(this);
         animationCounter++;
-        levelCounter++;
+        //levelCounter++;
         
-        if(levelCounter == 300){
+        //if(levelCounter == 300){
              //level up logic, call method here to change level reference
-        }
+        //}
     }    
 
     public void movement()

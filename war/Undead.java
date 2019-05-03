@@ -72,7 +72,7 @@ public class Undead extends Subject implements IPlayerFactory
         }
     }
     }    
-}
+
 
         public void moveTo(int targetX,int targetY)
         {
