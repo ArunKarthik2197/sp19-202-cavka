@@ -10,7 +10,7 @@ public interface ISubject
   public void notifyObserver(ISubject a);
     
     
-    public void addObserver();
+    public void addObservers();
    
     
     public void die(ISubject s);

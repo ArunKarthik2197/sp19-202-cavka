@@ -29,7 +29,9 @@ public class TitleScreen extends World implements IGameState
     public void act()
     {
         animate();
-        if (++counter == 200) Default.sm.changeState(States.GAME);
+        counter++;
+        if (counter%200 == 0) 
+        Default.sm.changeState(States.GAME);
     }
 
     public void animate()

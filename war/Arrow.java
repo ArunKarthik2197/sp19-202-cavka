@@ -3,10 +3,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Spear here.
  * 
- * @author (your name) 
+ * @author M.A.P.Karthik.
  * @version (a version number or a date)
  */
-public class Spear extends Subject 
+public class Arrow extends Subject 
 {
     /**
      * Act - do whatever the Spear wants to do. This method is called whenever
@@ -15,16 +15,18 @@ public class Spear extends Subject
     private Actor target;
     private int X;
     private int Y;
+    private int aliveTimer=0;
+    private int aliveTime=150;
     private int speed=3;
-    private Man m;
+    private ISubject m;
     private int damage;
     private GreenfootImage img;
-    public Spear(Actor target)
+    public Arrow(Actor target)
     {
         this.target=target;
-        damage=10;
-        img = new GreenfootImage("ice-spear.png");
-        img.scale(40,40);
+        damage=5;
+        img = new GreenfootImage("arrow-1.png");
+        img.scale(10, 30);
         setImage(img);
         
     }
@@ -33,28 +35,35 @@ public class Spear extends Subject
     {
         X=target.getX();
         Y=target.getY();
-        turnTowards(X,Y);
-        act();
+        //turnTowards(X,Y);
+        //act();
     }
     public void act() 
     {
-        if(target.getX()<getX())
-        setLocation(getX()-speed,getY()+speed);
-        else if(target.getX()>getX())
-        setLocation(getX()+speed,getY()+speed);
+        if(X<getX())
+        setLocation(getX()-speed,getY()-speed);
+        else if(X>getX())
+        setLocation(getX()+speed,getY()-speed);
+        else
+        setLocation(getX(),getY()-speed);
+        //
         checkTouching();
     }    
     
     public void checkTouching()
     {
-       m=(Man) getOneIntersectingObject(Man.class);
+       aliveTimer++;
+       m=(Undead)getOneIntersectingObject(Undead.class);
        if(m!=null)
        {
        m.causeDamage(this); 
        die(this);
        }
-       else if(isTouching(Wall.class) || isAtEdge())
+       else if(aliveTimer % aliveTime == 0)
+       {
        die(this);
+       return;
+       }
        else
        return;
        
@@ -79,11 +88,7 @@ public class Spear extends Subject
     
     public void causeDamage(ISubject a)
     {
-        if(a instanceof Man)
-        {
-        die(this);
-        return;
-        }
+        //Nothing
     }
     
        public int getDamage()

@@ -14,6 +14,9 @@ public class GameStateMachine
     private IGameState myWorld;
     private IGameState pause;
     private IGameState gameOver;
+    private IGameState gameWon;
+    private Originator originator;
+    private Caretaker caretaker;
     /**
      * Constructor for objects of class GameStateMachine
      */
@@ -23,8 +26,11 @@ public class GameStateMachine
         myWorld = new MyWorld();
         gameOver = new GameOver();
         pause = new PausedGame();
+       // gameWon = new gameWon();
         state = titleScreen;
         worldSetter();
+        originator = new Originator();
+   	    caretaker = new Caretaker();
     }
 
     /**
@@ -38,19 +44,34 @@ public class GameStateMachine
         switch(val){
 
             case TITLE       :  state = titleScreen;
-            worldSetter(); 
+            //worldSetter(); 
+            originator.setState(state);
+          
             break;
             case GAME        :  state = myWorld;
-            worldSetter(); 
+           // worldSetter();            
+            originator.setState(state);
+            
+           
             break;
             case PAUSE       :  state = pause;
-            worldSetter();
+            //worldSetter();          
+            originator.setState(state);
+       
             break;
             case GAME_OVER   :  state = gameOver;
-            worldSetter();
+           // worldSetter();            
+            originator.setState(state);
+   
             break;
-            case PLAY_AGAIN  :  state= new MyWorld();
-            worldSetter();
+            case PLAY_AGAIN  :        
+            originator.setState(new MyWorld());
+            
+            break;
+            case GAME_WON   :  state = gameWon;
+            //worldSetter();
+            originator.setState(state);
+            
             break;
         }
     }
@@ -67,5 +88,6 @@ enum States{
     GAME,
     PAUSE,
     GAME_OVER,
-    PLAY_AGAIN
+    PLAY_AGAIN,
+    GAME_WON
 }

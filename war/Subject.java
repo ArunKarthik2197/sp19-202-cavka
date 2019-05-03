@@ -1,9 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
  * Write a description of class Subject here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 public abstract class Subject extends Actor implements ISubject
@@ -17,23 +17,24 @@ public abstract class Subject extends Actor implements ISubject
 
     private static int kills=0;
     protected PlayerCreator pf;
-    static IStrategy currentLevel;
-    
+    protected static IStrategy currentLevel;
+    private static Instruction levelCounter;
+
     Subject()
     {
         world= MyWorld.getMyWorld();
-        addObserver();
+        addObservers();
 
         pf= new PlayerCreator();
-        
+
         if(currentLevel==null)
         currentLevel=MyWorld.lv.getCurrent();
     }
-    
-    public void act() 
+
+    public void act()
     {
 
-    }    
+    }
 
     public void notifyObserver(ISubject a)
     {
@@ -52,12 +53,14 @@ public abstract class Subject extends Actor implements ISubject
         }
 
         selectedTab.showKills(kills);
-        MyWorld.instruction.setValue(currentLevel);
-        
+        levelCounter.setValue(currentLevel);
+       // selectedTab.showLevel(lv);
+
     }
-    public void addObserver()
+    public void addObservers()
     {
         selectedTab = MyWorld.getSelectedTab();
+        levelCounter=MyWorld.getLevelCounter();
     }
 
     public void die(ISubject s)
@@ -69,7 +72,7 @@ public abstract class Subject extends Actor implements ISubject
         kills++;
         notifyObserver(s);
         levelUp();
-        
+
         getWorld().removeObject((Subject)s);
         }
         else if(s instanceof Man)
@@ -86,22 +89,22 @@ public abstract class Subject extends Actor implements ISubject
         }
         else
         getWorld().removeObject((Subject)s);
-        
-        
-        
+
+
+
     }
-    
+
     private void levelUp()
     {
         MyWorld.lv.levelUp();
         currentLevel=MyWorld.lv.getCurrent();
         notifyObserver(this);
     }
-  
-    
+
+
     public abstract boolean isKilledByMan();
 
-    
+
     public abstract void causeDamage(ISubject a);
 
     public abstract void HealthSet(int val);
