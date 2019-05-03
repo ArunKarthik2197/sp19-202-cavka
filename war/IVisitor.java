@@ -6,5 +6,5 @@
  */
 public interface IVisitor  
 {
-    int visit(ISubject s);
+    int visit();
 }
