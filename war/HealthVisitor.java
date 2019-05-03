@@ -17,21 +17,20 @@ public class HealthVisitor implements IVisitor
 
     public int visit(ISubject s)
     {
-       // s = sub;
-       System.out.println("Health Visitor visit method begin , health : "+health);
+       
        if(sub instanceof Undead)
        {
            damage=sub.getDamage();
            health=health-damage;
-           System.out.println("Health Visitor wall health for undead: "+health);
+           
         }
         else if(sub instanceof NightKing)
        {
            damage=sub.getDamage();
-           health=health-damage-20;
-            System.out.println("Health Visitor wall health for nk: "+health);
+           health=health-damage-10;
+            
         }
-       System.out.println("Health Visitor visit method end , health : "+health);
+       
        return health;
     }
 }
