@@ -24,8 +24,11 @@ public class GameStateMachine
         myWorld = new MyWorld();
         gameOver = new GameOver();
         pause = new PausedGame();
+        gameWon = new gameWon();
         state = titleScreen;
         worldSetter();
+        originator = new Originator();
+   	    caretaker = new Caretaker();
     }
 
     /**
@@ -39,22 +42,34 @@ public class GameStateMachine
         switch(val){
 
             case TITLE       :  state = titleScreen;
-            worldSetter(); 
+            //worldSetter(); 
+            originator.setState(state);
+          
             break;
             case GAME        :  state = myWorld;
-            worldSetter(); 
+           // worldSetter();            
+            originator.setState(state);
+            
+           
             break;
             case PAUSE       :  state = pause;
-            worldSetter();
+            //worldSetter();          
+            originator.setState(state);
+       
             break;
             case GAME_OVER   :  state = gameOver;
-            worldSetter();
+           // worldSetter();            
+            originator.setState(state);
+   
+            break;
+            case PLAY_AGAIN  :        
+            originator.setState(new myWorld());
+            
             break;
             case GAME_WON   :  state = gameWon;
-            worldSetter();
-            break;
-            case PLAY_AGAIN  :  state= new MyWorld();
-            worldSetter();
+            //worldSetter();
+            originator.setState(state);
+            
             break;
         }
     }
