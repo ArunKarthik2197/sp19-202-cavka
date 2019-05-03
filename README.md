@@ -24,6 +24,9 @@
 > - You'll get help along the way as you slay the undead and the morale of your soldiers is raised.<br>
 > - With the help of your people kill the Night King and end the long night.
 ## Project Progress
+>Assets gathered, the images and various other animations.<br>
+>Implemented the observer pattern for unit selection.<br>
+>Laid down the basic environment of the world.<br>
 
 > -   Assets gathered, the images and various other animations.<br>
 > -   4 patterns added, state,observer,strategy and factory.<br> 
