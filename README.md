@@ -26,10 +26,12 @@
 ## Project Progress
 
 > -   Assets gathered, the images and various other animations.<br>
-> -   Implemented the observer pattern for unit selection.<br> 
-> -   Laid down the basic environment of the world.<br> 
-> -   Health bar observer and core game functionality added.<br>
-> -   Yet to add levels. <br>
+> -   4 patterns added, state,observer,strategy and factory.<br> 
+> -   Game functionality laid out<br> 
+> -   All visual components added.<br>
+> -   Yet to test the momento pattern.<br>
+> -   Minor Glitches to be fixed.
+> -   Use cases implemented.
 
 ### Burndown Map
 #### Burndown till week-1
