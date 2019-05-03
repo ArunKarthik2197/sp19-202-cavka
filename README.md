@@ -4,6 +4,10 @@
 ## Team Name
 ><b>CAVKA</b>
 ## Team Members
+    [Arun] https://github.com/ArunKarthik2197
+    [Vignesh] https://github.com/vignesht96
+    [Kavya] https://github.com/kavyadayanand
+    [Abhilash] https://github.com/
 
 * [https://github.com/ArunKarthik2197](url_to_your_github_repo)
 * [https://github.com/abhilashvadanala](url_to_your_github_repo)
@@ -20,11 +24,12 @@
 > - You'll get help along the way as you slay the undead and the morale of your soldiers is raised.<br>
 > - With the help of your people kill the Night King and end the long night.
 ## Project Progress
->Assets gathered, the images and various other animations.<br>
->Implemented the observer pattern for unit selection.<br>
->Laid down the basic environment of the world.<br>
->Health bar observer and core game functionality added.
->Yet to add levels.
+
+> -   Assets gathered, the images and various other animations.<br>
+> -   Implemented the observer pattern for unit selection.<br> 
+> -   Laid down the basic environment of the world.<br> 
+> -   Health bar observer and core game functionality added.<br>
+> -   Yet to add levels. <br>
 
 ### Burndown Map
 #### Burndown till week-1
@@ -38,7 +43,8 @@
 ### Project Dashboard
 
 ### Individual Contributions
+#### Arun Karthik
 > - Core functionality of the game, including hero's functionality,Undead, world layout etc.,<br>
-> - Added the observer pattern for healthbars of the wall, player and night king.
-> - fine tuning and gathering of assets.
+> - Added the observer pattern for healthbars of the wall, player and night king.<br>
+> - fine tuning and gathering of assets.<br>
 

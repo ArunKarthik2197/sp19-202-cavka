@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MyWorld extends World implements IGameState
 {
-   static SelectedTab selectedTab;
+    static SelectedTab selectedTab;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -18,9 +18,14 @@ public class MyWorld extends World implements IGameState
     static MyWorld world;
     List<Subject> all;
     static List<Wall> wall;
-    static Man man;
-    static NightKing nightKing;
-    
+
+    //static Man man;
+   // static NightKing nightKing;
+    public PlayerCreator players = new PlayerCreator();
+
+    IPlayerFactory man;
+    IPlayerFactory nightKing;
+
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -28,9 +33,9 @@ public class MyWorld extends World implements IGameState
         world = this;
         all= new ArrayList<Subject>();
         wall = new ArrayList<Wall>();
-      
+
         prepare();
-        
+
     }
 
     /**
@@ -41,18 +46,25 @@ public class MyWorld extends World implements IGameState
     {
         selectedTab = new SelectedTab();
         addObject(selectedTab,93,125);
-        
 
         Castle castle = new Castle();
         addObject(castle,37,749);
         castle.setLocation(456,760);
 
-        nightKing = new NightKing();
+       /* nightKing = new NightKing();
         addObject(nightKing,505,143);
         nightKing.setLocation(468,43);
 
         man = new Man();
-        addObject(man,421,572);
+        addObject(man,421,572);*/
+        
+        IPlayerFactory nightKing = players.SpawnPlayer("NightKing"); 
+		  addObject((Actor)nightKing,505,143);
+        ((Actor)nightKing).setLocation(468,43);
+		
+		  man = players.SpawnPlayer("Man"); 
+        addObject((Actor)man,421,572);
+        
         int start=0;
         for(int i=0;i<15;i++)
         {
@@ -64,55 +76,44 @@ public class MyWorld extends World implements IGameState
             start=start+width;
         }
 
-        
     }
-    
+
     public void act()
     {
-       
+
         if(Greenfoot.isKeyDown("p"))
-        paused();
+            paused();
+
     }
-    
+
     public static SelectedTab getSelectedTab()
     {
         return selectedTab;
     }
-    
-    
-    
+
     public static MyWorld getMyWorld()
     {
         return world;
     }
     
-    public static Man getMan()
+    public IPlayerFactory getMan()
     {
         return man;
     }
     
-    public static NightKing getNK()
+    public IPlayerFactory getNK()
     {
         return nightKing;
     }
-    
+
     public void paused()
     {
-        String answer=Greenfoot.ask("Want to quit? if yes press Y or press N to resume");
-        if(answer.equalsIgnoreCase("y"))
-        {
-            Greenfoot.stop();
-        }
-        else if(answer.equalsIgnoreCase("n"))
-        {
-            Greenfoot.start();
-        }
+        Default.sm.changeState(States.PAUSE);
+
     }
-    
-    
-    
+
     public void animate()
     {
-        
+
     }
 }

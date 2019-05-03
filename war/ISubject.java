@@ -27,4 +27,6 @@ public interface ISubject
     public int getDamage();
     
     public void setDamage(int val);
+    
+    public boolean isKilledByMan();
 }

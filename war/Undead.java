@@ -147,7 +147,9 @@ public class Undead extends Subject implements IPlayerFactory
              //reachedWall=true;
              
              attacking=true;
+
              walls=getObjectsInRange(75, Wall.class);
+
              System.err.println("\t Walls Found:"+walls.size());
              reachedWallMovement();
              
@@ -195,4 +197,6 @@ public class Undead extends Subject implements IPlayerFactory
         setLocation(getX(),getY()+(15*(moveUp?-1:1)));
         moveUp=!moveUp;
     }
+
 }
+

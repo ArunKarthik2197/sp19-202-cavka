@@ -21,6 +21,7 @@ public class PlayerCreator extends Actor
     {
        switch(name) 
         { 
+
             //case "Man": 
               //  return new Man(); 
               // break; 
@@ -29,7 +30,9 @@ public class PlayerCreator extends Actor
                // break; 
             case "UnDead": 
                return new Undead(); 
+			  
                // break; 
+
             case "Dragon" :
                return new Dragon();
                 
@@ -39,4 +42,6 @@ public class PlayerCreator extends Actor
         
         return null;
     }
+
 }
+

@@ -76,8 +76,8 @@ public class Man extends Subject
             if(attackPressed)
             {
                 attacking=true;
-                
                 attack();
+
                 
             }else if(!movement){
             endAnimation();
