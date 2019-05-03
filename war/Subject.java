@@ -21,7 +21,8 @@ public abstract class Subject extends Actor implements ISubject
     {
         world= MyWorld.getMyWorld();
         addObserver();
-        pf= new PlayerCreator();        
+
+        pf= new PlayerCreator();
     }
     
     public void act() 
@@ -40,7 +41,7 @@ public abstract class Subject extends Actor implements ISubject
         {
             selectedTab.setWallHealth(a.getHealth());
         }
-        else if(a instanceof Man)
+        else if(a instanceof NightKing)
         {
             selectedTab.setNKHealth(a.getHealth());
         }
@@ -54,11 +55,10 @@ public abstract class Subject extends Actor implements ISubject
     public void die(ISubject s)
     {
         if(s instanceof Undead)
+
         {
-            if(s.isKilledByMan())
-            kills+=1;
-            notifyObserver(s);
-            getWorld().removeObject((Subject)s);
+        
+        getWorld().removeObject((Subject)s);
         }
         else if(s instanceof Man)
         {
@@ -75,33 +75,6 @@ public abstract class Subject extends Actor implements ISubject
         else
         getWorld().removeObject((Subject)s);
     }
-    
-    /*public void levelUp(){
-        if(kills == 10){
-            lv.levelUp(lv);
-            System.err.println();
-        }
-    }
-    */
-   /* 
-   public void currentLevelCheck(){
-        if(this.lv.getClass().getName().equals("LevelStrategy1")){
-            lv.setDamage(10);
-        }
-        else if(this.lv.getClass().getName().equals("LevelStrategy2")){
-            lv.setDamage(10);
-        }
-        else if(this.lv.getClass().getName().equals("LevelStrategy3")){
-            lv.setDamage(10);
-        }
-        else if(this.lv.getClass().getName().equals("LevelStrategy4")){
-            lv.setDamage(10);
-        }
-        else if(this.lv.getClass().getName().equals("LevelStrategy5")){
-            lv.setDamage(10);
-        }
-    }
-   */ 
     public abstract boolean isKilledByMan();
 
     

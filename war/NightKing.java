@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * @version (a version number or a date)
  */
 public class NightKing extends Subject 
+
 {
     /**
      * Act - do whatever the NightKing wants to do. This method is called whenever
@@ -26,8 +27,9 @@ public class NightKing extends Subject
     private List<Man> man;
     private int throwTimer=120;
     private int time2=0;
-    private boolean manKilled = false;
 
+    private int healtTimer=100;
+    private int time3=0;
     public NightKing()
     {
         img= new GreenfootImage("Night_king1.gif");
@@ -43,17 +45,19 @@ public class NightKing extends Subject
      public void act()
     {
         time++;
+        time3++;
         X=getX();
         Y=getY();
         checkRange();
         int r= random(100);
+        if(time3%100 == 0 || health<=50)
+        heal();
         if(time%spawnTimer == 0)
         {
             if(r%2==0)
-
-            getWorld().addObject(new Undead(), X+random(150), Y);
+            getWorld().addObject((Undead)pf.SpawnPlayer("UnDead"), X+random(50), Y);
             else
-            getWorld().addObject(new Undead(),X-random(150),Y);
+            getWorld().addObject((Undead)pf.SpawnPlayer("UnDead"),X-random(50),Y);
         }
 
     }
@@ -61,12 +65,6 @@ public class NightKing extends Subject
     public void attack()
     {
         
-    }
-   
-   public void causeDamage(Subject s)
-
-    {
-        //nothing
     }
 
     public int random(int limit)
@@ -87,6 +85,11 @@ public class NightKing extends Subject
     public void causeDamage(ISubject a)
     {
 
+        if(a instanceof Man)
+        {
+            health=health-a.getDamage();
+            super.notifyObserver(this);
+        }
     }
 
 
@@ -125,4 +128,21 @@ public class NightKing extends Subject
     {
         return manKilled;
     }
+     public void attack() 
+    {
+    //add code here
+    }
+    
+    public void heal()
+    {
+        if(health<=240)
+        health=health+10;
+        else if(health<250)
+        {
+            int diff = 250-health;
+            health=health+diff;
+        }
+        super.notifyObserver(this);
+    }
 }
+   

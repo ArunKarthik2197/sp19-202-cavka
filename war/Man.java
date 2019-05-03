@@ -66,7 +66,6 @@ public class Man extends Subject
         attacking=false;
         movement=false;
     }
-
     public void act() 
     {
        
@@ -77,7 +76,8 @@ public class Man extends Subject
             if(attackPressed)
             {
                 attacking=true;
-                attack(timer);
+                attack();
+
                 
             }else if(!movement){
             endAnimation();
@@ -91,13 +91,7 @@ public class Man extends Subject
             if(health<=0)
             die(this);
         animationCounter++;
-        //levelCounter++;
-        
-        //if(levelCounter == 300){
-             //level up logic, call method here to change level reference
-        //}
-    }    
-
+    }  
     public void movement()
     {
             
@@ -122,19 +116,20 @@ public class Man extends Subject
                 setLocation(getX()-speed,getY());
             }
     }
-
     public GreenfootImage scale(GreenfootImage image)
     {
         int scalePercent = 50;
         int width = image.getWidth()*scalePercent/100;
         int height = image.getHeight()*scalePercent/100;
         image.scale(width,height);
-
+        
         return image;
-
+        
     }
-
-    public void attack(int timer)
+    
+    
+    
+    public void attack()
     {
            
          
@@ -156,35 +151,44 @@ public class Man extends Subject
             {
                 if(animationCounter%2==0)
                 animateAttack(imgS);
-                //sword_hit.play();    
-            //endAnimation();
-        }
-
-        else if(Greenfoot.isKeyDown("d"))
-        {   
-            if(animationCounter%2==0)
-                animateAttack(imgD);
-                //sword_hit.play();
-            //endAnimation();
-        }
-
+                     
+            }
+            
+            else if(Greenfoot.isKeyDown("d"))
+            {   
+               if(animationCounter%2==0)
+               animateAttack(imgD);
+                      
+            }
+            if(isTouching(Undead.class)){
+            ISubject s = (Undead)getOneIntersectingObject(Undead.class);
+            s.causeDamage(this);
+            }
+            else if(isTouching(Spear.class)){
+                ISubject s = (Spear)getOneIntersectingObject(Spear.class);
+                s.causeDamage(this);
+            }
+            else if(isTouching(NightKing.class)){
+            
+              ISubject s = (NightKing)getOneIntersectingObject(NightKing.class);
+                s.causeDamage(this);
+            }
     }
     
     public void animateAttack(ImageHolder dir)
     {
         if(timer == 1)
-            setImage(dir);
+        setImage(dir);
         else if(timer==2)
-            setImage(imgD);
+        setImage(imgD);
         else if(timer ==3)
-
         setImage(imgA);
         //else if(timer>=4)
         //endAnimation();
         timer++;
-
+        
     }
-
+    
     private void endAnimation()
     {
         //System.err.println("end animation timer : "+timer);
@@ -217,46 +221,40 @@ public class Man extends Subject
         }
         return touching;
     }
-
+    
     public void causeDamage(ISubject a)
     {
         //System.out.println("In man cause damage  : "+a);
         if(a instanceof Undead )
-
         
         health=health-a.getDamage();
         
         else if(a instanceof Spear)
         health=health-a.getDamage();
         
-
+        
+        
         HealthSet(health);
     }
-
+    
     public void HealthSet(int val)
     {
-        super.notifyObserver(this);
+       super.notifyObserver(this);
     }
-
+    
     public int getHealth()
     {
         return health;
     }
-
+    
     public int getDamage()
     {
         return damage;
     }
-
+    
     public void setDamage(int val)
     {
         this.damage=val;
     }
-
     
-    public boolean isKilledByMan()
-    {
-        return false;
-    }
-
 }

@@ -27,7 +27,6 @@ public class Dragon extends Actor implements IPlayerFactory
     {
         
     }
-
     public void act() 
     {
        // setImage(gifDrg.getCurrentImage());

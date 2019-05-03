@@ -27,7 +27,6 @@ public class LevelStrategy1 extends Level implements IStrategy
     }
 
     public void nextLevel(){
-        lv = new LevelStrategy2();
     }
 
     public void prevLevel(){

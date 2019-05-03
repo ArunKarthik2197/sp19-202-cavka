@@ -7,6 +7,8 @@
 
 public interface IPlayerFactory  
 {
+
 	void attack(ISubject s);
     
 }
+

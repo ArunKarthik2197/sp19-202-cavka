@@ -43,9 +43,12 @@ public class SelectedTab extends Actor
 
     public void addedToWorld(World world)
     {
-
-        man=MyWorld.getMan();
-        nk = this.world.getNK();
+        
+        
+        /*man=MyWorld.getMan();
+        nk = this.world.getNK();*/
+        man=(Man)MyWorld.getMyWorld().getMan();
+        nk = (NightKing)this.world.getNK();
         walls=getWorld().getObjects(Wall.class);
         //System.out.println(man);
         int x = this.getX();  int y=this.getY();
