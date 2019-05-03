@@ -26,6 +26,8 @@ public class GameStateMachine
         pause = new PausedGame();
         state = titleScreen;
         worldSetter();
+        originator = new Originator();
+   	    caretaker = new Caretaker();
     }
 
     /**
