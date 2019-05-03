@@ -30,6 +30,9 @@ public class NightKing extends Subject
     private boolean manKilled=false;
     private int healtTimer=100;
     private int time3=0;
+    
+    public boolean  manKilled;
+    
     public NightKing()
     {
         img= new GreenfootImage("Night_king1.gif");
@@ -127,11 +130,11 @@ public class NightKing extends Subject
 
     }
     
-    public boolean isKilledByMan()
+  public boolean isKilledByMan()
     {
         return manKilled;
     }
-     public void attack(ISubject s) 
+    public void attack(ISubject s) 
     {
     //add code here
     }

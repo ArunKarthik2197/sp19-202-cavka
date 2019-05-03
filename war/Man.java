@@ -30,6 +30,8 @@ public class Man extends Subject
     private int health;
     private int damage;
     private boolean movement;
+    private boolean  manKilled;
+    
     /**
      * Act - do whatever the man wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -158,8 +160,9 @@ public class Man extends Subject
             
             else if(Greenfoot.isKeyDown("d"))
             {   
-               if(animationCounter%2==0)
-               animateAttack(imgD);      
+              // if(animationCounter%2==0)
+              // animateAttack();
+                      
             }
             if(isTouching(Undead.class)){
             ISubject s = (Undead)getOneIntersectingObject(Undead.class);
@@ -255,10 +258,8 @@ public class Man extends Subject
     {
         this.damage=val;
     }
-    
     public boolean isKilledByMan()
     {
-        return false;
+        return manKilled;
     }
-    
 }
