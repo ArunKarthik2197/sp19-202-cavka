@@ -79,7 +79,11 @@ public class Spear extends Subject
     
     public void causeDamage(ISubject a)
     {
-        //Nothing
+        if(a instanceof Man)
+        {
+        die(this);
+        return;
+        }
     }
     
        public int getDamage()

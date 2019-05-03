@@ -18,11 +18,12 @@ public abstract class Subject extends Actor implements ISubject
     private static int kills=0;
     protected PlayerCreator pf;
     private static IStrategy currentLevel;
+    private static Instruction levelCounter;
     
     Subject()
     {
         world= MyWorld.getMyWorld();
-        addObserver();
+        addObservers();
 
         pf= new PlayerCreator();
         
@@ -52,12 +53,13 @@ public abstract class Subject extends Actor implements ISubject
         }
 
         selectedTab.showKills(kills);
-        MyWorld.instruction.setValue(currentLevel);
+        levelCounter.setValue(currentLevel);
         
     }
-    public void addObserver()
+    public void addObservers()
     {
         selectedTab = MyWorld.getSelectedTab();
+        levelCounter=MyWorld.getLevelCounter();
     }
 
     public void die(ISubject s)
