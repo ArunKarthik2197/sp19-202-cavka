@@ -29,10 +29,13 @@ public class Wall extends Subject
     
     public void causeDamage(ISubject s)
     {
+        HealthVisitor visitor = new HealthVisitor(s);
+        health = accept(visitor);
+        System.out.println("wall health: "+health);  
        if(s instanceof Undead)
        {
            damage=s.getDamage();
-           health=health-damage;
+         //  health=health-damage;
            
            int aq=(int)(health/2);
            
@@ -48,7 +51,7 @@ public class Wall extends Subject
        else if(s instanceof NightKing)
        {
            damage=s.getDamage();
-           health=health-damage;
+         //  health=health-damage;
            
        }
        HealthSet(damage);
