@@ -34,6 +34,7 @@ public class Spear extends Subject
         X=target.getX();
         Y=target.getY();
         turnTowards(X,Y);
+        Greenfoot.playSound("spear_swing.mp3");
         act();
     }
     public void act() 

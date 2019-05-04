@@ -56,7 +56,7 @@ public class Castle extends Subject
     
     public void attack(Actor s)
     {
-        if(!(currentLevel instanceof LevelStrategy1))
+       // if(!(currentLevel instanceof LevelStrategy1))
         fireArrow(s);
     }
     

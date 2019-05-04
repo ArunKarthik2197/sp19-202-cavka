@@ -37,9 +37,11 @@ public class Arrow extends Subject
         Y=target.getY();
         //turnTowards(X,Y);
         //act();
+        Greenfoot.playSound("arrow_release.mp3");
     }
     public void act() 
     {
+        
         if(X<getX())
         setLocation(getX()-speed,getY()-speed);
         else if(X>getX())
