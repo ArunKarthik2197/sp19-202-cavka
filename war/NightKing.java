@@ -30,7 +30,7 @@ public class NightKing extends Subject
     private boolean manKilled=false;
     private int healtTimer=1000;
     private int time3=0;
-    private int spawnStop
+    private int spawnStop;
     
     
     public NightKing()
