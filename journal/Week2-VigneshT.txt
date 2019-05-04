@@ -1,0 +1,15 @@
+# Week 2 Scrum Report 4/14 - 4/20:
+
+## Vignesh Thyagarajan
+
+### Tasks worked on/completed 
+- Task1: Finalized the GoT game as the game to implement. Tetris seemed too complex to implement on Greenfoot. Tasked with researching and figuring out what patterns can be used to make the game function as per our discussion/specifications.
+
+### Planned Next Week 
+- Task1: Implementing the Strategy pattern with Levels to make the game and player progress. 
+
+### Problems
+- Figuring out how to structure the Strategy pattern so that Levels are properly implemented and functioning.
+
+### XP Value (Communication and Feedback):
+- In depth discussion with teammates about how to approach the GoT game, as well as what patterns will fit well in making the game functional. Feedback was constantly thrown around back and forth in helping solidify what we had and help everyone understand their roles better.

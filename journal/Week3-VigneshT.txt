@@ -1,0 +1,16 @@
+# Week 3 Scrum Report 4/21 - 4/27:
+
+## Vignesh Thyagarajan
+
+### Tasks worked on/completed 
+- Task1: Working on understanding how to integrate levels and how to implement it with the Strategy pattern. Then implementing the Strategy.
+
+### Planned Next Week 
+- Task1: Implementing the Strategy pattern with Levels to make the game and player progress.
+- Task2: Finishing up documentation for the classes, any and all other diagrams, etc. 
+
+### Problems
+- Figuring out how to structure the Strategy pattern so that Levels are properly implemented and functioning.
+
+### XP Value (Communication and Feedback):
+- Getting input from other team members in understanding and trying to figure out the logic properly so that it integrates well with all the other code being written. Learning this way helped immensely, and the power of peer coding, peer review really helped me with being able to make these connections.

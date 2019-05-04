@@ -1,0 +1,15 @@
+# Week 3 Scrum Report 4/28 - 5/4:
+
+## Vignesh Thyagarajan
+
+### Tasks worked on/completed 
+- Task1: Implementing Strategy pattern. Helping with other parts of the code implementation/code clean up.
+
+### Planned Next Week 
+- Task1: None. 
+
+### Problems
+- Bugs relating to Strategy pattern functionality, such as the levelCounter not updating properly and Level switching back and forth between 1 and 2.
+
+### XP Value (Communication and Feedback):
+- Again getting input from other team members in understanding and trying to figure out the logic properly so that it integrates well with all the other code being written.

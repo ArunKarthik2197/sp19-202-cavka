@@ -61,7 +61,11 @@
 
 
 #### Vignesh
-
+> - Handling of attribute values for various level classes. <br>
+> - Implementing Strategy pattern for Level switching while in the game. <br>
+> - Gathering of sound assets for various events in game. <br>
+<b>Strategy for Level implementation </b>
+<img src="docs/StrategyPattern_VigneshT.png"></img><br>
 
 #### Kavya
 
