@@ -39,23 +39,23 @@ Sequence diagrams<br>
 None<br>
 
 <br><br>
-**###Week 2: 14/4 - 20/4:
+**###Week 2: 14/4 - 20/4:<br>
+<br>
 
+**####What tasks did I work on / complete?**<br>
 
-**####What tasks did I work on / complete?**
-
-Found that Tetris game could not be efficiently implemented on greenfoot.
-Researched on various other games and came up with a game inspired by TV series Game of Thrones(GOT).
-Performed analysis on the GOT game and features that can be implemented on greenfoot.
-Had a brainstorming session with the team to come up with below
-Features to be implemented 
-User stories
-Breakdown of user stories into tasks
-Task allocation
-Researched on design patterns that can potentially be used for the features in the project
-Design Discussion with the team to come up with a high-level architecture of the project.
-Implemented factory pattern to spawn players.
-Asset collection for title screen and night king.
+Found that Tetris game could not be efficiently implemented on greenfoot.<br>
+Researched on various other games and came up with a game inspired by TV series Game of Thrones(GOT).<br>
+Performed analysis on the GOT game and features that can be implemented on greenfoot.<br>
+Had a brainstorming session with the team to come up with below<br>
+Features to be implemented <br>
+User stories<br>
+Breakdown of user stories into tasks<br>
+Task allocation<br>
+Researched on design patterns that can potentially be used for the features in the project<br>
+Design Discussion with the team to come up with a high-level architecture of the project.<br>
+Implemented factory pattern to spawn players.<br>
+Asset collection for title screen and night king.<br>
 
 
 **###XP value Feedback:**
