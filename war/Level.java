@@ -17,6 +17,7 @@ public class Level
     private ArrayList<IStrategy> levels;
     private static Level levelInstance;
     private static NightKing nk;
+    
     private Level()
     {
         lv1=new LevelStrategy1();
@@ -29,6 +30,7 @@ public class Level
         setupLevels();
         levelInstance=this;
     }
+    
     public static Level getInstance()
     {
         if(levelInstance==null)
