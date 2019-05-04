@@ -25,20 +25,20 @@ None<br>
 
 
 **####What tasks did I work on / complete?**<br>
-Researched on design patterns that provides a way for object restoration to restore users previous checkpoint.
-Implemented memento pattern to provide users a way to restore form the last checkpoint.
+Researched on design patterns that provides a way for object restoration to restore users previous checkpoint.<br>
+Implemented memento pattern to provide users a way to restore form the last checkpoint.<br>
 
-**####XP value Feedback:
-Proposed changes of few technical stories to enable additional user stories implementation.
+**####XP value Feedback:<br>
+Proposed changes of few technical stories to enable additional user stories implementation.<br>
+<br>
+**####What am I planning to work on next?**<br>
+Bugs and code smell fixes <br>
+Sequence diagrams<br>
 
-**####What am I planning to work on next?
-Bugs and code smell fixes 
-Sequence diagrams
+**####What tasks are blocked waiting on another team member?<br>
+None<br>
 
-**####What tasks are blocked waiting on another team member?
-None
-
-
+<br><br>
 **###Week 2: 14/4 - 20/4:
 
 
