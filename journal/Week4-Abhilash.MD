@@ -1,4 +1,4 @@
-# Week 4 Scrum Report [Sample template]
+# Week 4 Scrum Report 
 
 ### Finished this Week 
 - Task1: Made transitions between states more fluent.
