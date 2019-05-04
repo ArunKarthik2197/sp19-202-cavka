@@ -1,0 +1,19 @@
+# Week 1 Scrum Report 4/6 - 4/13:
+
+## Vignesh Thyagarajan
+
+### Tasks worked on/completed 
+- Task1: Worked on figuring out what approach to use to build interactive application/game, between Processing and Greenfoot. Did research on the advantages for each, any challenges that we might face in using Processing/Greenfoot.
+- Task2: Helped decide on the game possibly being a version of Tetris. Also helped figure out what patterns can possibly be used in the implementation of Tetris, and what we can do to vary the game/make it interesting, scope in adding extra patterns.
+- Task3: Discuss GoT game as a potential option if Tetris doesn’t work out, as the game seemed complex to implement (realized a few days after week 1 scrum started)
+
+### Planned Next Week 
+- Task1: Creating the basic game environment, with all the required classes.
+- Task2: Writing the patterns we agreed upon. 
+
+### Problems
+- Finding the specific assets for game, implementing the various patterns.
+- Finding ways to make the game different and enjoyable while ensuring patterns are used.
+
+### XP Value (Communication):
+- Talked in length with teammates about the game we should implement, various patterns that we can use, extra patterns we can use, etc. 
