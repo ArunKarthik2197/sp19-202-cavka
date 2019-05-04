@@ -268,6 +268,8 @@ public class Man extends Subject
     public void increaseKill()
     {
         kills+=1;
+        if(kills%10==0)
+        super.levelUp();
         notifyObserver(this);
     }
     

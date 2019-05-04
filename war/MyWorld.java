@@ -66,6 +66,7 @@ public class MyWorld extends World implements IGameState
         
         killCounter =new Instruction();
         addObject(killCounter,100,50);
+        killCounter.setValue(0);
         
         int start=0;
         for(int i=0;i<15;i++)

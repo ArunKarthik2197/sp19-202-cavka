@@ -15,7 +15,7 @@ public abstract class Subject extends Actor implements ISubject, Visitable
     static World world;
     SelectedTab selectedTab;
 
-    
+    private int k;
     protected PlayerCreator pf;
     protected static IStrategy currentLevel;
     private static Instruction levelCounter;
@@ -43,8 +43,11 @@ public abstract class Subject extends Actor implements ISubject, Visitable
         if(a instanceof Man)
         {
             Man b= (Man)a;
-            int k = b.getKills();
+            k = b.getKills();
             killCounter.setValue(k);
+            
+            
+            
             selectedTab.setJonHealth(a.getHealth());
         }
         else if(a instanceof Wall)
@@ -55,8 +58,8 @@ public abstract class Subject extends Actor implements ISubject, Visitable
         {
             selectedTab.setNKHealth(a.getHealth());
         }
-
-         
+        
+        
         levelCounter.setValue(currentLevel);
        // selectedTab.showLevel(lv);
 
@@ -65,6 +68,7 @@ public abstract class Subject extends Actor implements ISubject, Visitable
     {
         selectedTab = MyWorld.getSelectedTab();
         levelCounter=MyWorld.getLevelCounter();
+        
         killCounter = MyWorld.getKillCounter();
     }
 
@@ -73,10 +77,8 @@ public abstract class Subject extends Actor implements ISubject, Visitable
         if(s instanceof Undead)
 
         {
-       
         
-        levelUp();
-
+        
         getWorld().removeObject((Subject)s);
         }
         else if(s instanceof Man)
@@ -98,27 +100,21 @@ public abstract class Subject extends Actor implements ISubject, Visitable
 
     }
 
-    private void levelUp()
+    protected void levelUp()
     {
-        if(!(currentLevel instanceof LevelStrategy5))
-        {
+        
+        
         MyWorld.lv.levelUp();
         currentLevel=MyWorld.lv.getCurrent();
-        }
-        else
-        {
-        
-        MyWorld.lv.reset();
-        currentLevel=MyWorld.lv.getCurrent();
-        notifyObserver(this);
-        }
         
         notifyObserver(this);
+        
+        
     }
 
-    public int accept(HealthVisitor visitor )
+    public int accept(HealthVisitor visitor,ISubject attacker )
      {     
-         return visitor.visit();
+         return visitor.visit(attacker);
      }
      
     public abstract boolean isKilledByMan();

@@ -12,7 +12,7 @@ public class LevelStrategy4 implements IStrategy
 
     int undeadSpawnTime=60;
     int spearSpawnTime=50;
-
+    int undeadSpawnCount=2;
     int speed=2;
     int health;
     int holder=10;
@@ -53,5 +53,10 @@ public class LevelStrategy4 implements IStrategy
    public int getSpeed(ISubject sub)
    {
        return speed;
+   }
+   
+   public int getSpawnCount()
+   {
+       return undeadSpawnCount;
    }
 }

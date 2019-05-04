@@ -29,7 +29,7 @@ public class SelectedTab extends Actor
         world = MyWorld.getMyWorld();
         init_img = getImage();
         jonHealth= new Bar("Jon","man",200,200);
-        wallHealth= new Bar("Wall","Wall",5000,5000);
+        wallHealth= new Bar("Wall","Wall",3000,3000);
         nightKingHealth= new Bar("Night King","Nk",250,250);
         jonHealth.setBreakPercent(20);
         nightKingHealth.setBreakPercent(20);
@@ -71,7 +71,7 @@ public class SelectedTab extends Actor
 
     public void setWallHealth(int health)
     {
-        wallHealth.subtract(health);
+        wallHealth.setValue(health);
     }
 
     public void setNKHealth(int health)

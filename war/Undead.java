@@ -53,7 +53,9 @@ public class Undead extends Subject implements IPlayerFactory
         setImage(gif.getCurrentImage());
         if(health<=0)
         {
+        if(manKilled)
         man.increaseKill();
+        
         die(this);
         }
         else

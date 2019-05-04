@@ -7,26 +7,27 @@
 public class HealthVisitor implements IVisitor
 {
     // instance variables - replace the example below with your own
-    private static int  health=200;
+    private int  health;
     private int damage;
     ISubject sub;
     HealthVisitor(ISubject s)
     {
         sub = s;
+        health=sub.getHealth();
     }
 
-    public int visit()
+    public int visit(ISubject s)
     {
        
-       if(sub instanceof Undead)
+       if(s instanceof Undead)
        {
-           damage=sub.getDamage();
+           damage=s.getDamage();
            health=health-damage;
            
         }
-        else if(sub instanceof NightKing)
+        else if(s instanceof NightKing)
        {
-           damage=sub.getDamage();
+           damage=s.getDamage();
            health=health-damage-10;
             
         }
