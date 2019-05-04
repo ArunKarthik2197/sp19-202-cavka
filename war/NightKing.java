@@ -22,16 +22,16 @@ public class NightKing extends Subject
     private int spawnTimer;
     private int health=250;
     private int damage=20;
-
+    private int undeadSpawnCount=1;
     private int range=250;
     private List<Man> man;
     private int throwTimer=120;
     private int time2=0;
     private boolean manKilled=false;
-    private int healtTimer=100;
+    private int healtTimer=1000;
     private int time3=0;
-    
-    
+    private int spawnStop;
+    private int armor;
     
     public NightKing()
     {
@@ -41,7 +41,9 @@ public class NightKing extends Subject
         setImage(img);
         selected = false;
         time=0;
+        armor=5;
         spawnTimer=300;// for 5 seconds
+        
     }
 
 
@@ -49,20 +51,30 @@ public class NightKing extends Subject
     {
         time++;
         time3++;
+        if(health<=0)
+        {
+            die(this);
+            return;
+        }
         X=getX();
         Y=getY();
         checkRange();
         int r= random(100);
-        if(time3%100 == 0 || health<=40)
+        if(time3%100 == 0 || health<=40 && !(currentLevel instanceof LevelStrategy5))
         heal();
         if(time%spawnTimer == 0)
         {
+            for(int i=undeadSpawnCount;i>0;i--)
+            {
             if(r%2==0)
             getWorld().addObject((Undead)pf.SpawnPlayer("UnDead"), X+random(50), Y);
             else
             getWorld().addObject((Undead)pf.SpawnPlayer("UnDead"),X-random(50),Y);
+            
+            
+            }
         }
-
+        
     }
     
     public void attack()
@@ -90,7 +102,7 @@ public class NightKing extends Subject
 
         if(a instanceof Man)
         {
-            health=health-a.getDamage();
+            health=(health+armor)-a.getDamage();
             super.notifyObserver(this);
         }
     }
@@ -108,9 +120,12 @@ public class NightKing extends Subject
     }
     
     public void setAttributes(){
-        damage = currentLevel.getDamage(this);
-        throwTimer = currentLevel.getSpearSpawnTime();
-        spawnTimer = currentLevel.getUndeadSpawnTime();
+
+        damage=currentLevel.getDamage(this);
+        throwTimer=currentLevel.getSpearSpawnTime();
+        spawnTimer=currentLevel.getUndeadSpawnTime();
+        undeadSpawnCount=currentLevel.getSpawnCount();
+        armor -= currentLevel.getCurrentArmor();
     }
 
     public void checkRange()

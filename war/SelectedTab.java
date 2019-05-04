@@ -28,8 +28,8 @@ public class SelectedTab extends Actor
     {
         world = MyWorld.getMyWorld();
         init_img = getImage();
-         jonHealth= new Bar("Jon","man",200,200);
-        wallHealth= new Bar("Wall","Wall",200,200);
+        jonHealth= new Bar("Jon","man",200,200);
+        wallHealth= new Bar("Wall","Wall",3000,3000);
         nightKingHealth= new Bar("Night King","Nk",250,250);
         jonHealth.setBreakPercent(20);
         nightKingHealth.setBreakPercent(20);
@@ -71,7 +71,7 @@ public class SelectedTab extends Actor
 
     public void setWallHealth(int health)
     {
-        wallHealth.subtract(health);
+        wallHealth.setValue(health);
     }
 
     public void setNKHealth(int health)
@@ -79,11 +79,5 @@ public class SelectedTab extends Actor
         nightKingHealth.setValue(health);
     }
     
-    public void showKills(int kills){
-        init_img.drawString("Kills: "+kills, 10, 16);
-    }
-    
-    public void showLevel(IStrategy lv){
-        init_img.drawString("Current level: "+lv.getClass().getName().replace("LevelStrategy", ""), 20, 25);
-    }
+  
 }

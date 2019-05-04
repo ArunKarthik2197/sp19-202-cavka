@@ -6,14 +6,17 @@
  */
 public class LevelStrategy2  implements IStrategy
 {
-    int nightKingDamage = 20;
-    int unDeaddamage = 2;
+
+    int nightKingDamage=20;
+    int unDeaddamage=2;
     int spearDamage = 15;
-    int undeadSpawnTime = 200;
-    int spearSpawnTime = 60;
+    int undeadSpawnTime=150;
+    int spearSpawnTime=60;
+    int undeadSpawnCount=2;
     int speed=2;
     int health;
     int holder=10;
+    int armor=1;
 
    public int getDamage(ISubject sub)
    {
@@ -52,5 +55,15 @@ public class LevelStrategy2  implements IStrategy
    public int getSpeed(ISubject sub)
    {
        return speed;
+   }
+   
+   public int getSpawnCount()
+   {
+       return undeadSpawnCount;
+   }
+   
+   public int getCurrentArmor()
+   {
+       return armor;
    }
 }

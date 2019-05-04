@@ -38,6 +38,7 @@ public class Spear extends Subject
     }
     public void act() 
     {
+        
         if(target.getX()<getX())
         setLocation(getX()-speed,getY()+speed);
         else if(target.getX()>getX())

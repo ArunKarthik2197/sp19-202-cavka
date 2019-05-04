@@ -29,6 +29,7 @@ public class Level
         lv4=new LevelStrategy4();
         lv5=new LevelStrategy5();
         levels = new ArrayList<IStrategy>(5);
+        
         currentLevel=0;
         setupLevels();
         
@@ -36,8 +37,15 @@ public class Level
     
     public static Level getInstance()
     {
-        if(levelInstance==null){
-            levelInstance = new Level();
+        if(levelInstance==null)
+        {
+        levelInstance= new Level();
+        return levelInstance;
+        }
+        else
+        {
+            levelInstance.currentLevel=0;
+            return levelInstance;
         }
             return levelInstance;
     }
@@ -61,7 +69,9 @@ public class Level
     {
         if(currentLevel<levels.size()-1){
             currentLevel++;
+
             nk = MyWorld.getNK();
+
             nk.setAttributes();
         }
         else
@@ -73,7 +83,17 @@ public class Level
         return levels.get(currentLevel);
     }
     
+
+    public void reset()
+    {
+        currentLevel=0;
+    }
+    
+   
+    
+
     public void isLeveledUp(){
         
     }
+
 }

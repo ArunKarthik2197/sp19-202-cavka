@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name)
  * @version (a version number or a date)
  */
-public abstract class Subject extends Actor implements ISubject
+public abstract class Subject extends Actor implements ISubject, Visitable
 {
     /**
      * Act - do whatever the Subject wants to do. This method is called whenever
@@ -15,10 +15,11 @@ public abstract class Subject extends Actor implements ISubject
     static World world;
     SelectedTab selectedTab;
 
-    private static int kills=0;
+    private int k;
     protected PlayerCreator pf;
     protected static IStrategy currentLevel;
     private static Instruction levelCounter;
+    private static Instruction killCounter;
 
     Subject()
     {
@@ -51,6 +52,12 @@ public abstract class Subject extends Actor implements ISubject
         System.out.println("In subject cause damage  : "+a);
         if(a instanceof Man)
         {
+            Man b= (Man)a;
+            k = b.getKills();
+            killCounter.setValue(k);
+            
+            
+            
             selectedTab.setJonHealth(a.getHealth());
         }
         else if(a instanceof Wall)
@@ -61,8 +68,8 @@ public abstract class Subject extends Actor implements ISubject
         {
             selectedTab.setNKHealth(a.getHealth());
         }
-
-        selectedTab.showKills(kills);
+        
+        
         levelCounter.setValue(currentLevel);
        // selectedTab.showLevel(lv);
 
@@ -71,6 +78,8 @@ public abstract class Subject extends Actor implements ISubject
     {
         selectedTab = MyWorld.getSelectedTab();
         levelCounter=MyWorld.getLevelCounter();
+        
+        killCounter = MyWorld.getKillCounter();
     }
 
     public void die(ISubject s)
@@ -78,11 +87,8 @@ public abstract class Subject extends Actor implements ISubject
         if(s instanceof Undead)
 
         {
-        if(s.isKilledByMan())
-        kills++;
-        notifyObserver(s);
-        levelUp();
-
+        
+        
         getWorld().removeObject((Subject)s);
         }
         else if(s instanceof Man)
@@ -97,16 +103,31 @@ public abstract class Subject extends Actor implements ISubject
             Default.sm.changeState(States.GAME_OVER_WALL);
             getWorld().removeObject((Subject)s);
         }
+        else if(s instanceof NightKing)
+        {
+            Greenfoot.stop();
+        }
         else
         getWorld().removeObject((Subject)s);
     }
 
-    private void levelUp()
+    protected void levelUp()
     {
+        
+        
         MyWorld.lv.levelUp();
         currentLevel=MyWorld.lv.getCurrent();
+        
         notifyObserver(this);
+        
+        
     }
+
+    public int accept(HealthVisitor visitor,ISubject attacker )
+     {     
+         return visitor.visit(attacker);
+     }
+     
     public abstract boolean isKilledByMan();
 
 

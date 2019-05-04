@@ -6,6 +6,6 @@
  */
   // instance variables - replace the example below with your own
     public interface Visitable {
-	 public int accept(HealthVisitor visitor );
+	 public int accept(HealthVisitor visitor,ISubject attacker );
 
 }
