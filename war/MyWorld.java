@@ -27,14 +27,23 @@ public class MyWorld extends World implements IGameState
     private static Instruction killCounter;
     private static Man man;
     private static NightKing nightKing;
-
+    private Console console;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1000, 800, 1); 
+        super(1000, 800, 1);
+        
+        Console.resetInstance();
+        console = Console.getInstance();
+        
+        console.debugStatement("New Game");
+
         world = this;
         all= new ArrayList<Subject>();
         wall = new ArrayList<Wall>();
+        
+        Level.resetInstance();
+        
         lv= Level.getInstance();
         lv.reset();
         prepare();
@@ -47,6 +56,12 @@ public class MyWorld extends World implements IGameState
      */
     private void prepare()
     {
+        
+        levelViewer =new Instruction();
+        addObject(levelViewer,600,50);
+        console.debugStatement("Level is set to :"+lv.getCurrent().getClass().getName());
+        levelViewer.setValue(lv.getCurrent());
+        
         selectedTab = new SelectedTab();
         addObject(selectedTab,93,125);
 
@@ -57,17 +72,16 @@ public class MyWorld extends World implements IGameState
         nightKing = new NightKing();
         addObject(nightKing,468,43);
         
+        //addObject(console,650,140);
 
         man = new Man();
         addObject(man,421,572);
-        
         levelViewer =new Instruction();
         addObject(levelViewer,600,50);
         
         killCounter =new Instruction();
         addObject(killCounter,100,50);
         killCounter.setValue(0);
-        
         int start=0;
         for(int i=0;i<15;i++)
         {

@@ -79,9 +79,6 @@ public class Undead extends Subject implements IPlayerFactory
        
     }    
     
-    
-     
-    
     public void moveTo(int targetX,int targetY)
     {
         int x=getX(); int y=getY();
@@ -155,8 +152,6 @@ public class Undead extends Subject implements IPlayerFactory
 
              System.err.println("\t Walls Found:"+walls.size());
              reachedWallMovement();
-             
-             
         }
         else 
         {
@@ -206,4 +201,3 @@ public class Undead extends Subject implements IPlayerFactory
     }
 
 }
-
