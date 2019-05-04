@@ -124,7 +124,7 @@ Asset collection for title screen and night king.
 
 
 **###XP value Feedback:**
-Provided feedback on architecture and user stories that needed to be implemented on priority to ensure timely completion of tasks.
+Provided feedback on architecture and user stories for the new game that needed to be implemented on priority to ensure timely completion of tasks.
 
 **####What am I planning to work on next?**
 Implement the story of player being able restore from a check point so that they can progress in the game.
@@ -149,7 +149,8 @@ Task allocation
 Researched on design patterns that can potentially be used for the various features in the project
 Design Discussion with the team to come up with a high-level architecture of the project
 
-**###XP value feedback:**
+**###XP value Communication:**
+Discussed with teamamtes about :
 To complete baseline features of the project first to enable base features.
 Implement novel design patterns of the project for the WOW factor.
 
