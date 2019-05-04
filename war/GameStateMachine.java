@@ -52,7 +52,7 @@ public class GameStateMachine
             case GAME        :  state = myWorld;
            // worldSetter();            
             originator.setState(state);
-            
+            caretaker.setMemento(originator.saveMemento(myWorld));         
            
             break;
             case PAUSE       :  state = pause;
@@ -65,8 +65,8 @@ public class GameStateMachine
             originator.setState(state);
    
             break;
-            case PLAY_AGAIN  :    state= new MyWorld();
-                                   worldSetter();
+            case PLAY_AGAIN  :    
+                originator.setState(originator.restoreMemento(caretaker.getMemento()));
             
             break;
             case GAME_WON   :  state = gameWon;

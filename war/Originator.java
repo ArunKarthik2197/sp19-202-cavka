@@ -39,11 +39,12 @@ public class Originator
       return state;
    }
 
-   public Memento saveMemento(IGameState st){
-      return new Memento(st);
+   public Memento saveMemento(IGameState state){
+      return new Memento(state);
    }
 
-   public void restoreMemento(Memento memento){
+   public IGameState restoreMemento(Memento memento){
       state = memento.getState();
+      return state;
    }
 }
