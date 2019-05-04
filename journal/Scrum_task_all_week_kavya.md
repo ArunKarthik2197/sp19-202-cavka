@@ -1,8 +1,9 @@
-**Weekly Scrum Report:
+**Weekly Scrum Report:**
+
 Week 4: 28/4 - 4/5:
 
 
-**####What tasks did I work on / complete?
+####What tasks did I work on / complete?
 
 Implemented visitor pattern to collate health of players and provide player with the feedback on damage.
 Code Clean up
