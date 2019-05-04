@@ -18,9 +18,15 @@ public class GameOver extends World implements IGameState
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(870, 500, 1); 
-        overImage = new GifImage("game_end_final.gif");
+        overImage = new GifImage("game_over_wall.gif");
         overImage.resizeImages(870, 500);
-        setBackground("game_end.gif");
+        //setBackground("game_over_jon.gif");
+    }
+    
+    public void setImageName(String Name)
+    {
+      overImage = new GifImage(Name);
+      overImage.resizeImages(870, 500);  
     }
 
     public void act()

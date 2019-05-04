@@ -29,6 +29,16 @@ public abstract class Subject extends Actor implements ISubject
 
         if(currentLevel==null)
         currentLevel=MyWorld.lv.getCurrent();
+        
+        try{
+            if(levelCounter==null)System.err.println("lc null");
+            if(currentLevel==null)System.err.println("cl null");
+            levelCounter.setValue(currentLevel);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        
     }
 
     public void act()
@@ -77,15 +87,15 @@ public abstract class Subject extends Actor implements ISubject
         }
         else if(s instanceof Man)
         {
-            Default.sm.changeState(States.GAME_OVER);
+            Default.sm.changeState(States.GAME_OVER_MAN);
             getWorld().removeObject((Subject)s);
         }
 
         else if(s instanceof Wall)
 
         {
+            Default.sm.changeState(States.GAME_OVER_WALL);
             getWorld().removeObject((Subject)s);
-            Default.sm.changeState(States.GAME_OVER);
         }
         else
         getWorld().removeObject((Subject)s);

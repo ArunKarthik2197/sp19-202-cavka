@@ -7,16 +7,20 @@ import java.util.ArrayList;
  */
 public class Level 
 {
-    private static int currentLevel;
+    private int currentLevel;
     
     private IStrategy lv1;
     private IStrategy lv2;
     private IStrategy lv3;
     private IStrategy lv4;
     private IStrategy lv5;
+    
     private ArrayList<IStrategy> levels;
+    
     private static Level levelInstance;
+    
     private static NightKing nk;
+    
     private Level()
     {
         lv1=new LevelStrategy1();
@@ -27,18 +31,24 @@ public class Level
         levels = new ArrayList<IStrategy>(5);
         currentLevel=0;
         setupLevels();
-        levelInstance=this;
+        
     }
+    
     public static Level getInstance()
     {
-        if(levelInstance==null)
-        return new Level();
-        else
-        {
-            currentLevel=0;
-            return levelInstance;
+        if(levelInstance==null){
+            levelInstance = new Level();
         }
+            return levelInstance;
     }
+    
+    
+    public static void resetInstance()
+    {
+        levelInstance=null;
+    }
+    
+    
     private void setupLevels()
     {
         levels.add(lv1);

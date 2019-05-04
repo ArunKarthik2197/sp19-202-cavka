@@ -27,10 +27,12 @@ public class Instruction extends Actor
     
     public void setValue(IStrategy val)
     {
-        
+                
+        Console.getInstance().debugStatement("Level is set to :"+val.getClass().getName());
+
         String s= val.getClass().getName().replace("LevelStrategy","");
 
-        img = new GreenfootImage("Count : "+s, 20, 
+        img = new GreenfootImage("Count : "+s+"\n"+System.currentTimeMillis(), 20, 
                                     Color.WHITE, Color.BLACK);
         setImage(img);
     }
