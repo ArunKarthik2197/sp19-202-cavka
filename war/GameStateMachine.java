@@ -65,8 +65,9 @@ public class GameStateMachine
             originator.setState(state);
    
             break;
-            case PLAY_AGAIN  :    
-                originator.setState(originator.restoreMemento(caretaker.getMemento()));
+            case PLAY_AGAIN  :    state= new MyWorld();
+                                  worldSetter();
+                //originator.setState(originator.restoreMemento(caretaker.getMemento()));
             
             break;
             case GAME_WON   :  state = gameWon;
