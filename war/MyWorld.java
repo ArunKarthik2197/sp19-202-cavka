@@ -27,16 +27,15 @@ public class MyWorld extends World implements IGameState
     private static Instruction killCounter;
     private static Man man;
     private static NightKing nightKing;
-    private Console console;
+    private static Console console;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 800, 1);
         
-        Console.resetInstance();
-        console = Console.getInstance();
+       console=Console.getInstance();
         
-        console.debugStatement("New Game");
+        
 
         world = this;
         all= new ArrayList<Subject>();
