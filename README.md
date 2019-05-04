@@ -29,10 +29,10 @@
 >Laid down the basic environment of the world.<br>
 
 > -   Assets gathered, the images and various other animations.<br>
-> -   4 patterns added, state,observer,strategy and factory.<br> 
+> -   6 patterns added, state,observer,strategy, factory, memento and visitor.<br> 
 > -   Game functionality laid out<br> 
 > -   All visual components added.<br>
-> -   Yet to test the momento pattern.<br>
+> -   Yet to test the memento pattern.<br>
 > -   Minor Glitches to be fixed.
 > -   Use cases implemented.
 
