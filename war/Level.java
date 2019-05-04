@@ -40,12 +40,12 @@ public class Level
         if(levelInstance==null)
         {
         levelInstance= new Level();
-        return levelInstance;
+        //return levelInstance;
         }
         else
         {
             levelInstance.currentLevel=0;
-            return levelInstance;
+            //return levelInstance;
         }
             return levelInstance;
     }

@@ -72,7 +72,7 @@ public class MyWorld extends World implements IGameState
         nightKing = new NightKing();
         addObject(nightKing,468,43);
         
-        addObject(console,650,140);
+        //addObject(console,650,140);
 
         man = new Man();
         addObject(man,421,572);

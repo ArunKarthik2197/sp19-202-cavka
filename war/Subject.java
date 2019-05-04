@@ -105,8 +105,8 @@ public abstract class Subject extends Actor implements ISubject, Visitable
         }
         else if(s instanceof NightKing)
         {
-            Greenfoot.playSound("victory_sound_slower.mp3");
-            Greenfoot.stop();
+            //Greenfoot.playSound("victory_sound_slower.mp3");
+            Default.sm.changeState(States.GAME_WON);
         }
         else
         getWorld().removeObject((Subject)s);

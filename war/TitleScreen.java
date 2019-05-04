@@ -18,13 +18,9 @@ public class TitleScreen extends World implements IGameState
     public TitleScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
-        //Greenfoot.start();
-        //gif= new GifImage("startup.gif");
-        // Greenfoot.start();
-        gif= new GifImage("dragon-flying.gif");
-
-    }
+        super(600, 400, 1);
+        gif= new GifImage("startup.gif");
+     }
 
     public void act()
     {

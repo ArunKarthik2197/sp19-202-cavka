@@ -32,7 +32,7 @@ public class Instruction extends Actor
 
         String s= val.getClass().getName().replace("LevelStrategy","");
 
-        img = new GreenfootImage("Count : "+s+"\n"+System.currentTimeMillis(), 20, 
+        img = new GreenfootImage("Level : "+s, 20, 
                                     Color.WHITE, Color.BLACK);
         setImage(img);
     }

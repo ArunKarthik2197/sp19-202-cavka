@@ -26,11 +26,11 @@ public class GameStateMachine
         myWorld = new MyWorld();
         gameOver = new GameOver();
         pause = new PausedGame();
-       // gameWon = new gameWon();
+        gameWon = new GameWon();
         state = titleScreen;
         worldSetter();
         originator = new Originator();
-    caretaker = new Caretaker();
+        caretaker = new Caretaker();
     
     }
 
