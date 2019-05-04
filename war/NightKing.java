@@ -67,7 +67,6 @@ public class NightKing extends Subject
             for(int i=undeadSpawnCount;i>0;i--)
             {
             if(r%2==0)
-            
             getWorld().addObject((Undead)pf.SpawnPlayer("UnDead"), X+random(50), Y);
             else
             getWorld().addObject((Undead)pf.SpawnPlayer("UnDead"),X-random(50),Y);
@@ -82,8 +81,6 @@ public class NightKing extends Subject
     {
         
     }
-   
-    
 
     public int random(int limit)
     {

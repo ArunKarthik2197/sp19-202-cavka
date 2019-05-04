@@ -14,8 +14,11 @@ public class Level
     private IStrategy lv3;
     private IStrategy lv4;
     private IStrategy lv5;
+    
     private ArrayList<IStrategy> levels;
+    
     private static Level levelInstance;
+    
     private static NightKing nk;
     
     private Level()
@@ -29,7 +32,7 @@ public class Level
         
         currentLevel=0;
         setupLevels();
-        levelInstance=this;
+        
     }
     
     public static Level getInstance()
@@ -37,14 +40,23 @@ public class Level
         if(levelInstance==null)
         {
         levelInstance= new Level();
-        return levelInstance;
+        //return levelInstance;
         }
         else
         {
             levelInstance.currentLevel=0;
-            return levelInstance;
+            //return levelInstance;
         }
+            return levelInstance;
     }
+    
+    
+    public static void resetInstance()
+    {
+        levelInstance=null;
+    }
+    
+    
     private void setupLevels()
     {
         levels.add(lv1);
@@ -53,7 +65,6 @@ public class Level
         levels.add(lv4);
         levels.add(lv5);
     }
-    
     public void levelUp()
     {
         if(currentLevel<levels.size()-1){

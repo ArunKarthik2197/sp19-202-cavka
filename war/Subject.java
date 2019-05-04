@@ -30,6 +30,16 @@ public abstract class Subject extends Actor implements ISubject, Visitable
 
         if(currentLevel==null)
         currentLevel=MyWorld.lv.getCurrent();
+        
+        try{
+            if(levelCounter==null)System.err.println("lc null");
+            if(currentLevel==null)System.err.println("cl null");
+            levelCounter.setValue(currentLevel);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        
     }
 
     public void act()
@@ -83,26 +93,23 @@ public abstract class Subject extends Actor implements ISubject, Visitable
         }
         else if(s instanceof Man)
         {
-            Default.sm.changeState(States.GAME_OVER);
+            Default.sm.changeState(States.GAME_OVER_MAN);
             getWorld().removeObject((Subject)s);
         }
 
         else if(s instanceof Wall)
 
         {
+            Default.sm.changeState(States.GAME_OVER_WALL);
             getWorld().removeObject((Subject)s);
-            Default.sm.changeState(States.GAME_OVER);
         }
         else if(s instanceof NightKing)
         {
-            Greenfoot.playSound("victory_sound_slower.mp3");
-            Greenfoot.stop();
+            //Greenfoot.playSound("victory_sound_slower.mp3");
+            Default.sm.changeState(States.GAME_WON);
         }
         else
         getWorld().removeObject((Subject)s);
-
-
-
     }
 
     protected void levelUp()

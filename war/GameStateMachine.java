@@ -26,11 +26,11 @@ public class GameStateMachine
         myWorld = new MyWorld();
         gameOver = new GameOver();
         pause = new PausedGame();
-       // gameWon = new gameWon();
+        gameWon = new GameWon();
         state = titleScreen;
         worldSetter();
         originator = new Originator();
-    caretaker = new Caretaker();
+        caretaker = new Caretaker();
     
     }
 
@@ -42,6 +42,7 @@ public class GameStateMachine
      */
     public void  changeState(States val)
     {
+        System.err.println("State Changed to "+val);
         switch(val){
 
             case TITLE       :  state = titleScreen;
@@ -61,7 +62,19 @@ public class GameStateMachine
        
             break;
             case GAME_OVER   :  state = gameOver;
-           // worldSetter();            
+           // worldSetter();
+            originator.setState(state);
+   
+            break;
+            case GAME_OVER_MAN   :  ((GameOver)gameOver).setImageName("game_over_jon.gif");
+            state = gameOver;
+           // worldSetter();
+            originator.setState(state);
+   
+            break;
+            case GAME_OVER_WALL   :  ((GameOver)gameOver).setImageName("startup.gif");
+            state = gameOver;
+           // worldSetter();
             originator.setState(state);
    
             break;
@@ -90,6 +103,8 @@ enum States{
     GAME,
     PAUSE,
     GAME_OVER,
+    GAME_OVER_MAN,
+    GAME_OVER_WALL,
     PLAY_AGAIN,
     GAME_WON
 }

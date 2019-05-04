@@ -94,11 +94,7 @@ public class Man extends Subject
             if(health<=0)
             die(this);
         animationCounter++;
-    }    
-    
-    
- 
-    
+    }  
     public void movement()
     {
             
@@ -231,7 +227,6 @@ public class Man extends Subject
     //System.err.println("Man image is set to "+img.fileName);
     super.setImage(img.image);
     }
-    
     public boolean touchingWall()
     {
         boolean touching=false;
