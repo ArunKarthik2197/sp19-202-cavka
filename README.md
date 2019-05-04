@@ -74,3 +74,19 @@
 - Adding Visitor pattern for Wall health update
 - Gathering Assests for title screen and players
 
+Class Diagram for factory pattern
+
+![alt text](https://github.com/nguyensjsu/sp19-202-cavka/blob/master/docs/factory_class_diagram.png)
+
+
+
+Class Diagram for memento pattern
+
+![alt text](https://github.com/nguyensjsu/sp19-202-cavka/blob/master/docs/memento_class_diagram.png)
+
+
+
+Class Diagram for Visitor
+
+![alt text](https://github.com/nguyensjsu/sp19-202-cavka/blob/master/docs/Visitor_class_diagram.png)
+
