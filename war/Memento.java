@@ -8,10 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Memento
 {
-
-
-    
-   
+ 
    private IGameState state;
 
    public Memento(IGameState state){

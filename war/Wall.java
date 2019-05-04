@@ -12,29 +12,34 @@ public class Wall extends Subject
      * Act - do whatever the Wall wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private int health=200;
+    private int health=3000;
     private int damage;
     private GreenfootImage img;
-    
+    HealthVisitor h;
     public void addedToWorld(World world)
     {
         img=getImage();
+         h = new HealthVisitor(this);
+        
     }
     public void act() 
     {
         // Add your action code here.
+        
         if(health<=0)
         die(this);
     }    
     
     public void causeDamage(ISubject s)
     {
+        
+        System.out.println("wall health: "+health);  
        if(s instanceof Undead)
        {
-           damage=s.getDamage();
-           health=health-damage;
+           //damage=s.getDamage();
+           health=accept(h,s);
            
-           int aq=(int)(health/2);
+           int aq=(int)(health/30);
            
            int transPercent=(int)((aq*255)/100);
            
@@ -47,11 +52,11 @@ public class Wall extends Subject
        }
        else if(s instanceof NightKing)
        {
-           damage=s.getDamage();
-           health=health-damage;
+           health=accept(h,s);
+         //  health=health-damage;
            
        }
-       HealthSet(damage);
+       HealthSet(health);
     }
     
     public void HealthSet(int val)
@@ -61,7 +66,7 @@ public class Wall extends Subject
     
     public int getHealth()
     {
-        return damage;
+        return health;
     }
     
        public int getDamage()

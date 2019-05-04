@@ -18,7 +18,7 @@ public class Man extends Subject
         }
     }
     
-    
+    private int kills=0;
     private MouseInfo m;
     private int speed;
     private GifImage gif;
@@ -31,6 +31,7 @@ public class Man extends Subject
     private int damage;
     private boolean movement;
     private boolean  manKilled;
+    private boolean h=false;
     
     /**
      * Act - do whatever the man wants to do. This method is called whenever
@@ -169,20 +170,32 @@ public class Man extends Subject
             if(isTouching(Undead.class)){
             ISubject s = (Undead)getOneIntersectingObject(Undead.class);
             s.causeDamage(this);
+            
+            h=true;
+            playsound();
+            h=false;
             }
             else if(isTouching(Spear.class)){
                 ISubject s = (Spear)getOneIntersectingObject(Spear.class);
                 s.causeDamage(this);
+                h=true;
+            playsound();
+            h=false;
             }
             else if(isTouching(NightKing.class)){
             
               ISubject s = (NightKing)getOneIntersectingObject(NightKing.class);
                 s.causeDamage(this);
+                h=true;
+            playsound();
+            h=false;
             }
     }
     
     public void animateAttack(ImageHolder dir)
     {
+        if(h)
+        playsound();
         if(timer == 1)
         setImage(dir);
         else if(timer==2)
@@ -263,5 +276,26 @@ public class Man extends Subject
     public boolean isKilledByMan()
     {
         return manKilled;
+    }
+    
+    public void increaseKill()
+    {
+        kills+=1;
+        if(kills%10==0)
+        super.levelUp();
+        notifyObserver(this);
+    }
+    
+    public int getKills()
+    {
+        return kills;
+    }
+    
+    private void playsound()
+    {
+        if(h)
+        Greenfoot.playSound("sword_with_undeadhit.mp3");
+        else
+        Greenfoot.playSound("fast_sword_swing.mp3");
     }
 }

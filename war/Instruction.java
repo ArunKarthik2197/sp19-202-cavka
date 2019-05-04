@@ -34,4 +34,14 @@ public class Instruction extends Actor
                                     Color.WHITE, Color.BLACK);
         setImage(img);
     }
+    
+    public void setValue(int val)
+    {
+        
+        
+
+        img = new GreenfootImage("Kills : "+val, 20, 
+                                    Color.WHITE, Color.BLACK);
+        setImage(img);
+    }
 }

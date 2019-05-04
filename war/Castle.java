@@ -56,13 +56,14 @@ public class Castle extends Subject
     
     public void attack(Actor s)
     {
+       // if(!(currentLevel instanceof LevelStrategy1))
         fireArrow(s);
     }
     
     public void fireArrow(Actor target)
     {
         time++;
-        if(time%arrowFireTimer==0 || time == 1)
+        if(time%arrowFireTimer==0 || time == 1 )
         getWorld().addObject(new Arrow(target),X,Y);
     }
 

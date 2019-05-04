@@ -52,7 +52,12 @@ public class Undead extends Subject implements IPlayerFactory
     {
         setImage(gif.getCurrentImage());
         if(health<=0)
+        {
+        if(manKilled)
+        man.increaseKill();
+        
         die(this);
+        }
         else
         {
         
@@ -104,6 +109,7 @@ public class Undead extends Subject implements IPlayerFactory
     {
        if(s instanceof Man)
        {
+           manKilled=true;
            health=health-10;
        }
        else if(s instanceof Arrow )
@@ -112,15 +118,7 @@ public class Undead extends Subject implements IPlayerFactory
        }
     }
     
-    public int damaged(Actor a)
-    {
-        if(a.equals(man))
-        {
-            manKilled=true;
-            health=health-10;
-        }
-        return health;
-    }
+  
     
     
     
