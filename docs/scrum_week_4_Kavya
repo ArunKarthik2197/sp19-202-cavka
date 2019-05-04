@@ -1,0 +1,20 @@
+**Weekly Scrum Report:
+Week 4: 28/4 - 4/5:
+
+
+**####What tasks did I work on / complete?
+
+Implemented visitor pattern to collate health of players and provide player with the feedback on damage.
+Code Clean up
+Bug Fixes:
+Health in the visitor pattern was not updating properly for the undead class.
+Memento pattern was giving a null pointer exception as the World object was not properly passed. 
+
+**####XP value Feedback:**
+Suggestions on code clean-up.
+
+**####What am I planning to work on next?
+None
+
+**####What tasks are blocked waiting on another team member?
+None
