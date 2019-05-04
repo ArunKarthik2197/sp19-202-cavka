@@ -56,17 +56,17 @@ Researched on design patterns that can potentially be used for the features in t
 Design Discussion with the team to come up with a high-level architecture of the project.<br>
 Implemented factory pattern to spawn players.<br>
 Asset collection for title screen and night king.<br>
+<br>
 
+**###XP value Feedback:**<br>
+Provided feedback on architecture and user stories for the new game that needed to be implemented on priority to ensure timely completion of tasks.<br>
 
-**###XP value Feedback:**
-Provided feedback on architecture and user stories for the new game that needed to be implemented on priority to ensure timely completion of tasks.
+**####What am I planning to work on next?**<br><br>
+Implement the story of player being able restore from a check point so that they can progress in the game.<br><br>
 
-**####What am I planning to work on next?**
-Implement the story of player being able restore from a check point so that they can progress in the game.
-
-**####What tasks are blocked waiting on another team member?**
-None
-
+**####What tasks are blocked waiting on another team member?**<br>
+None<br>
+<br>
 
 **###Week 1: 6/4 - 13/4:
 
