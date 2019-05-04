@@ -14,17 +14,17 @@ Memento pattern was giving a null pointer exception as the World object was not 
 **####XP value Feedback:**<br>
 Suggestions on code clean-up.<br>
 
-**####What am I planning to work on next?
-None
+**####What am I planning to work on next?<br>
+None<br>
+<br><br>
+**####What tasks are blocked waiting on another team member?<br>
+None<br>
+<br><br>
 
-**####What tasks are blocked waiting on another team member?
-None
+**###Week 3: 21/04 - 27/04:<br>
 
 
-**###Week 3: 21/04 - 27/04:
-
-
-**####What tasks did I work on / complete?**
+**####What tasks did I work on / complete?**<br>
 Researched on design patterns that provides a way for object restoration to restore users previous checkpoint.
 Implemented memento pattern to provide users a way to restore form the last checkpoint.
 
