@@ -5,14 +5,14 @@ Week 4: 28/4 - 4/5:
 
 ####What tasks did I work on / complete?
 
-Implemented visitor pattern to collate health of players and provide player with the feedback on damage.
-Code Clean up
-Bug Fixes:
-Health in the visitor pattern was not updating properly for the undead class.
-Memento pattern was giving a null pointer exception as the World object was not properly passed. 
+Implemented visitor pattern to collate health of players and provide player with the feedback on damage.<br>
+Code Clean up<br>
+Bug Fixes:<br>
+Health in the visitor pattern was not updating properly for the undead class.<br>
+Memento pattern was giving a null pointer exception as the World object was not properly passed. <br>
 
-**####XP value Feedback:**
-Suggestions on code clean-up.
+**####XP value Feedback:**<br>
+Suggestions on code clean-up.<br>
 
 **####What am I planning to work on next?
 None
