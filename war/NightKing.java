@@ -31,7 +31,7 @@ public class NightKing extends Subject
     private int healtTimer=1000;
     private int time3=0;
     private int spawnStop;
-    
+    private int armor;
     
     public NightKing()
     {
@@ -41,6 +41,7 @@ public class NightKing extends Subject
         setImage(img);
         selected = false;
         time=0;
+        armor=5;
         spawnTimer=300;// for 5 seconds
         
     }
@@ -50,11 +51,16 @@ public class NightKing extends Subject
     {
         time++;
         time3++;
+        if(health<=0)
+        {
+            die(this);
+            return;
+        }
         X=getX();
         Y=getY();
         checkRange();
         int r= random(100);
-        if(time3%100 == 0 || health<=40)
+        if(time3%100 == 0 || health<=40 && !(currentLevel instanceof LevelStrategy5))
         heal();
         if(time%spawnTimer == 0)
         {
@@ -99,7 +105,7 @@ public class NightKing extends Subject
 
         if(a instanceof Man)
         {
-            health=health-a.getDamage();
+            health=(health+armor)-a.getDamage();
             super.notifyObserver(this);
         }
     }
@@ -122,6 +128,7 @@ public class NightKing extends Subject
         throwTimer=currentLevel.getSpearSpawnTime();
         spawnTimer=currentLevel.getUndeadSpawnTime();
         undeadSpawnCount=currentLevel.getSpawnCount();
+        armor -= currentLevel.getCurrentArmor();
     }
 
     public void checkRange()

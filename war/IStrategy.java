@@ -12,5 +12,6 @@ public interface IStrategy
     int getSpearSpawnTime();
     int getSpeed(ISubject s);
     int getSpawnCount();
+    int getCurrentArmor();
     
 }

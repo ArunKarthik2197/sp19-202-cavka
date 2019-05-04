@@ -16,6 +16,7 @@ public class LevelStrategy1  implements IStrategy
     int speed=2;
     int health;
     int holder=10;
+    int armor=5;
 
    public int getDamage(ISubject sub)
    {
@@ -58,5 +59,10 @@ public class LevelStrategy1  implements IStrategy
    public int getSpawnCount()
    {
        return undeadSpawnCount;
+   }
+   
+   public int getCurrentArmor()
+   {
+       return armor;
    }
 }

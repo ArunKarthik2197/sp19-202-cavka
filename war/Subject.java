@@ -93,6 +93,10 @@ public abstract class Subject extends Actor implements ISubject, Visitable
             getWorld().removeObject((Subject)s);
             Default.sm.changeState(States.GAME_OVER);
         }
+        else if(s instanceof NightKing)
+        {
+            Greenfoot.stop();
+        }
         else
         getWorld().removeObject((Subject)s);
 
