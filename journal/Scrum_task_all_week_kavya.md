@@ -70,31 +70,31 @@ None
 
 **###Week 1: 6/4 - 13/4:
 
+<br>
+**####What tasks did I work on / complete?**<br>
+Worked with the team to compare various platforms such as D3.js, greenfoot for the game development.<br>
+Worked with team to research on unique and interesting games that can potentially be developed on greenfoot<br>
+Initially, came up with Tetris as a game that can be implemented on greenfoot<br>
+Performed analysis on Tetris and features that can be implemented on greenfoot.<br>
+Had a brainstorming session with the team to come up with below<br>
+Features to be implemented for Tetris<br>
+User stories<br>
+Breakdown of user stories into tasks<br>
+Task allocation<br>
+Researched on design patterns that can potentially be used for the various features in the project<br>
+Design Discussion with the team to come up with a high-level architecture of the project<br><br>
 
-**####What tasks did I work on / complete?**
-Worked with the team to compare various platforms such as D3.js, greenfoot for the game development.
-Worked with team to research on unique and interesting games that can potentially be developed on greenfoot
-Initially, came up with Tetris as a game that can be implemented on greenfoot
-Performed analysis on Tetris and features that can be implemented on greenfoot.
-Had a brainstorming session with the team to come up with below
-Features to be implemented for Tetris
-User stories
-Breakdown of user stories into tasks
-Task allocation
-Researched on design patterns that can potentially be used for the various features in the project
-Design Discussion with the team to come up with a high-level architecture of the project
+**###XP value Communication:**<br>
+Discussed with teamamtes about :<br>
+To complete baseline features of the project first to enable base features.<br>
+Implement novel design patterns of the project for the WOW factor.<br>
 
-**###XP value Communication:**
-Discussed with teamamtes about :
-To complete baseline features of the project first to enable base features.
-Implement novel design patterns of the project for the WOW factor.
-
-**####What am I planning to work on next?**
-Derive use case specification from the user stories
-Draw UML Diagrams to define micro architecture of the features at hand.
+**####What am I planning to work on next?**<br>
+Derive use case specification from the user stories<br>
+Draw UML Diagrams to define micro architecture of the features at hand.<br>
 
 
-**####What tasks are blocked waiting on another team member?**
+**####What tasks are blocked waiting on another team member?**<br>
 None.
 
 
