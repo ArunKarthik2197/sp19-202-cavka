@@ -4,7 +4,7 @@
 ## Team Name
 ><b>CAVKA</b>
 ## Team Members
-    [Arun] https://github.com/ArunKarthik2197
+    [Arun] (https://github.com/ArunKarthik2197)
     [Vignesh] https://github.com/vignesht96
     [Kavya] https://github.com/kavyadayanand
     [Abhilash] https://github.com/
