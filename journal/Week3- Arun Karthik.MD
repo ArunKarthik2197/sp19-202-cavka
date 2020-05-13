@@ -13,9 +13,9 @@
 - Task4: Add sounds.
 
 ### Problems
--Finding an asset for skeleton attacking.
--Man class not resetting to initial state each time. 
--Factory Pattern still blocked on another teammate. I need this updating spawn logic of Undead and other helper classes.
+- Finding an asset for skeleton attacking.
+- Man class not resetting to initial state each time. 
+- Factory Pattern still blocked on another teammate. I need this updating spawn logic of Undead and other helper classes.
 
 ### Time Spend
 
